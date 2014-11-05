@@ -1,0 +1,12 @@
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe.config
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.pdb
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.exe
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.pdb
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.dll
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.pdb
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.dll
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.xml
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.xml

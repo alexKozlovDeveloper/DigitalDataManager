@@ -1,0 +1,5 @@
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\FileManager\bin\Debug\FileManager.dll
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\FileManager\bin\Debug\FileManager.pdb
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\FileManager\obj\Debug\FileManager.dll
+c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\FileManager\obj\Debug\FileManager.pdb
+C:\Users\Aliaksei_Kazlou\Documents\Visual Studio 2012\Projects\DigitalDataManager\FileManager\obj\Debug\FileSystemManager.csprojResolveAssemblyReference.cache
