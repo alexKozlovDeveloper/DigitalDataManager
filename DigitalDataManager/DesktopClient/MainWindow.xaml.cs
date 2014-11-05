@@ -35,8 +35,8 @@ namespace DesktopClient
 
             var paths = _manager.GetAllFilePath();
 
-            MediaElement.Source = new Uri(@"D:\TestDDM\Server\sample_iPod.m4v");
-            MediaElement.SpeedRatio = 0.0;
+            //MediaElement.Source = new Uri(@"D:\TestDDM\Server\sample_iPod.m4v");
+            //MediaElement.SpeedRatio = 0.0;
 
             foreach (var path in paths)
             {
@@ -85,12 +85,12 @@ namespace DesktopClient
         {
             //MediaElement.Position = new TimeSpan(0,0,1);
 
-            MediaElement.SpeedRatio = 1.0;
+            //MediaElement.SpeedRatio = 1.0;
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            MediaElement.SpeedRatio = 0.0;
+            //MediaElement.SpeedRatio = 0.0;
             //MediaElement.Stop();
         }
     }
