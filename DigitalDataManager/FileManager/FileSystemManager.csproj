@@ -44,7 +44,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChecksumHelper\CsHelper.cs" />
     <Compile Include="ClientFileManager.cs" />
+    <Compile Include="FileVersionHelper\FileVersionInfo.cs" />
     <Compile Include="ServerFileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

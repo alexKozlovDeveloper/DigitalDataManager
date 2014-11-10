@@ -59,6 +59,9 @@ namespace DesktopClient.Helpers
         {
             image.Margin = _imageMargin;
 
+            image.HorizontalAlignment = HorizontalAlignment.Left;
+            image.VerticalAlignment = VerticalAlignment.Top;
+
             image.Height = _imageHeight;
             image.Width = _imageWidth;
 
@@ -84,6 +87,18 @@ namespace DesktopClient.Helpers
             else
             {
                 _grid.Height = h;
+            }
+        }
+
+        public void Clear()
+        {
+            while (_images.Count != 0)
+            {
+                var image = _images[0];
+
+                _grid.Children.Remove(image);
+
+                _images.RemoveAt(0);
             }
         }
     }
