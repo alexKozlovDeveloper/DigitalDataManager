@@ -49,11 +49,15 @@ namespace FileSystemManager.FileVersionHelper
 
             XmlNode fileInfo = _xmlDocument.CreateElement("FileInfo");
 
-            XmlNode checksum = _xmlDocument.CreateElement("Checksum");
-            checksum.Value = CsHelper.GetFileChecksum(filePath);
+            XmlAttribute attribute = _xmlDocument.CreateAttribute("Name");
+            attribute.Value = Path.GetFileNameWithoutExtension(filePath); 
+            fileInfo.Attributes.Append(attribute); 
 
-            XmlNode path = _xmlDocument.CreateElement("Path");
-            path.Value = filePath;
+            XmlNode checksum = _xmlDocument.CreateElement("Checksum");
+            checksum.InnerText = CsHelper.GetFileChecksum(filePath);
+
+            XmlNode path = _xmlDocument.CreateElement("FullPath");
+            path.InnerText = filePath;
 
             fileInfo.AppendChild(checksum);
             fileInfo.AppendChild(path);
