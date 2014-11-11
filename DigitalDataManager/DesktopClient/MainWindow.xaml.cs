@@ -28,26 +28,8 @@ namespace DesktopClient
             _imagesViewer = new ImagesViewer(ImagesScrollViewer);
             _manager = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
-            //FileInfo fi1 = new FileInfo(@"D:\TestDDM\32.jpg");
-            //var _fileMD51 = GetHashMd5FromStream(fi1.OpenRead());
-
-            //FileInfo fi2 = new FileInfo(@"D:\TestDDM\32C.jpg");
-            //var _fileMD52 = GetHashMd5FromStream(fi2.OpenRead()); 
-
-            var str1 = CsHelper.GetFileChecksum(@"D:\TestDDM\32.jpg");
-            var str2 = CsHelper.GetFileChecksum(@"D:\TestDDM\32C.jpg");
-
-            string pathToXml = @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\FileVersion1.xml";
-
-            var f = new FileVersionInfo(pathToXml);
-
-            f.AddFileChecksum(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\testImage.jpg");
-
-
             Init();
         }
-
-
 
         public void Init()
         {
@@ -68,12 +50,13 @@ namespace DesktopClient
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Init();
+            //Init();
+            
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            _imagesViewer.Clear();
+            //_imagesViewer.Clear();
         }
     }
 }

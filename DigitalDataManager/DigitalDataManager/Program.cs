@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DigitalDataManager.DigitalServiceReference;
 
@@ -28,14 +29,16 @@ namespace DigitalDataManager
 
             //fm.CreateImage(img,"ololo.png");
 
-            var client = new DigitalServiceReference.DigitalServiceClient();
+            //var client = new DigitalServiceReference.DigitalServiceClient();
 
-            var t = client.GetData("lal");
+            //var t = client.GetData("lal");
 
-            var g = new CompositeType {BoolValue = true, StringValue = "gfgf"};
+            //var g = new CompositeType {BoolValue = true, StringValue = "gfgf"};
 
-            var h = client.GetDataUsingDataContract(g);
+            //var h = client.GetDataUsingDataContract(g);
 
+            Console.WriteLine("ololo");
+            Console.ReadKey();
         }
     }
 }

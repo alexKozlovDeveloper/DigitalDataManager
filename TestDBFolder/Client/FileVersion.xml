@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Head>
+  <Version>
+    <Time>0001.01.01 12:00:00.0000</Time>
+  </Version>
+  <InfoOfFiles>
+    <FileInfo Name="1374077787_osen11">
+      <Checksum>7e1027c8ce1596b74063054ff8a63a4e</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\1374077787_osen11.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="32">
+      <Checksum>ac22128f88d7c09cea4bc4cd446c9aff</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\32.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="32C">
+      <Checksum>a3013e868a62aaacfbb81cc15bef988f</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\32C.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="abc14004">
+      <Checksum>c0188b731b9eebb9d09bcd0645e2a3d7</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\abc14004.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="c9fe1d03022ddc5a62769ff2dd91815a">
+      <Checksum>9956261d636c279adce0509f26251659</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\c9fe1d03022ddc5a62769ff2dd91815a.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="hs-2014-27-c-print">
+      <Checksum>15ac6f535633b18daca46c5200dd63ad</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\hs-2014-27-c-print.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="id579040sw1280w1280h1024">
+      <Checksum>11d5aa3dbbbacc935944dd16e196fb42</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\id579040sw1280w1280h1024.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="images (2)">
+      <Checksum>afead9d8fd264136ee6335367d9e4324</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images (2).jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="images">
+      <Checksum>8a4873ef816d7ef01431977d960f6915</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images.jpg</FullPath>
+    </FileInfo>
+    <FileInfo Name="testImage">
+      <Checksum>7e1027c8ce1596b74063054ff8a63a4e</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\testImage.jpg</FullPath>
+    </FileInfo>
+  </InfoOfFiles>
+</Head>
