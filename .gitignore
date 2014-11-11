@@ -1,11 +1,1 @@
-*.suo
-*.user
-*.sln.docstates
-*.psess
-*.vsp
-*.vspx
 *.exe
-*.pdb
-*.cache
-*.dll
-
