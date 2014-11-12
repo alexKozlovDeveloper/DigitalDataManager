@@ -64,6 +64,11 @@ namespace FileSystemManager
             file.Write(fileStream.ToArray(), 0, (int)fileStream.Length);
         }
 
+        public void UpdateFile(MemoryStream fileStream, string name)
+        {
+
+        }
+
         public MemoryStream GetFileStream(string name)
         {
             var ms = new MemoryStream();

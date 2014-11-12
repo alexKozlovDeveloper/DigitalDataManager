@@ -4,3 +4,8 @@ c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManage
 c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.dll
 c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.pdb
 C:\Users\Aliaksei_Kazlou\Documents\Visual Studio 2012\Projects\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.csprojResolveAssemblyReference.cache
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DigitalWcfService.dll.config
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DigitalWcfService.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DigitalWcfService.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.pdb

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Xml;
 
 namespace DigitalWcfService
 {
@@ -14,32 +15,58 @@ namespace DigitalWcfService
         [OperationContract]
         string GetData(string value);
 
+        //[OperationContract]
+        //CompositeType GetDataUsingDataContract(CompositeType composite);
+
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        void UpdateFileVersion(Version version);
+
+
 
         // TODO: Add your service operations here
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "DigitalWcfService.ContractType".
+    //[DataContract]
+    //public class CompositeType
+    //{
+    //    bool boolValue = true;
+    //    string stringValue = "Hello ";
+
+    //    [DataMember]
+    //    public bool BoolValue
+    //    {
+    //        get { return boolValue; }
+    //        set { boolValue = value; }
+    //    }
+
+    //    [DataMember]
+    //    public string StringValue
+    //    {
+    //        get { return stringValue; }
+    //        set { stringValue = value; }
+    //    }
+    //}
+
     [DataContract]
-    public class CompositeType
+    public class Version
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        private int _userId;
+        private XmlDocument _xmlDocument;
 
         [DataMember]
-        public bool BoolValue
+        public int UserId
         {
-            get { return boolValue; }
-            set { boolValue = value; }
+            get { return _userId; }
+            set { _userId = value; }
         }
 
         [DataMember]
-        public string StringValue
+        public XmlDocument XmlDocument
         {
-            get { return stringValue; }
-            set { stringValue = value; }
+            get { return _xmlDocument; }
+            set { _xmlDocument = value; }
         }
     }
 }

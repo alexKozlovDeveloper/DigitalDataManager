@@ -5,6 +5,5 @@ c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManage
 C:\Users\Aliaksei_Kazlou\Documents\Visual Studio 2012\Projects\DigitalDataManager\FileManager\obj\Debug\FileSystemManager.csprojResolveAssemblyReference.cache
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\FileManager.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\FileManager.pdb
-C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileSystemManager.csprojResolveAssemblyReference.cache
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileManager.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileManager.pdb
