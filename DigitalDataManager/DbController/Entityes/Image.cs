@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DbController.Entityes
 {
-    class Image
+    public class Image
     {
         public Guid Id { get; set; }
 

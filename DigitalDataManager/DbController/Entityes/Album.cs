@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DbController.Entityes
 {
-    class Album
+    public class Album
     {
         public Guid Id { get; set; }
 

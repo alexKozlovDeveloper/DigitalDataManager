@@ -6,6 +6,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DbController.Convert;
+using DbController.Entityes;
 using DbController.Tables.Context;
 using DbController.Tables.DigitalDate;
 using DbController.Tables.Versions;
@@ -22,24 +24,26 @@ namespace DbController.Repositoryes
             // _manager = new ServerFileManager(rootpath);
         }
 
-        public void CreateUser(string login, string password)
+        public User CreateUser(string login, string password)
         {
-            //TableUser newUser = null;
+            User res = null;
 
             using (var db = new DdmDateBaseContext())
             {
-                //newUser = new TableUser
-                //{
-                //    Id = Guid.NewGuid(),
-                //    Login = login,
-                //    Password = password,
-                //};
+                var newUser = new UserDbItem()
+                {
+                    Id = Guid.NewGuid(),
+                    Login = login,
+                    Password = password
+                };
 
-                //db.Users.Add(newUser);
-                //db.SaveChanges();
+                db.Users.Add(newUser);
+                db.SaveChanges();
+
+                res = DbConverter.GetUser(newUser);
             }
 
-            //CreateAlbum("All", newUser.Id);
+            return res;
         }
 
         public void CreateAlbum(string name, Guid userId)

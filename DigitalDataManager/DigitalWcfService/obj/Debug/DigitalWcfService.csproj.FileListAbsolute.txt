@@ -9,3 +9,4 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\Digital
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DigitalWcfService.pdb
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.csprojResolveAssemblyReference.cache
