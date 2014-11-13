@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
+using DbController.Convert;
+using DbController.Entityes;
 using DbController.Repositoryes;
 using DbController.Tables.Context;
 using DbController.Tables.DigitalDate;
@@ -14,6 +17,32 @@ namespace DbController
     {
         static void Main()
         {
+            var user = new UserDbItem
+            {
+                Albums = new List<AlbumDbItem>(),
+                Id = Guid.NewGuid(),
+                Login = "lll",
+                Password = "+++"
+            };
+
+            var album = new AlbumDbItem
+            {
+                Id = Guid.NewGuid(),
+                Name = "gf",
+                UserId = user.Id,
+                Images = new List<ImageDbItem>()
+            };
+
+            var img = new ImageDbItem
+            {
+                Id = Guid.NewGuid(), Name = "lol", Path = "jjj"
+            };
+
+            album.Images.Add(img);
+            user.Albums.Add(album);
+
+            var t = DbConverter.GetUser(user);
+
             using (var db = new DdmDateBaseContext())
             {
                 // Create and save a new Blog 

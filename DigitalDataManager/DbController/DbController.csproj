@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convert\DbConverter.cs" />
+    <Compile Include="Entityes\Album.cs" />
+    <Compile Include="Entityes\Image.cs" />
+    <Compile Include="Entityes\User.cs" />
     <Compile Include="Migrations\201411121100462_InitialCreate.cs" />
     <Compile Include="Migrations\201411121100462_InitialCreate.Designer.cs">
       <DependentUpon>201411121100462_InitialCreate.cs</DependentUpon>
@@ -91,9 +95,7 @@
       <DependentUpon>201411121258028_RenameAllTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entityes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
