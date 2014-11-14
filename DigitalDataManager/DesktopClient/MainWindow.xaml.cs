@@ -4,8 +4,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Xml;
+using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
 using FileSystemManager;
 using FileSystemManager.ChecksumHelper;
@@ -27,6 +29,7 @@ namespace DesktopClient
 
             _imagesViewer = new ImagesViewer(ImagesScrollViewer);
             _manager = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
+            
 
             Init();
         }
