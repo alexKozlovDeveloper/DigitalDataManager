@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DbController.Entityes;
 using DbController.Tables.DigitalDate;
+using DbController.Tables.Versions;
 
 namespace DbController.Convert
 {
@@ -62,6 +63,11 @@ namespace DbController.Convert
         public static Image GetImage(ImageDbItem item)
         {
             return Convert<Image, ImageDbItem>(item);
+        }
+
+        public static UserDateVersion GetVersion(UserDateVersionDbItem item)
+        {
+            return Convert<UserDateVersion, UserDateVersionDbItem>(item);
         }
     }
 }

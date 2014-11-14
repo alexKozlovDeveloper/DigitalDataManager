@@ -17,31 +17,31 @@ namespace DbController
     {
         static void Main()
         {
-            var user = new UserDbItem
-            {
-                Albums = new List<AlbumDbItem>(),
-                Id = Guid.NewGuid(),
-                Login = "lll",
-                Password = "+++"
-            };
+            //var user = new UserDbItem
+            //{
+            //    Albums = new List<AlbumDbItem>(),
+            //    Id = Guid.NewGuid(),
+            //    Login = "lll",
+            //    Password = "+++"
+            //};
 
-            var album = new AlbumDbItem
-            {
-                Id = Guid.NewGuid(),
-                Name = "gf",
-                UserId = user.Id,
-                Images = new List<ImageDbItem>()
-            };
+            //var album = new AlbumDbItem
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Name = "gf",
+            //    UserId = user.Id,
+            //    Images = new List<ImageDbItem>()
+            //};
 
-            var img = new ImageDbItem
-            {
-                Id = Guid.NewGuid(), Name = "lol", Path = "jjj"
-            };
+            //var img = new ImageDbItem
+            //{
+            //    Id = Guid.NewGuid(), Name = "lol", Path = "jjj"
+            //};
 
-            album.Images.Add(img);
-            user.Albums.Add(album);
+            //album.Images.Add(img);
+            //user.Albums.Add(album);
 
-            var t = DbConverter.GetUser(user);
+            //var t = DbConverter.GetUser(user);
 
             using (var db = new DdmDateBaseContext())
             {
@@ -76,19 +76,27 @@ namespace DbController
 
                 //foreach (var user in users)
                 //{
-                //    rep.CreateAlbum("Nature", user.Id);
-                    
-                //    Console.WriteLine(string.Format(" User: name [{0}] id [{1}]",user.Login, user.Id));
-
-                //    var albums = rep.GetAllAlbums(user.Id);
-                //    if (albums != null)
-                //    {
-                //        foreach (var album in albums)
-                //        {
-                //            Console.WriteLine(string.Format("    - Album: name [{0}] id [{1}]", album.Name, album.Id));
-                //        }
-                //    }
+                //    rep.CreateAlbum("All", user.Id);
                 //}
+
+                var users = rep.GetAllUser();
+
+                foreach (var user in users)
+                {
+                    Console.WriteLine(string.Format(" User: name [{0}] id [{1}]", user.Login, user.Id));
+
+                    var albums = user.Albums; //rep.GetAllAlbums();//rep.GetAllAlbums(user.Id);//user.Albums;
+
+                    foreach (var album in albums)
+                    {
+                        Console.WriteLine(string.Format("    - Album: name [{0}] id [{1}]", album.Name, album.Id));
+
+                        foreach (var image in album.Images)
+                        {
+                            Console.WriteLine(string.Format("        - Image: name [{0}] id [{1}]", image.Name, image.Id));
+                        }
+                    }
+                }
 
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();

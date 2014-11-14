@@ -24,139 +24,209 @@ namespace DbController.Repositoryes
             // _manager = new ServerFileManager(rootpath);
         }
 
+
         public User CreateUser(string login, string password)
         {
-            User res = null;
+            var id = Guid.NewGuid();
 
             using (var db = new DdmDateBaseContext())
             {
-                var newUser = new UserDbItem()
+                var newUser = new UserDbItem
                 {
-                    Id = Guid.NewGuid(),
+                    Id = id,
                     Login = login,
                     Password = password
                 };
 
                 db.Users.Add(newUser);
                 db.SaveChanges();
+            }
+            
+            CreateAlbum("All", id);
 
-                res = DbConverter.GetUser(newUser);
+            return GetUser(id);
+        }
+
+        public Album CreateAlbum(string name, Guid userId)
+        {
+            var id = Guid.NewGuid();
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var album = new AlbumDbItem
+                {
+                    Id = id,
+                    Name = name,
+                    UserId = userId,
+                };
+
+                var user = GetUser(db, userId);
+
+                user.Albums.Add(album);
+                db.SaveChanges();
+            }
+
+            return GetAlbum(id);
+        }
+
+
+        public User GetUser(Guid userId)
+        {
+            User res = null;
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var user = GetUser(db, userId);
+
+                res = DbConverter.GetUser(user);
             }
 
             return res;
         }
 
-        public void CreateAlbum(string name, Guid userId)
+        public Album GetAlbum(Guid albumId)
         {
+            Album res = null;
+
             using (var db = new DdmDateBaseContext())
             {
-                AlbumDbItem album = null;
+                var album = GetAlbum(db, albumId);
 
-                album = new AlbumDbItem
+                res = DbConverter.GetAlbum(album);
+            }
+
+            return res;
+        }
+
+        public Image GetImage(Guid imageId)
+        {
+            Image res = null;
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var image = GetImage(db, imageId);
+
+                res = DbConverter.GetImage(image);
+            }
+
+            return res;
+        }
+
+        public UserDateVersion GetVersion(Guid versionId)
+        {
+            UserDateVersion res = null;
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var version = GetVersion(db, versionId);
+
+                res = DbConverter.GetVersion(version);
+            }
+
+            return res;
+        }
+
+
+        public IEnumerable<User> GetAllUser()
+        {
+            var res = new List<User>();
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var users = from item in db.Users
+                        select item;
+
+                foreach (var user in users)
                 {
-                    Id = Guid.NewGuid(),
-                    Name = name,
-                    UserId = userId,
-                };
-
-                //var user = GetUser(userId);
-
-                //user.Albums.Add(album);
+                    res.Add(DbConverter.GetUser(user));
+                }
             }
+
+            return res;
         }
 
-        //public void AddAlbum(Guid userId, Album album)
+        public IEnumerable<Album> GetAllAlbums(Guid userId)
+        {
+            var res = new List<Album>();
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var user = GetUser(db, userId);
+
+                foreach (var item in user.Albums)
+                {
+                    res.Add(DbConverter.GetAlbum(item));
+                }
+            }
+
+            return res;
+        }
+
+        public IEnumerable<Album> GetAllAlbums()
+        {
+            var res = new List<Album>();
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var albums = (from item in db.Albums
+                             select item).ToList();
+
+                foreach (var item in albums)
+                {
+                    res.Add(DbConverter.GetAlbum(item));
+                }
+            }
+
+            return res;
+        }
+
+
+
+        //public void AddImage(int albumId, MemoryStream imagStream, string imageName)
         //{
-        //    //using (var db = new DdmDateBaseContext())
-        //    //{
-        //    var user = GetUser(userId);
-
-        //    user.Albums.Add(album);
-
-        //    db.SaveChanges();
-        //    //}
-        //}
-
-        //public TableUser GetUser(Guid userId)
-        //{
-        //    TableUser user = null;
-
         //    using (var db = new DdmDateBaseContext())
         //    {
-        //        var users = (from item in db.Users
-        //                     where item.Id == userId
-        //                     select item).ToList();
+        //        //var image = new Image { Name = imageName, Path = imageName };
 
-        //        user = users.FirstOrDefault();
+        //        //db.Images.Add(image);
+
+        //        //db.SaveChanges();
+
+        //        //_manager.CreateFile(imagStream, image.Path);
         //    }
-
-        //    return user;
         //}
 
-        //public IEnumerable<TableUser> GetAllUser()
+        //public void UpdateImage(int albumId, MemoryStream imagStream, string imageName)
         //{
-        //    IEnumerable<TableUser> users = null;
-
         //    using (var db = new DdmDateBaseContext())
         //    {
-        //        users = from item in db.Users
-        //                select item;
-
-        //        return users;
-
+        //        // _manager.CreateFile(imagStream, image.Path);
         //    }
-
         //}
 
-        public IEnumerable<AlbumDbItem> GetAllAlbums(Guid userId)
+
+        public IEnumerable<UserDateVersion> GetUserVersions(Guid userId)
         {
-            using (var db = new DdmDateBaseContext())
-            {
-                return from item in db.Albums
-                       where item.UserId == userId
-                       select item;
-            }
-        }
-
-        public void AddImage(int albumId, MemoryStream imagStream, string imageName)
-        {
-            using (var db = new DdmDateBaseContext())
-            {
-                //var image = new Image { Name = imageName, Path = imageName };
-
-                //db.Images.Add(image);
-
-                //db.SaveChanges();
-
-                //_manager.CreateFile(imagStream, image.Path);
-            }
-        }
-
-        public void UpdateImage(int albumId, MemoryStream imagStream, string imageName)
-        {
-            using (var db = new DdmDateBaseContext())
-            {
-                // _manager.CreateFile(imagStream, image.Path);
-            }
-        }
-
-        public List<UserDateVersionDbItem> GetUserVersion(Guid userId)
-        {
-            IEnumerable<UserDateVersionDbItem> result = null;
+            var res = new List<UserDateVersion>();
 
             using (var db = new DdmDateBaseContext())
             {
-                result = from item in db.Versions
+                var versions = from item in db.Versions
                          where item.UserId == userId
                          select item;
+
+                foreach (var version in versions)
+                {
+                    res.Add(DbConverter.GetVersion(version));
+                }
             }
 
-            return result.ToList();
+            return res;
         }
 
-        public UserDateVersionDbItem GetLastUserVersion(Guid userId)
+        public UserDateVersion GetLastUserVersion(Guid userId)
         {
-            UserDateVersionDbItem result = null;
+            UserDateVersion result = null;
 
             using (var db = new DdmDateBaseContext())
             {
@@ -164,11 +234,11 @@ namespace DbController.Repositoryes
                                 where item.UserId == userId
                                 select item).ToList();
 
-                versions.Sort((foo1, foo2) => foo2.VersionNumber.CompareTo(foo1.VersionNumber));
+                versions.Sort((item1, item2) => item2.VersionNumber.CompareTo(item1.VersionNumber));
 
                 if (versions.Count != 0)
                 {
-                    result = versions.FirstOrDefault();
+                    result = DbConverter.GetVersion(versions.FirstOrDefault());
                 }
             }
 
@@ -200,6 +270,52 @@ namespace DbController.Repositoryes
                 db.Versions.Add(version);
                 db.SaveChanges();
             }
+        }
+
+
+
+        private UserDbItem GetUser(DdmDateBaseContext db, Guid id)
+        {
+            var users = (from item in db.Users
+                         where item.Id == id
+                         select item).ToList();
+
+            var user = users.FirstOrDefault();
+
+            return user;
+        }
+
+        private AlbumDbItem GetAlbum(DdmDateBaseContext db, Guid id)
+        {
+            var albums = (from item in db.Albums
+                         where item.Id == id
+                         select item).ToList();
+
+            var album = albums.FirstOrDefault();
+
+            return album;
+        }
+
+        private ImageDbItem GetImage(DdmDateBaseContext db, Guid id)
+        {
+            var images = (from item in db.Images
+                          where item.Id == id
+                          select item).ToList();
+
+            var img = images.FirstOrDefault();
+
+            return img;
+        }
+
+        private UserDateVersionDbItem GetVersion(DdmDateBaseContext db, Guid id)
+        {
+            var versions = (from item in db.Versions
+                          where item.Id == id
+                          select item).ToList();
+
+            var res = versions.FirstOrDefault();
+
+            return res;
         }
     }
 }

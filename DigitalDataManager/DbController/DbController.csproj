@@ -52,6 +52,7 @@
     <Compile Include="Entityes\Album.cs" />
     <Compile Include="Entityes\Image.cs" />
     <Compile Include="Entityes\User.cs" />
+    <Compile Include="Entityes\UserDateVersion.cs" />
     <Compile Include="Migrations\201411121100462_InitialCreate.cs" />
     <Compile Include="Migrations\201411121100462_InitialCreate.Designer.cs">
       <DependentUpon>201411121100462_InitialCreate.cs</DependentUpon>
