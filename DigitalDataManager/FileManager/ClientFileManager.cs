@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using FileSystemManager.DdmServiceReference;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
+using FileSystemManager.VersionChanges;
+using FileSystemManager.XmlSerialize;
 
 namespace FileSystemManager
 {
@@ -77,9 +80,70 @@ namespace FileSystemManager
                 serverVers = _catalogVersion.ToXmlString();
             }
 
-            
+            var changes = VersionComparator.Compare(_catalogVersion, XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers));
 
-            //_fileVersion.UpdateFilesChecksum(GetAllFilePath());
+            UpdateClientFiles(changes);
+
+            // update to server version
+            _catalogVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
+
+            var newVersion = new CatalogVersion(CatalogVersionPath);
+
+            if (newVersion.Equals(_catalogVersion) == false)
+            {
+                var newChanges = VersionComparator.Compare(_catalogVersion, newVersion);
+
+                // update server to new version
+
+                // execute newChanges
+                UpdateServerFiles(newChanges);
+
+                client.UpdateCatalogVersion(Login, newVersion.ToXmlString());
+
+                _catalogVersion = newVersion;
+            }
+        }
+
+        public void UpdateClientFiles(List<ChangeCommand> changes)
+        {
+            foreach (var changeCommand in changes)
+            {
+                switch (changeCommand.Type)
+                {
+                    case ChangeType.Remove:
+                        // удаляем картинку
+                        break;
+                    case ChangeType.Create:
+                        // подгружаем с сервера новую версию картинки и копируем в папку
+                        break;
+                    case ChangeType.Update:
+                        // подгружаем с сервера новую версию картинки и заменяем ей существующюю
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public void UpdateServerFiles(List<ChangeCommand> changes)
+        {
+            foreach (var changeCommand in changes)
+            {
+                switch (changeCommand.Type)
+                {
+                    case ChangeType.Remove:
+                        // удаляем картинку с сервера
+                        break;
+                    case ChangeType.Create:
+                        // подгружаем на сервер новую картинку
+                        break;
+                    case ChangeType.Update:
+                        // подгружаем на сервер новую картинку и заменяем ее старую
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
         }
     }
 }
