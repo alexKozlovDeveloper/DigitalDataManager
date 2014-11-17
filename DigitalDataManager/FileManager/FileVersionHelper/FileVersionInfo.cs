@@ -9,6 +9,7 @@ using FileSystemManager.ChecksumHelper;
 
 namespace FileSystemManager.FileVersionHelper
 {
+    // legacy, use Catalog Version class
     public class FileVersionInfo
     {
         #region NodeNames
