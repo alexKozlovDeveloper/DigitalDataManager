@@ -34,23 +34,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\DigitalServiceReference\DigitalDataManager.DigitalServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DigitalServiceReference\DigitalWcfService.xsd">
+    <None Include="Service References\DdmServiceReference\service.wsdl" />
+    <None Include="Service References\DdmServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DigitalServiceReference\service.wsdl" />
-    <None Include="Service References\DigitalServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DigitalServiceReference\service1.xsd">
+    <None Include="Service References\DdmServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Service References\DigitalServiceReference\Reference.cs">
+    <Compile Include="Service References\DdmServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -70,6 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DbController\DbController.csproj">
+      <Project>{36273eae-0a88-4b9f-967f-5aa04763687b}</Project>
+      <Name>DbController</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileManager\FileSystemManager.csproj">
       <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
       <Name>FileSystemManager</Name>
@@ -79,16 +77,16 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DigitalServiceReference\" />
+    <WCFMetadataStorage Include="Service References\DdmServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DigitalServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\DdmServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DigitalServiceReference\configuration.svcinfo" />
+    <None Include="Service References\DdmServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DigitalServiceReference\Reference.svcmap">
+    <None Include="Service References\DdmServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

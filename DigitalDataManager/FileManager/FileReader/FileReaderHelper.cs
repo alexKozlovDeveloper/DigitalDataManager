@@ -20,7 +20,7 @@ namespace FileSystemManager.FileReader
             }  
         }
         
-        public static Stream ReadStreamFromFile( string filePath)
+        public static Stream ReadStreamFromFile(string filePath)
         {
             using (FileStream fileStream = File.Open(filePath, FileMode.Open))
             {

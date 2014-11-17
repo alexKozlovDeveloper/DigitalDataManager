@@ -14,5 +14,10 @@ namespace FileSystemManager.FileVersionHelper.FileVersionItems
         {
 
         }
+
+        public override bool Equals(object obj)
+        {
+            return this.Number == ((VersionNumber) obj).Number;
+        }
     }
 }

@@ -84,6 +84,24 @@ namespace DbController.Repositoryes
             return res;
         }
 
+        public User GetUserByName(string login)
+        {
+            User res = null;
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var users = (from item in db.Users
+                             where item.Login == login
+                             select item).ToList();
+
+                var user = users.FirstOrDefault();
+
+                res = DbConverter.GetUser(user);
+            }
+
+            return res;
+        }
+
         public Album GetAlbum(Guid albumId)
         {
             Album res = null;
@@ -203,6 +221,7 @@ namespace DbController.Repositoryes
         //        // _manager.CreateFile(imagStream, image.Path);
         //    }
         //}
+
 
 
         public IEnumerable<UserDateVersion> GetUserVersions(Guid userId)

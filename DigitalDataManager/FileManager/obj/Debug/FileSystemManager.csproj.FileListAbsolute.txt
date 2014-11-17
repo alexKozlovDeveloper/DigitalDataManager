@@ -7,3 +7,9 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileMan
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\FileManager.pdb
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileManager.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileManager.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\FileManager.dll.config
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\obj\Debug\FileSystemManager.csprojResolveAssemblyReference.cache
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\EntityFramework.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\EntityFramework.xml
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\FileManager\bin\Debug\EntityFramework.SqlServer.xml

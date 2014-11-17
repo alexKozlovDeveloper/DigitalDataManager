@@ -10,3 +10,11 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\Digital
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.pdb
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\obj\Debug\DigitalWcfService.csprojResolveAssemblyReference.cache
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DbController.exe
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\EntityFramework.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\FileManager.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\DbController.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\EntityFramework.xml
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\FileManager.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalWcfService\bin\Debug\EntityFramework.SqlServer.xml

@@ -19,9 +19,10 @@ namespace DigitalWcfService
         //CompositeType GetDataUsingDataContract(CompositeType composite);
 
         [OperationContract]
-        void UpdateFileVersion(Version version);
+        void UpdateCatalogVersion(string login, string xmlVersion);
 
-
+        [OperationContract]
+        string GetLastCatalogVersion(string login);
 
         // TODO: Add your service operations here
     }
@@ -49,24 +50,13 @@ namespace DigitalWcfService
     //    }
     //}
 
-    [DataContract]
-    public class Version
-    {
-        private int _userId;
-        private XmlDocument _xmlDocument;
+    //[DataContract]
+    //public class Version
+    //{
+    //    [DataMember]
+    //    public int UserId { get; set; }
 
-        [DataMember]
-        public int UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        [DataMember]
-        public XmlDocument XmlDocument
-        {
-            get { return _xmlDocument; }
-            set { _xmlDocument = value; }
-        }
-    }
+    //    [DataMember]
+    //    public string Xml { get; set; }
+    //}
 }

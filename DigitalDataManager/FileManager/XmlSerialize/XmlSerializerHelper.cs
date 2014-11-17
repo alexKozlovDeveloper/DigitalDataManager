@@ -31,5 +31,20 @@ namespace FileSystemManager.XmlSerialize
 
             return (T) res;
         }
+
+        public static T Deserialize<T>(string xml)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(xml);
+            writer.Flush();
+            stream.Position = 0;
+
+            var s = new XmlSerializer(typeof(T));
+
+            var res = s.Deserialize(stream);
+
+            return (T)res;
+        }
     }
 }

@@ -70,12 +70,12 @@ namespace DbController
 
                 //rep.CreateUser("Alex2", "Alex2");
 
-                var albumsd = rep.GetAllAlbums();
+                //var albumsd = rep.GetAllAlbums();
 
-                foreach (var album in albumsd)
-                {
-                    Console.WriteLine(string.Format("    - Album: name [{0}] id [{1}]", album.Name, album.Id));
-                }
+                //foreach (var album in albumsd)
+                //{
+                //    Console.WriteLine(string.Format("    - Album: name [{0}] id [{1}]", album.Name, album.Id));
+                //}
 
                 //var users = rep.GetAllUser();
 

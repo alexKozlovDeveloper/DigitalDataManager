@@ -4,7 +4,6 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DigitalWcfService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDigitalService_GetData_InputMessage">
@@ -13,20 +12,30 @@
   <wsdl:message name="IDigitalService_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
   </wsdl:message>
-  <wsdl:message name="IDigitalService_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="IDigitalService_UpdateCatalogVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatalogVersion" />
   </wsdl:message>
-  <wsdl:message name="IDigitalService_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="IDigitalService_UpdateCatalogVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatalogVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDigitalService_GetLastCatalogVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastCatalogVersion" />
+  </wsdl:message>
+  <wsdl:message name="IDigitalService_GetLastCatalogVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastCatalogVersionResponse" />
   </wsdl:message>
   <wsdl:portType name="IDigitalService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetData" message="tns:IDigitalService_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetDataResponse" message="tns:IDigitalService_GetData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetDataUsingDataContract" message="tns:IDigitalService_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetDataUsingDataContractResponse" message="tns:IDigitalService_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="UpdateCatalogVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/UpdateCatalogVersion" message="tns:IDigitalService_UpdateCatalogVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/UpdateCatalogVersionResponse" message="tns:IDigitalService_UpdateCatalogVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCatalogVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion" message="tns:IDigitalService_GetLastCatalogVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse" message="tns:IDigitalService_GetLastCatalogVersion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDigitalService" type="tns:IDigitalService">
@@ -40,8 +49,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IDigitalService/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="UpdateCatalogVersion">
+      <soap:operation soapAction="http://tempuri.org/IDigitalService/UpdateCatalogVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCatalogVersion">
+      <soap:operation soapAction="http://tempuri.org/IDigitalService/GetLastCatalogVersion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

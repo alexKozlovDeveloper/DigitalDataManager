@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f117ac5f-79be-4dd9-bf87-268757b08126" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e04821ea-46a7-4aba-8bff-1140add697aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,9 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ac659f6e-66a3-4f8b-b9f2-24d7e647f4fe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cb0cc709-d465-4cb1-a9b7-45d6a6182bac" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7225df5e-7507-4046-8a8a-3d5390d00b97" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="DigitalWcfService.xsd" MetadataType="Schema" ID="7ff5d357-1bee-40b8-9c90-c8e4b291f0a9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1c5b67ee-3bf0-48ad-8c5b-5ca09f5971fc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="13b1bc65-ca0e-4980-81f2-ac22bc855e9b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4dd2726a-c837-445e-9108-4e15c9d06cab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

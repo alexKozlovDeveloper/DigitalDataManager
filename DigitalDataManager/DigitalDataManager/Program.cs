@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Proxies;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using DigitalDataManager.DigitalServiceReference;
+using DbController.Repositoryes;
+using FileSystemManager;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
+using FileSystemManager.VersionChanges;
 using FileSystemManager.XmlSerialize;
 
 namespace DigitalDataManager
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //var ms = new MemoryStream();
             //var fs = System.IO.File.OpenRead(@"D:\test1.png");
@@ -40,18 +43,31 @@ namespace DigitalDataManager
 
             //var h = client.GetDataUsingDataContract(g);
 
-            var f = new FileVersion() { Checksum = "1", FileName = "2", FullPath = "3" };
-            var d = new VersionNumber() { Number = 12 };
-            var t = new CatalogVersion() { VersionNumber = d };
-            t.Files = new List<FileVersion>();
-            t.Files.Add(f);
-            t.Files.Add(f);
-            t.Files.Add(f);
-            t.Files.Add(f);
+            //var f = new FileVersion() { Checksum = "1", FileName = "2", FullPath = "3" };
+            //var d = new VersionNumber() { Number = 12 };
+            //var t = new CatalogVersion() { VersionNumber = d };
+            //t.Files = new List<FileVersion>();
+            //t.Files.Add(f);
+            //t.Files.Add(f);
+            //t.Files.Add(f);
+            //t.Files.Add(f);
 
-            XmlVersionReader.WriteVeriosn(@"D:\ffff.xml",t);
+            //XmlVersionReader.WriteVeriosn(@"D:\ffff.xml",t);
 
-            var h = XmlVersionReader.ReadVersion(@"D:\ffff.xml");
+            //var h = XmlVersionReader.ReadVersion(@"D:\ffff.xml");
+
+
+            //var c = new CatalogVersion(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
+
+            //var a = new CatalogVersion(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server");
+
+            //var t = a.ToXmlString();
+
+            //var g = XmlSerializerHelper.Deserialize<CatalogVersion>(t);
+
+            //var yy = VersionComparator.Compare(c, a);
+
+            //System.IO.File.SetAttributes(@"D:\Testr.xml", System.IO.FileAttributes.Hidden);
 
             //var stream = XmlSerializerHelper.Serialize<CatalogVersion>(t);
 
@@ -66,11 +82,11 @@ namespace DigitalDataManager
             //}  
 
 
-            //using (FileStream fileStream = File.Open(@"D:\Testr.xml",FileMode.Open))
+            //using (FileStream fileStream = File.Open(@"D:\Testr.xml", FileMode.Open))
             //{
             //    var data = new byte[fileStream.Length];
 
-            //    fileStream.Read(data, 0, (int) data.Length);
+            //    fileStream.Read(data, 0, (int)data.Length);
 
             //    var ms = new MemoryStream();
 
@@ -80,6 +96,23 @@ namespace DigitalDataManager
 
             //    var g = XmlSerializerHelper.Deserialize<CatalogVersion>(ms);
             //}
+
+            //var fd = new DdmServiceReference.DigitalServiceClient();
+
+            //var vers = fd.GetLastCatalogVersion("Alex");
+
+            var fm = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
+
+            //var rep = new Repository("");
+
+            //var t = rep.GetUserByName("Alex");
+
+            fm.UpdateFileVersion();
+
+
+
+
+
 
             Console.WriteLine("ololo");
             Console.ReadKey();
