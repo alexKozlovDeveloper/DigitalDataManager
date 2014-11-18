@@ -25,8 +25,7 @@ namespace DbController.Repositoryes
         {
              _manager = new ServerFileManager(rootpath);
         }
-
-
+        
         public User CreateUser(string login, string password)
         {
             var id = Guid.NewGuid();

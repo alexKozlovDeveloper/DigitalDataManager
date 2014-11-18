@@ -61,18 +61,64 @@
     <Compile Include="FileVersionHelper\FileVersionItems\FileVersion.cs" />
     <Compile Include="FileVersionHelper\FileVersionItems\VersionNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DdmServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="VersionChanges\ChangeCommand.cs" />
     <Compile Include="VersionChanges\VersionComparator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Service References\DdmServiceReference\DigitalWcfService.Entityes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DdmServiceReference\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DdmServiceReference\service.wsdl" />
+    <None Include="Service References\DdmServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DdmServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DdmServiceReference\System.IO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DdmServiceReference\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
       <Project>{d30164d5-abc3-4694-b226-a29d1b8d8926}</Project>
       <Name>DdmHelpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DigitalWcfService\DigitalWcfService.csproj">
+      <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
+      <Name>DigitalWcfService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DdmServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DdmServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DdmServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DdmServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

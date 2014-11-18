@@ -28,3 +28,5 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\Digital
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.dll
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.dll
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.pdb

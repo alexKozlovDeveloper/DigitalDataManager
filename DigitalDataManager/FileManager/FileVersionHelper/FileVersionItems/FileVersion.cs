@@ -24,7 +24,7 @@ namespace FileSystemManager.FileVersionHelper.FileVersionItems
         {
             FullPath = filePath;
 
-            FileName = Path.GetFileNameWithoutExtension(FullPath);
+            FileName = Path.GetFileName(FullPath);
 
             Checksum = CsHelper.GetFileChecksum(FullPath);
         }
