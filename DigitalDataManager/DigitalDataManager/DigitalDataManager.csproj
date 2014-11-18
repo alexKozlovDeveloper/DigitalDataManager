@@ -68,6 +68,10 @@
       <Project>{36273eae-0a88-4b9f-967f-5aa04763687b}</Project>
       <Name>DbController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
+      <Project>{d30164d5-abc3-4694-b226-a29d1b8d8926}</Project>
+      <Name>DdmHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileManager\FileSystemManager.csproj">
       <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
       <Name>FileSystemManager</Name>

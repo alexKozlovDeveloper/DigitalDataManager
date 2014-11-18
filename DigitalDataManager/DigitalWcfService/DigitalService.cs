@@ -30,37 +30,37 @@ namespace DigitalWcfService
             var image = rep.GetImage(login, imageName);
             return FileReaderHelper.ReadStreamFromFile(image.Path);
         }
-
-        public void AddNewImage(string login, string albumName, string imageName, Stream image)
+        //string login, string albumName, string imageName,
+        public void AddNewImage(Stream image)
         {
-            var rep = new Repository(RootPath);
+            //var rep = new Repository(RootPath);
 
-            var user = rep.GetUserByName(login);
+            //var user = rep.GetUserByName(login);
 
-            var album = (from item in user.Albums
-                where item.Name == albumName
-                select item).ToList();
+            //var album = (from item in user.Albums
+            //    where item.Name == albumName
+            //    select item).ToList();
 
-            if (album.Count != 0)
-            {
-                rep.CreateImage(login, album[0].Id, imageName, image);
-            }
+            //if (album.Count != 0)
+            //{
+            //    rep.CreateImage(login, album[0].Id, imageName, image);
+            //}
         }
-
-        public void UpdateImage(string login, string albumName, string imageName, Stream image)
+        //string login, string albumName, string imageName,
+        public void UpdateImage(Stream image)
         {
-            var rep = new Repository(RootPath);
+            //var rep = new Repository(RootPath);
 
-            var user = rep.GetUserByName(login);
+            //var user = rep.GetUserByName(login);
 
-            var album = (from item in user.Albums
-                where item.Name == albumName
-                select item).ToList();
+            //var album = (from item in user.Albums
+            //    where item.Name == albumName
+            //    select item).ToList();
 
-            if (album.Count != 0)
-            {
-                rep.UpdateImage(login, album[0].Id, imageName, image);
-            }
+            //if (album.Count != 0)
+            //{
+            //    rep.UpdateImage(login, album[0].Id, imageName, image);
+            //}
         }
 
         public void UpdateCatalogVersion(string login, string xmlVersion)

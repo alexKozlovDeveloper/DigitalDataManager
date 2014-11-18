@@ -4,22 +4,68 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Proxies;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DbController.Repositoryes;
+using DdmHelpers.Serialize;
 using FileSystemManager;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
 using FileSystemManager.VersionChanges;
-using FileSystemManager.XmlSerialize;
 
 namespace DigitalDataManager
 {
+    [Serializable]
+    public class Test
+    {
+        public Stream ImageStream { get; set; }
+        public string Login { get; set; }
+        public string Name { get; set; }
+    }
+
     class Program
     {
         static void Main()
         {
+            var image = new MemoryStream();
+            
+            var test = new Test() {Login = "a", Name = "b", ImageStream = image};
+
+            var t = BinarySerializerHelper.Serialize(test);
+
+            var g = BinarySerializerHelper.Deserialize<Test>(t);
+
+            //var formatter = new BinaryFormatter();
+
+            //var res = new MemoryStream();
+
+            //formatter.Serialize(res,test);
+
+            //res.Position = 0;
+
+            //var test2 = formatter.Deserialize(res);
+
+
+            //// получаем поток, куда будем записывать сериализованный объект
+            //using (var fs = new FileStream("persons.dat", FileMode.OpenOrCreate))
+            //{
+            //    formatter.Serialize(fs, person);
+
+            //    Console.WriteLine("Объект сериализован");
+            //}
+
+            //// десериализация из файла persons.dat
+            //using (FileStream fs = new FileStream("persons.dat", FileMode.OpenOrCreate))
+            //{
+            //    Person newPerson = (Person)formatter.Deserialize(fs);
+
+            //    Console.WriteLine("Объект десериализован");
+            //    Console.WriteLine("Имя: {0} --- Возраст: {1}", newPerson.Name, newPerson.Age);
+            //}
+
+
             //var ms = new MemoryStream();
             //var fs = System.IO.File.OpenRead(@"D:\test1.png");
             //fs.CopyTo(ms);

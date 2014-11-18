@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using FileSystemManager.DdmServiceReference;
+//using FileSystemManager.DdmServiceReference;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
 using FileSystemManager.VersionChanges;
-using FileSystemManager.XmlSerialize;
 
 namespace FileSystemManager
 {
@@ -22,6 +21,7 @@ namespace FileSystemManager
         public string Login = "Alex";
 
         private CatalogVersion _catalogVersion;
+        //private DigitalServiceClient _wcfClient;
 
         public string CatalogVersionPath
         {
@@ -58,6 +58,8 @@ namespace FileSystemManager
                 XmlVersionReader.WriteVeriosn(CatalogVersionPath, _catalogVersion);
             }
 
+            //_wcfClient = new DigitalServiceClient();
+
             //_fileVersion = new FileVersionInfo(FileVersionPath);
 
             //_fileVersion.UpdateFilesChecksum(GetAllFilePath());
@@ -70,38 +72,38 @@ namespace FileSystemManager
 
         public void UpdateFileVersion()
         {
-            var client = new DigitalServiceClient();
+            //var client = new DigitalServiceClient();
 
-            var serverVers = client.GetLastCatalogVersion(Login);
+            //var serverVers = _wcfClient.GetLastCatalogVersion(Login);
 
-            if (serverVers == null)
-            {
-                client.UpdateCatalogVersion(Login, _catalogVersion.ToXmlString());
-                serverVers = _catalogVersion.ToXmlString();
-            }
+            //if (serverVers == null)
+            //{
+            //    _wcfClient.UpdateCatalogVersion(Login, _catalogVersion.ToXmlString());
+            //    serverVers = _catalogVersion.ToXmlString();
+            //}
 
-            var changes = VersionComparator.Compare(_catalogVersion, XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers));
+            //var changes = VersionComparator.Compare(_catalogVersion, XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers));
 
-            UpdateClientFiles(changes);
+            //UpdateClientFiles(changes);
 
-            // update to server version
-            _catalogVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
+            //// update to server version
+            //_catalogVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
 
-            var newVersion = new CatalogVersion(CatalogVersionPath);
+            //var newVersion = new CatalogVersion(CatalogVersionPath);
 
-            if (newVersion.Equals(_catalogVersion) == false)
-            {
-                var newChanges = VersionComparator.Compare(_catalogVersion, newVersion);
+            //if (newVersion.Equals(_catalogVersion) == false)
+            //{
+            //    var newChanges = VersionComparator.Compare(_catalogVersion, newVersion);
 
-                // update server to new version
+            //    // update server to new version
 
-                // execute newChanges
-                UpdateServerFiles(newChanges);
+            //    // execute newChanges
+            //    UpdateServerFiles(newChanges);
 
-                client.UpdateCatalogVersion(Login, newVersion.ToXmlString());
+            //    _wcfClient.UpdateCatalogVersion(Login, newVersion.ToXmlString());
 
-                _catalogVersion = newVersion;
-            }
+            //    _catalogVersion = newVersion;
+            //}
         }
 
         public void UpdateClientFiles(List<ChangeCommand> changes)
@@ -112,9 +114,13 @@ namespace FileSystemManager
                 {
                     case ChangeType.Remove:
                         // удаляем картинку
+                        //-
                         break;
                     case ChangeType.Create:
                         // подгружаем с сервера новую версию картинки и копируем в папку
+
+                        //var image = _wcfClient.
+
                         break;
                     case ChangeType.Update:
                         // подгружаем с сервера новую версию картинки и заменяем ей существующюю

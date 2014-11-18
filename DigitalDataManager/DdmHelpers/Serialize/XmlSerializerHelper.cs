@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace FileSystemManager.XmlSerialize
+namespace DdmHelpers.Serialize
 {
     public static class XmlSerializerHelper
     {
@@ -16,7 +16,7 @@ namespace FileSystemManager.XmlSerialize
 
             var ms = new MemoryStream();
 
-            s.Serialize(ms,obj);
+            s.Serialize(ms, obj);
 
             ms.Position = 0;
 
@@ -29,7 +29,7 @@ namespace FileSystemManager.XmlSerialize
 
             var res = s.Deserialize(ms);
 
-            return (T) res;
+            return (T)res;
         }
 
         public static T Deserialize<T>(string xml)

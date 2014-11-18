@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DdmHelpers.Serialize;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
-using FileSystemManager.XmlSerialize;
 
 namespace FileSystemManager.FileReader
 {

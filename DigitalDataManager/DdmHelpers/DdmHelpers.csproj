@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92DB1C26-336D-4C3F-8E9D-34F6964907E7}</ProjectGuid>
+    <ProjectGuid>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileSystemManager</RootNamespace>
-    <AssemblyName>FileManager</AssemblyName>
+    <RootNamespace>DdmHelpers</RootNamespace>
+    <AssemblyName>DdmHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,55 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Serialization" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChecksumHelper\CsHelper.cs" />
-    <Compile Include="ClientFileManager.cs" />
-    <Compile Include="FileReader\FileReaderHelper.cs" />
-    <Compile Include="FileReader\XmlVersionReader.cs" />
-    <Compile Include="FileVersionHelper\FileVersionInfo.cs" />
-    <Compile Include="FileVersionHelper\FileVersionItems\CatalogVersion.cs" />
-    <Compile Include="FileVersionHelper\FileVersionItems\FileVersion.cs" />
-    <Compile Include="FileVersionHelper\FileVersionItems\VersionNumber.cs" />
-    <Compile Include="ServerFileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VersionChanges\ChangeCommand.cs" />
-    <Compile Include="VersionChanges\VersionComparator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
-      <Project>{d30164d5-abc3-4694-b226-a29d1b8d8926}</Project>
-      <Name>DdmHelpers</Name>
-    </ProjectReference>
+    <Compile Include="Serialize\BinarySerializerHelper.cs" />
+    <Compile Include="Serialize\XmlSerializerHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
