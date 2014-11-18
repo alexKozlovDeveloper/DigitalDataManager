@@ -12,11 +12,16 @@ namespace DdmHelpers.Checksum
     {
         public static string GetFileChecksum(string filePath)
         {
-            var fi = new FileInfo(filePath);
+            using (var fileStream = File.OpenRead(filePath))
+            {
+                return GetHashFromStream(fileStream);
+            }
 
-            var checksum = GetHashFromStream(fi.OpenRead());
+            //var fi = new FileInfo(filePath);
 
-            return checksum;
+            //var checksum = GetHashFromStream(fi.OpenRead());
+
+            //return checksum;
         }
 
         private static string GetHashFromStream(Stream fielStream)

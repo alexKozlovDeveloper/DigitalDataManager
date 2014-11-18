@@ -22,6 +22,7 @@ namespace DigitalDataManager
     {
         static void Main()
         {
+            #region comments
             //var ms = FileReaderHelper.ReadStreamFromFile(@"D:\test1.png");
 
             //FileReaderHelper.WriteStreamInFile(ms, @"D:\test1!!!!!!!!!!!!!!!.png");
@@ -145,20 +146,16 @@ namespace DigitalDataManager
 
             //var vers = fd.GetLastCatalogVersion("Alex");
 
-            var fm = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
-
-           // var cl = new ServiceReference1.DigitalServiceClient();
+            // var cl = new ServiceReference1.DigitalServiceClient();
 
             //var rep = new Repository("");
 
             //var t = rep.GetUserByName("Alex");
+            #endregion
+
+            var fm = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
             fm.UpdateFileVersion();
-
-
-
-
-
 
             Console.WriteLine("ololo");
             Console.ReadKey();

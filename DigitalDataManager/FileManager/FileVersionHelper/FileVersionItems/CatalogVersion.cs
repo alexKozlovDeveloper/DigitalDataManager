@@ -28,7 +28,7 @@ namespace FileSystemManager.FileVersionHelper.FileVersionItems
 
             VersionNumber = new VersionNumber() { Number = 0 };
 
-            var filePaths = Directory.GetFiles(CatalogPath);
+            var filePaths = Directory.GetFiles(CatalogPath, ClientFileManager.SearchPattern);
 
             foreach (var filePath in filePaths)
             {
@@ -57,6 +57,30 @@ namespace FileSystemManager.FileVersionHelper.FileVersionItems
             {
                 return reader.ReadToEnd();
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            var res = true;
+
+            var item = (CatalogVersion) obj;
+
+            if (item.Files.Count == Files.Count)
+            {
+                foreach (var fileVersion in item.Files)
+                {
+                    if (Files.Contains(fileVersion) == false)
+                    {
+                        res = false;
+                    }
+                }
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
         }
     }
 }

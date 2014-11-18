@@ -89,8 +89,6 @@ namespace FileSystemManager
 
         public void UpdateFileVersion()
         {
-            var client = new DigitalServiceClient();
-
             var serverVers = _wcfClient.GetLastCatalogVersion(Login);
 
             if (serverVers == null)
@@ -99,14 +97,16 @@ namespace FileSystemManager
                 serverVers = _catalogVersion.ToXmlString();
             }
 
-            var changes = VersionComparator.Compare(_catalogVersion, XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers));
+            var serverVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
+
+            var changes = VersionComparator.Compare(_catalogVersion, serverVersion);
 
             UpdateClientFiles(changes);
 
             // update to server version
-            _catalogVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
+            _catalogVersion = serverVersion;
 
-            var newVersion = new CatalogVersion(CatalogVersionPath);
+            var newVersion = new CatalogVersion(RootPath);
 
             if (newVersion.Equals(_catalogVersion) == false)
             {
@@ -175,7 +175,7 @@ namespace FileSystemManager
 
                         var data = new ImageData
                         {
-                            AlbumName = "", // ?????
+                            AlbumName = "All", // ?????
                             ImageName = changeCommand.ActualVersion.FileName,
                             Login = Login,
                             ImageStream = imageStream
@@ -191,7 +191,7 @@ namespace FileSystemManager
 
                         var data = new ImageData
                         {
-                            AlbumName = "", // ?????
+                            AlbumName = "All", // ?????
                             ImageName = changeCommand.ActualVersion.FileName,
                             Login = Login,
                             ImageStream = imageStream
