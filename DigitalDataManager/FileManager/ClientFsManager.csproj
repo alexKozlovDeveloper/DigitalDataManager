@@ -54,21 +54,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChecksumHelper\CsHelper.cs" />
     <Compile Include="ClientFileManager.cs" />
-    <Compile Include="FileReader\FileReaderHelper.cs" />
     <Compile Include="FileReader\XmlVersionReader.cs" />
     <Compile Include="FileVersionHelper\FileVersionInfo.cs" />
     <Compile Include="FileVersionHelper\FileVersionItems\CatalogVersion.cs" />
     <Compile Include="FileVersionHelper\FileVersionItems\FileVersion.cs" />
     <Compile Include="FileVersionHelper\FileVersionItems\VersionNumber.cs" />
-    <Compile Include="ServerFileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionChanges\ChangeCommand.cs" />
     <Compile Include="VersionChanges\VersionComparator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

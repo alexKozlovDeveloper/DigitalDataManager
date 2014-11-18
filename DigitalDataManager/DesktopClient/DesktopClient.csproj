@@ -116,9 +116,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FileManager\FileSystemManager.csproj">
+    <ProjectReference Include="..\FileManager\ClientFsManager.csproj">
       <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
-      <Name>FileSystemManager</Name>
+      <Name>ClientFsManager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

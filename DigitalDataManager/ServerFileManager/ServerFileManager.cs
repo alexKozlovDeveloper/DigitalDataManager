@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace FileSystemManager
+namespace ServerFsManager
 {
     public class ServerFileManager
     {
@@ -9,12 +9,12 @@ namespace FileSystemManager
 
         private readonly string _root;
 
-        public string RootPath 
+        public string RootPath
         {
             get { return _root; }
         }
 
-        public string UsersPath 
+        public string UsersPath
         {
             get { return RootPath + Users; }
         }
@@ -62,7 +62,7 @@ namespace FileSystemManager
             var fielPath = GetUserFolderPath(userName) + fileName;
 
             var file = System.IO.File.OpenWrite(fielPath);
-            
+
             var data = new byte[fileStream.Length];
 
             fileStream.Read(data, 0, data.Length);

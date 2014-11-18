@@ -7,7 +7,8 @@ using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using DbController.Repositoryes;
-using FileSystemManager.FileReader;
+using DdmHelpers.FileReader;
+using DigitalWcfService.Entityes;
 
 namespace DigitalWcfService
 {
@@ -31,7 +32,7 @@ namespace DigitalWcfService
             return FileReaderHelper.ReadStreamFromFile(image.Path);
         }
         //string login, string albumName, string imageName,
-        public void AddNewImage(Stream image)
+        public void AddNewImage(ImageData image)
         {
             //var rep = new Repository(RootPath);
 
@@ -47,7 +48,7 @@ namespace DigitalWcfService
             //}
         }
         //string login, string albumName, string imageName,
-        public void UpdateImage(Stream image)
+        public void UpdateImage(ImageData image)
         {
             //var rep = new Repository(RootPath);
 

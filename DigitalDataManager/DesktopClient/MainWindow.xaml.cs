@@ -10,7 +10,6 @@ using System.Xml;
 using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
 using FileSystemManager;
-using FileSystemManager.ChecksumHelper;
 using FileSystemManager.FileVersionHelper;
 
 namespace DesktopClient

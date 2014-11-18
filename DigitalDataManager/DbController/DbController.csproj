@@ -80,12 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FileManager\FileSystemManager.csproj">
-      <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
-      <Name>FileSystemManager</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201411121100462_InitialCreate.resx">
       <DependentUpon>201411121100462_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,7 +90,12 @@
       <DependentUpon>201411121258028_RenameAllTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ServerFileManager\ServerFsManager.csproj">
+      <Project>{cde7b74e-dc09-4309-a08d-d762feb5d159}</Project>
+      <Name>ServerFsManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

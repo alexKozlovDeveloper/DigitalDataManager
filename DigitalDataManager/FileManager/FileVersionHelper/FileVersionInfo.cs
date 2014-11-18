@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using FileSystemManager.ChecksumHelper;
+using DdmHelpers.Checksum;
+
 
 namespace FileSystemManager.FileVersionHelper
 {

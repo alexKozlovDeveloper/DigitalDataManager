@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileSystemManager.ChecksumHelper
+namespace DdmHelpers.Checksum
 {
     public class CsHelper
     {

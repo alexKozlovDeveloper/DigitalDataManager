@@ -17,25 +17,17 @@ using FileSystemManager.VersionChanges;
 
 namespace DigitalDataManager
 {
-    [Serializable]
-    public class Test
-    {
-        public Stream ImageStream { get; set; }
-        public string Login { get; set; }
-        public string Name { get; set; }
-    }
-
     class Program
     {
         static void Main()
         {
-            var image = new MemoryStream();
+            //var image = new MemoryStream();
             
-            var test = new Test() {Login = "a", Name = "b", ImageStream = image};
+            //var test = new Test {Login = "a", Name = "b", ImageStream = image};
 
-            var t = BinarySerializerHelper.Serialize(test);
+            //var t = BinarySerializerHelper.Serialize(test);
 
-            var g = BinarySerializerHelper.Deserialize<Test>(t);
+            //var g = BinarySerializerHelper.Deserialize<Test>(t);
 
             //var formatter = new BinaryFormatter();
 

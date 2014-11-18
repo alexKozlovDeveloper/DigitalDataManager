@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Xml;
+using DigitalWcfService.Entityes;
 
 namespace DigitalWcfService
 {
@@ -23,11 +24,10 @@ namespace DigitalWcfService
         Stream GetImage(string login, string imageName);
 
         [OperationContract]
-        void AddNewImage(Stream image);
+        void AddNewImage(ImageData imageData);
 
         [OperationContract]
-        void UpdateImage(Stream image);
-
+        void UpdateImage(ImageData imageData);
 
         [OperationContract]
         void UpdateCatalogVersion(string login, string xmlVersion);
@@ -62,12 +62,15 @@ namespace DigitalWcfService
     //}
 
     //[DataContract]
-    //public class Version
+    //public class Version111
     //{
     //    [DataMember]
     //    public int UserId { get; set; }
 
     //    [DataMember]
     //    public string Xml { get; set; }
+
+    //    [DataMember]
+    //    public Stream Fstream { get; set; }
     //}
 }

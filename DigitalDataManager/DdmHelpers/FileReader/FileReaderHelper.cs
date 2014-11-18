@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileSystemManager.FileReader
+namespace DdmHelpers.FileReader
 {
     public static class FileReaderHelper
     {
@@ -17,9 +17,9 @@ namespace FileSystemManager.FileReader
 
                 stream.Read(data, 0, data.Length);
                 fileStream.Write(data, 0, data.Length);
-            }  
+            }
         }
-        
+
         public static Stream ReadStreamFromFile(string filePath)
         {
             using (FileStream fileStream = File.Open(filePath, FileMode.Open))

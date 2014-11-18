@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalDataManager", "Digit
 		{15B3E0D2-6217-493A-A690-158C497F5318} = {15B3E0D2-6217-493A-A690-158C497F5318}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemManager", "FileManager\FileSystemManager.csproj", "{92DB1C26-336D-4C3F-8E9D-34F6964907E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientFsManager", "FileManager\ClientFsManager.csproj", "{92DB1C26-336D-4C3F-8E9D-34F6964907E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalWcfService", "DigitalWcfService\DigitalWcfService.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbController", "DbController\DbController.csproj", "{36273EAE-0A88-4B9F-967F-5AA04763687B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DdmHelpers", "DdmHelpers\DdmHelpers.csproj", "{D30164D5-ABC3-4694-B226-A29D1B8D8926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerFsManager", "ServerFileManager\ServerFsManager.csproj", "{CDE7B74E-DC09-4309-A08D-D762FEB5D159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{D30164D5-ABC3-4694-B226-A29D1B8D8926}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D30164D5-ABC3-4694-B226-A29D1B8D8926}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D30164D5-ABC3-4694-B226-A29D1B8D8926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE7B74E-DC09-4309-A08D-D762FEB5D159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE7B74E-DC09-4309-A08D-D762FEB5D159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE7B74E-DC09-4309-A08D-D762FEB5D159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE7B74E-DC09-4309-A08D-D762FEB5D159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
