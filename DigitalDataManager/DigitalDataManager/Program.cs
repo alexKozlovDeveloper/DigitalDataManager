@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DbController.Repositoryes;
+using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
 using FileSystemManager;
 using FileSystemManager.FileReader;
@@ -21,6 +22,11 @@ namespace DigitalDataManager
     {
         static void Main()
         {
+            //var ms = FileReaderHelper.ReadStreamFromFile(@"D:\test1.png");
+
+            //FileReaderHelper.WriteStreamInFile(ms, @"D:\test1!!!!!!!!!!!!!!!.png");
+
+
             //var image = new MemoryStream();
             
             //var test = new Test {Login = "a", Name = "b", ImageStream = image};
@@ -140,6 +146,8 @@ namespace DigitalDataManager
             //var vers = fd.GetLastCatalogVersion("Alex");
 
             var fm = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
+
+           // var cl = new ServiceReference1.DigitalServiceClient();
 
             //var rep = new Repository("");
 

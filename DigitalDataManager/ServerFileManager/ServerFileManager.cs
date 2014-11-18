@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using DdmHelpers.FileReader;
 
 namespace ServerFsManager
 {
@@ -61,13 +62,7 @@ namespace ServerFsManager
         {
             var fielPath = GetUserFolderPath(userName) + fileName;
 
-            var file = System.IO.File.OpenWrite(fielPath);
-
-            var data = new byte[fileStream.Length];
-
-            fileStream.Read(data, 0, data.Length);
-
-            file.Write(data, 0, (int)fileStream.Length);
+            FileReaderHelper.WriteStreamInFile(fileStream, fielPath);
 
             return fielPath;
         }
@@ -76,26 +71,20 @@ namespace ServerFsManager
         {
             var fielPath = GetUserFolderPath(userName) + fileName;
 
-            var file = System.IO.File.OpenWrite(fielPath);
-
-            var data = new byte[fileStream.Length];
-
-            fileStream.Read(data, 0, data.Length);
-
-            file.Write(data, 0, (int)fileStream.Length);
+            FileReaderHelper.WriteStreamInFile(fileStream, fielPath);
 
             return fielPath;
         }
 
-        public MemoryStream GetFileStream(string path)
-        {
-            var ms = new MemoryStream();
-            var fs = System.IO.File.OpenRead(path);
-            fs.CopyTo(ms);
-            fs.Close();
-            ms.Position = 0;
+        //public MemoryStream GetFileStream(string path)
+        //{
+        //    var ms = new MemoryStream();
+        //    var fs = System.IO.File.OpenRead(path);
+        //    fs.CopyTo(ms);
+        //    fs.Close();
+        //    ms.Position = 0;
 
-            return ms;
-        }
+        //    return ms;
+        //}
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 //using FileSystemManager.DdmServiceReference;
+using System.ServiceModel;
+using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
 using FileSystemManager.DdmServiceReference;
@@ -24,7 +26,8 @@ namespace FileSystemManager
         public string Login = "Alex";
 
         private CatalogVersion _catalogVersion;
-        private readonly DigitalServiceClient _wcfClient;
+        //private readonly DigitalServiceClient _wcfClient;
+        private readonly IDigitalService _wcfClient;
 
         public string CatalogVersionPath
         {
@@ -61,7 +64,18 @@ namespace FileSystemManager
                 XmlVersionReader.WriteVeriosn(CatalogVersionPath, _catalogVersion);
             }
 
-            _wcfClient = new DigitalServiceClient();
+            //Could not find endpoint element with name 'BasicHttpBinding_IDigitalService' and contract 
+            //'DdmServiceReference.IDigitalService' in the ServiceModel client configuration section. This might 
+            //be because no configuration file was found for your application, or because no endpoint element 
+            //matching this name could be found in the client element.
+
+
+            var myBinding = new BasicHttpBinding();
+            var myEndpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/");
+            var myChannelFactory = new ChannelFactory<IDigitalService>(myBinding, myEndpoint);
+            _wcfClient = myChannelFactory.CreateChannel();
+
+            //_wcfClient = new DigitalServiceClient();
 
             //_fileVersion = new FileVersionInfo(FileVersionPath);
 
@@ -125,7 +139,8 @@ namespace FileSystemManager
 
                         var image = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        CreateFile(image, RootPath + changeCommand.ActualVersion.FileName);
+                        FileReaderHelper.WriteStreamInFile(image, RootPath + changeCommand.ActualVersion.FileName);
+
                     }break;
                     case ChangeType.Update:
                     {
@@ -133,7 +148,7 @@ namespace FileSystemManager
 
                         var image = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        UpdateFile(image, RootPath + changeCommand.ActualVersion.FileName);
+                        FileReaderHelper.WriteStreamInFile(image, RootPath + changeCommand.ActualVersion.FileName);
 
                     }break;
                     default:
@@ -156,7 +171,7 @@ namespace FileSystemManager
                     {
                         // подгружаем на сервер новую картинку
 
-                        var imageStream = GetFileStream(RootPath + changeCommand.ActualVersion.FileName);
+                        var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
 
                         var data = new ImageData
                         {
@@ -172,7 +187,7 @@ namespace FileSystemManager
                     {
                         // подгружаем на сервер новую картинку и заменяем ее старую
 
-                        var imageStream = GetFileStream(RootPath + changeCommand.ActualVersion.FileName);
+                        var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
 
                         var data = new ImageData
                         {
@@ -192,41 +207,41 @@ namespace FileSystemManager
         }
 
 
-        public string CreateFile(Stream fileStream, string filePath)
-        {
-            var file = System.IO.File.OpenWrite(filePath);
+        //public string CreateFile(Stream fileStream, string filePath)
+        //{
+        //    var file = System.IO.File.OpenWrite(filePath);
 
-            var data = new byte[fileStream.Length];
+        //    var data = new byte[fileStream.Length];
 
-            fileStream.Read(data, 0, data.Length);
+        //    fileStream.Read(data, 0, data.Length);
 
-            file.Write(data, 0, (int)fileStream.Length);
+        //    file.Write(data, 0, (int)fileStream.Length);
 
-            return filePath;
-        }
+        //    return filePath;
+        //}
 
-        public string UpdateFile(Stream fileStream, string filePath)
-        {
-            var file = System.IO.File.OpenWrite(filePath);
+        //public string UpdateFile(Stream fileStream, string filePath)
+        //{
+        //    var file = System.IO.File.OpenWrite(filePath);
 
-            var data = new byte[fileStream.Length];
+        //    var data = new byte[fileStream.Length];
 
-            fileStream.Read(data, 0, data.Length);
+        //    fileStream.Read(data, 0, data.Length);
 
-            file.Write(data, 0, (int)fileStream.Length);
+        //    file.Write(data, 0, (int)fileStream.Length);
 
-            return filePath;
-        }
+        //    return filePath;
+        //}
 
-        public MemoryStream GetFileStream(string path)
-        {
-            var ms = new MemoryStream();
-            var fs = System.IO.File.OpenRead(path);
-            fs.CopyTo(ms);
-            fs.Close();
-            ms.Position = 0;
+        //public MemoryStream GetFileStream(string path)
+        //{
+        //    var ms = new MemoryStream();
+        //    var fs = System.IO.File.OpenRead(path);
+        //    fs.CopyTo(ms);
+        //    fs.Close();
+        //    ms.Position = 0;
 
-            return ms;
-        }
+        //    return ms;
+        //}
     }
 }

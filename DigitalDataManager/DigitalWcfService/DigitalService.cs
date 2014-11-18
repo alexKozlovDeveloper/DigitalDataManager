@@ -17,7 +17,7 @@ namespace DigitalWcfService
     {
         public string RootPath 
         {
-            get { return ""; }
+            get { return @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server"; }
         }
 
         public string GetData(string value)
