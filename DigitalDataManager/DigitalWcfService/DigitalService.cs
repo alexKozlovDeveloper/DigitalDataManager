@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using DbController.Repositoryes;
+using FileSystemManager.FileReader;
 
 namespace DigitalWcfService
 {
@@ -21,23 +24,57 @@ namespace DigitalWcfService
             return string.Format("You entered: {0}", value);
         }
 
-        public void UpdateCatalogVersion(string login, string xmlVersion)
+        public Stream GetImage(string login, string imageName)
+        {
+            var rep = new Repository(RootPath);
+            var image = rep.GetImage(login, imageName);
+            return FileReaderHelper.ReadStreamFromFile(image.Path);
+        }
+
+        public void AddNewImage(string login, string albumName, string imageName, Stream image)
         {
             var rep = new Repository(RootPath);
 
             var user = rep.GetUserByName(login);
 
+            var album = (from item in user.Albums
+                where item.Name == albumName
+                select item).ToList();
+
+            if (album.Count != 0)
+            {
+                rep.CreateImage(login, album[0].Id, imageName, image);
+            }
+        }
+
+        public void UpdateImage(string login, string albumName, string imageName, Stream image)
+        {
+            var rep = new Repository(RootPath);
+
+            var user = rep.GetUserByName(login);
+
+            var album = (from item in user.Albums
+                where item.Name == albumName
+                select item).ToList();
+
+            if (album.Count != 0)
+            {
+                rep.UpdateImage(login, album[0].Id, imageName, image);
+            }
+        }
+
+        public void UpdateCatalogVersion(string login, string xmlVersion)
+        {
+            var rep = new Repository(RootPath);
+            var user = rep.GetUserByName(login);
             rep.AddUserVersion(user.Id, xmlVersion);
         }
 
         public string GetLastCatalogVersion(string login)
         {
             var rep = new Repository(RootPath);
-
             var user = rep.GetUserByName(login);
-
             var lastV =  rep.GetLastUserVersion(user.Id);
-
             return lastV != null ? lastV.VersionXml : null;
         }
 

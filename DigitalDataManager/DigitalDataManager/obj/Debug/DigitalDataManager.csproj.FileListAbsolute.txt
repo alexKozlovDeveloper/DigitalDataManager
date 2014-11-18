@@ -23,3 +23,4 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\Digital
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.exe
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.pdb
+C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache

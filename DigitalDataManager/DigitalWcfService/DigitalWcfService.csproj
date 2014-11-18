@@ -65,6 +65,10 @@
       <Project>{36273EAE-0A88-4B9F-967F-5AA04763687B}</Project>
       <Name>DbController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileManager\FileSystemManager.csproj">
+      <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
+      <Name>FileSystemManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\WCF\Microsoft.VisualStudio.ServiceModel.targets" />

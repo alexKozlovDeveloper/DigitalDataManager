@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -14,9 +15,19 @@ namespace DigitalWcfService
     {
         [OperationContract]
         string GetData(string value);
-
+        
         //[OperationContract]
         //CompositeType GetDataUsingDataContract(CompositeType composite);
+
+        [OperationContract]
+        Stream GetImage(string login, string imageName);
+
+        [OperationContract]
+        void AddNewImage(string login, string albumName, string imageName, Stream image);
+
+        [OperationContract]
+        void UpdateImage(string login, string albumName, string imageName, Stream image);
+
 
         [OperationContract]
         void UpdateCatalogVersion(string login, string xmlVersion);

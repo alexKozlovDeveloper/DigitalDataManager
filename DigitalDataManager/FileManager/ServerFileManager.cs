@@ -54,25 +54,43 @@ namespace FileSystemManager
 
         public string GetUserFolderPath(string userName)
         {
-            return UsersPath + userName;
+            return UsersPath + userName + "\\";
         }
 
-        public void CreateFile(MemoryStream fileStream, string name)
+        public string CreateFile(Stream fileStream, string userName, string fileName)
         {
-            var file = System.IO.File.OpenWrite(UsersPath + name);
+            var fielPath = GetUserFolderPath(userName) + fileName;
 
-            file.Write(fileStream.ToArray(), 0, (int)fileStream.Length);
+            var file = System.IO.File.OpenWrite(fielPath);
+            
+            var data = new byte[fileStream.Length];
+
+            fileStream.Read(data, 0, data.Length);
+
+            file.Write(data, 0, (int)fileStream.Length);
+
+            return fielPath;
         }
 
-        public void UpdateFile(MemoryStream fileStream, string name)
+        public string UpdateFile(Stream fileStream, string userName, string fileName)
         {
+            var fielPath = GetUserFolderPath(userName) + fileName;
 
+            var file = System.IO.File.OpenWrite(fielPath);
+
+            var data = new byte[fileStream.Length];
+
+            fileStream.Read(data, 0, data.Length);
+
+            file.Write(data, 0, (int)fileStream.Length);
+
+            return fielPath;
         }
 
-        public MemoryStream GetFileStream(string name)
+        public MemoryStream GetFileStream(string path)
         {
             var ms = new MemoryStream();
-            var fs = System.IO.File.OpenRead(UsersPath + name);
+            var fs = System.IO.File.OpenRead(path);
             fs.CopyTo(ms);
             fs.Close();
             ms.Position = 0;

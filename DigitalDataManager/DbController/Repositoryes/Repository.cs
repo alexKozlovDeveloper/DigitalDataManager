@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace DbController.Repositoryes
 
         public Repository(string rootpath)
         {
-            // _manager = new ServerFileManager(rootpath);
+             _manager = new ServerFileManager(rootpath);
         }
 
 
@@ -69,6 +70,46 @@ namespace DbController.Repositoryes
             return GetAlbum(id);
         }
 
+        public Image CreateImage(string userName, Guid albumId, string imageName, Stream imageStream)
+        {
+            var id = Guid.NewGuid();
+
+            var path = _manager.CreateFile(imageStream, userName, imageName);
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var image = new ImageDbItem
+                {
+                    Id = id,
+                    Name = imageName,
+                    Path = path
+                };
+
+                var album = GetAlbum(db, albumId);
+
+                album.Images.Add(image);
+
+                db.SaveChanges();
+            }
+
+            return GetImage(id);
+        }
+
+        public Image UpdateImage(string userName, Guid albumId, string imageName,Stream imageStream)
+        {
+            using (var db = new DdmDateBaseContext())
+            {
+                var album = GetAlbum(db, albumId);
+
+                var image = (from item in album.Images
+                             where item.Name == imageName
+                             select item).ToList();
+
+                _manager.UpdateFile(imageStream,userName, imageName);
+
+                return DbConverter.GetImage(image[0]);
+            }
+        }
 
         public User GetUser(Guid userId)
         {
@@ -125,6 +166,30 @@ namespace DbController.Repositoryes
                 var image = GetImage(db, imageId);
 
                 res = DbConverter.GetImage(image);
+            }
+
+            return res;
+        }
+
+        public Image GetImage(string userName, string imageName)
+        {
+            Image res = null;
+
+            using (var db = new DdmDateBaseContext())
+            {
+                var user = GetUser(db, userName);
+
+                foreach (var album in user.Albums)
+                {
+                    var images = (from item in album.Images
+                                  where item.Name == imageName
+                                  select item).ToList();
+
+                    if (images.Count != 0)
+                    {
+                        res = DbConverter.GetImage(images[0]);
+                    }
+                }
             }
 
             return res;
@@ -297,6 +362,17 @@ namespace DbController.Repositoryes
         {
             var users = (from item in db.Users
                          where item.Id == id
+                         select item).ToList();
+
+            var user = users.FirstOrDefault();
+
+            return user;
+        }
+
+        private UserDbItem GetUser(DdmDateBaseContext db, string name)
+        {
+            var users = (from item in db.Users
+                         where item.Login == name
                          select item).ToList();
 
             var user = users.FirstOrDefault();
