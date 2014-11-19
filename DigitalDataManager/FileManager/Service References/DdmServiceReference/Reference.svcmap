@@ -26,9 +26,6 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="35f369ea-1027-41c6-9651-416ea356072b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="56b7eb5d-3f9b-4d08-bdb1-591d276ac3a4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
     <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="d2565663-932b-4a6d-a8e5-c674d1dd8460" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="DigitalWcfService.Entityes.xsd" MetadataType="Schema" ID="32507c6c-2e47-45f1-bb6b-6b96aa77a96e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="System.IO.xsd" MetadataType="Schema" ID="1618983b-e715-4d49-875f-97e1cbd35f6d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
-    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="f7ee3ffc-6bf7-4383-b32e-53b5a25bfbe8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DigitalWcfService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

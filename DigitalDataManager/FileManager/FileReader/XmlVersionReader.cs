@@ -10,7 +10,7 @@ using FileSystemManager.FileVersionHelper.FileVersionItems;
 
 namespace FileSystemManager.FileReader
 {
-    public static class XmlVersionReader
+    public static class XmlVersionHelper
     {
         public static CatalogVersion ReadVersion(string filePath)
         {

@@ -24,10 +24,10 @@ namespace DigitalWcfService
         Stream GetImage(string login, string imageName);
 
         [OperationContract]
-        void AddNewImage(ImageData imageData);
+        void AddNewImage(Stream imageDataStream);
 
         [OperationContract]
-        void UpdateImage(ImageData imageData);
+        void UpdateImage(Stream imageDataStream);
 
         [OperationContract]
         void UpdateCatalogVersion(string login, string xmlVersion);

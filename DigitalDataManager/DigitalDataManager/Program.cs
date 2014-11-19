@@ -11,10 +11,12 @@ using System.Threading.Tasks;
 using DbController.Repositoryes;
 using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
+using DigitalWcfService.Entityes;
 using FileSystemManager;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper.FileVersionItems;
 using FileSystemManager.VersionChanges;
+using DigitalWcfService.Entityes;
 
 namespace DigitalDataManager
 {
@@ -151,8 +153,24 @@ namespace DigitalDataManager
             //var rep = new Repository("");
 
             //var t = rep.GetUserByName("Alex");
-            #endregion
 
+            //var ms = FileReaderHelper.ReadStreamFromFile(@"D:\test1.png");
+
+            //var data = new ImageData { AlbumName = "A", Login = "B", ImageName = "C", ImageStream = ms};
+
+            //var g = BinarySerializerHelper.Serialize(data);
+            //var res = BinarySerializerHelper.Deserialize<ImageData>(g);
+
+            //var stream = ImageDataHelper.ToStream(data, ms);
+
+            //ImageData resData = null;
+            //Stream imageStream = null;
+
+            //ImageDataHelper.ToObjects(stream, out resData, out imageStream);
+
+            //FileReaderHelper.WriteStreamInFile(res.ImageStream, @"D:\test1FromStream.png");
+            #endregion
+            
             var fm = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
             fm.UpdateFileVersion();

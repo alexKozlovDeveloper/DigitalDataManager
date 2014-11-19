@@ -55,13 +55,13 @@ namespace FileSystemManager
 
             if (File.Exists(CatalogVersionPath))
             {
-                _catalogVersion = XmlVersionReader.ReadVersion(CatalogVersionPath);
+                _catalogVersion = XmlVersionHelper.ReadVersion(CatalogVersionPath);
             }
             else
             {
                 _catalogVersion = new CatalogVersion();
                 _catalogVersion.CreateEmpty(RootPath);
-                XmlVersionReader.WriteVeriosn(CatalogVersionPath, _catalogVersion);
+                XmlVersionHelper.WriteVeriosn(CatalogVersionPath, _catalogVersion);
             }
 
             //Could not find endpoint element with name 'BasicHttpBinding_IDigitalService' and contract 
@@ -121,6 +121,8 @@ namespace FileSystemManager
 
                 _catalogVersion = newVersion;
             }
+
+            XmlVersionHelper.WriteVeriosn(CatalogVersionPath, _catalogVersion);
         }
 
         public void UpdateClientFiles(List<ChangeCommand> changes)
@@ -137,9 +139,11 @@ namespace FileSystemManager
                     {
                         // подгружаем с сервера новую версию картинки и копируем в папку
 
-                        var image = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
+                        var imageDataStream = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        FileReaderHelper.WriteStreamInFile(image, RootPath + changeCommand.ActualVersion.FileName);
+                        var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+
+                        FileReaderHelper.WriteStreamInFile(imageData.ImageStream, RootPath + changeCommand.ActualVersion.FileName);
 
                     }break;
                     case ChangeType.Update:
@@ -181,7 +185,9 @@ namespace FileSystemManager
                             ImageStream = imageStream
                         };
 
-                        _wcfClient.AddNewImage(data);
+                        var requestData = BinarySerializerHelper.Serialize(data);
+
+                        _wcfClient.AddNewImage(requestData);
                     }break;
                     case ChangeType.Update:
                     {
@@ -197,7 +203,7 @@ namespace FileSystemManager
                             ImageStream = imageStream
                         };
 
-                        _wcfClient.AddNewImage(data);
+                        _wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
 
                     }break;
                     default:

@@ -3,6 +3,12 @@
   <VersionNumber>
     <Number>0</Number>
   </VersionNumber>
-  <Files />
-  <CatalogPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client</CatalogPath>
+  <Files>
+    <FileVersion>
+      <Checksum>8a4873ef816d7ef01431977d960f6915</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images.jpg</FullPath>
+      <FileName>images.jpg</FileName>
+    </FileVersion>
+  </Files>
+  <CatalogPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\</CatalogPath>
 </CatalogVersion>

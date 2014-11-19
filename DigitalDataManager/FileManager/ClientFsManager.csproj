@@ -72,9 +72,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Service References\DdmServiceReference\DigitalWcfService.Entityes.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\DdmServiceReference\Message.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -83,12 +80,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DdmServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DdmServiceReference\System.IO.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DdmServiceReference\System.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

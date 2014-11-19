@@ -28,16 +28,16 @@ namespace FileSystemManager.DdmServiceReference {
         System.Threading.Tasks.Task<System.IO.Stream> GetImageAsync(string login, string imageName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AddNewImage", ReplyAction="http://tempuri.org/IDigitalService/AddNewImageResponse")]
-        void AddNewImage(DigitalWcfService.Entityes.ImageData imageData);
+        void AddNewImage(System.IO.Stream imageDataStream);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AddNewImage", ReplyAction="http://tempuri.org/IDigitalService/AddNewImageResponse")]
-        System.Threading.Tasks.Task AddNewImageAsync(DigitalWcfService.Entityes.ImageData imageData);
+        System.Threading.Tasks.Task AddNewImageAsync(System.IO.Stream imageDataStream);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateImage", ReplyAction="http://tempuri.org/IDigitalService/UpdateImageResponse")]
-        void UpdateImage(DigitalWcfService.Entityes.ImageData imageData);
+        void UpdateImage(System.IO.Stream imageDataStream);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateImage", ReplyAction="http://tempuri.org/IDigitalService/UpdateImageResponse")]
-        System.Threading.Tasks.Task UpdateImageAsync(DigitalWcfService.Entityes.ImageData imageData);
+        System.Threading.Tasks.Task UpdateImageAsync(System.IO.Stream imageDataStream);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/UpdateCatalogVersionResponse")]
         void UpdateCatalogVersion(string login, string xmlVersion);
@@ -95,20 +95,20 @@ namespace FileSystemManager.DdmServiceReference {
             return base.Channel.GetImageAsync(login, imageName);
         }
         
-        public void AddNewImage(DigitalWcfService.Entityes.ImageData imageData) {
-            base.Channel.AddNewImage(imageData);
+        public void AddNewImage(System.IO.Stream imageDataStream) {
+            base.Channel.AddNewImage(imageDataStream);
         }
         
-        public System.Threading.Tasks.Task AddNewImageAsync(DigitalWcfService.Entityes.ImageData imageData) {
-            return base.Channel.AddNewImageAsync(imageData);
+        public System.Threading.Tasks.Task AddNewImageAsync(System.IO.Stream imageDataStream) {
+            return base.Channel.AddNewImageAsync(imageDataStream);
         }
         
-        public void UpdateImage(DigitalWcfService.Entityes.ImageData imageData) {
-            base.Channel.UpdateImage(imageData);
+        public void UpdateImage(System.IO.Stream imageDataStream) {
+            base.Channel.UpdateImage(imageDataStream);
         }
         
-        public System.Threading.Tasks.Task UpdateImageAsync(DigitalWcfService.Entityes.ImageData imageData) {
-            return base.Channel.UpdateImageAsync(imageData);
+        public System.Threading.Tasks.Task UpdateImageAsync(System.IO.Stream imageDataStream) {
+            return base.Channel.UpdateImageAsync(imageDataStream);
         }
         
         public void UpdateCatalogVersion(string login, string xmlVersion) {

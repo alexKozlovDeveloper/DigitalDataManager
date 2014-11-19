@@ -335,7 +335,7 @@ namespace DbController.Repositoryes
             {
                 var version = new UserDateVersionDbItem
                 {
-                    Id = new Guid(),
+                    Id = Guid.NewGuid(),
                     UserId = userId,
                     VersionXml = xml
                 };

@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.Text;
 using DbController.Repositoryes;
 using DdmHelpers.FileReader;
+using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
 
 namespace DigitalWcfService
@@ -29,11 +30,18 @@ namespace DigitalWcfService
         {
             var rep = new Repository(RootPath);
             var image = rep.GetImage(login, imageName);
-            return FileReaderHelper.ReadStreamFromFile(image.Path);
+
+            var imageStream = FileReaderHelper.ReadStreamFromFile(image.Path);
+
+            var imageData = new ImageData {ImageName = imageName,Login = login,ImageStream = imageStream};
+
+            return BinarySerializerHelper.Serialize(imageData);
         }
 
-        public void AddNewImage(ImageData imageData)
+        public void AddNewImage(Stream imageDataStream)
         {
+            var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+
             var rep = new Repository(RootPath);
 
             var user = rep.GetUserByName(imageData.Login);
@@ -48,8 +56,10 @@ namespace DigitalWcfService
             }
         }
 
-        public void UpdateImage(ImageData imageData)
+        public void UpdateImage(Stream imageDataStream)
         {
+            var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+
             var rep = new Repository(RootPath);
 
             var user = rep.GetUserByName(imageData.Login);
