@@ -91,6 +91,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
+      <Project>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</Project>
+      <Name>DdmHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServerFileManager\ServerFsManager.csproj">
       <Project>{cde7b74e-dc09-4309-a08d-d762feb5d159}</Project>
       <Name>ServerFsManager</Name>

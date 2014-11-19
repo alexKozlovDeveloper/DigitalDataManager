@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <CatalogVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VersionNumber>
-    <Number>0</Number>
+    <Number>3</Number>
   </VersionNumber>
   <Files>
+    <FileVersion>
+      <Checksum>f38f61ae67d7f0713c41d176fad414fa</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images (2).jpg</FullPath>
+      <FileName>images (2).jpg</FileName>
+    </FileVersion>
     <FileVersion>
       <Checksum>8a4873ef816d7ef01431977d960f6915</Checksum>
       <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images.jpg</FullPath>

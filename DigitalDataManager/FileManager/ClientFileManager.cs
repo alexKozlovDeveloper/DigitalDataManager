@@ -94,10 +94,11 @@ namespace FileSystemManager
             if (serverVers == null)
             {
                 _wcfClient.UpdateCatalogVersion(Login, _catalogVersion.ToXmlString());
-                serverVers = _catalogVersion.ToXmlString();
+                serverVers.VersionXml = _catalogVersion.ToXmlString();
             }
 
-            var serverVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers);
+            var serverVersion = XmlSerializerHelper.Deserialize<CatalogVersion>(serverVers.VersionXml);
+            serverVersion.VersionNumber.Number = (int)serverVers.VersionNumber;
 
             var changes = VersionComparator.Compare(_catalogVersion, serverVersion);
 
@@ -107,6 +108,7 @@ namespace FileSystemManager
             _catalogVersion = serverVersion;
 
             var newVersion = new CatalogVersion(RootPath);
+            newVersion.VersionNumber.Number = _catalogVersion.VersionNumber.Number + 1;
 
             if (newVersion.Equals(_catalogVersion) == false)
             {

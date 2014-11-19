@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
+using DbController.Entityes;
 using DbController.Repositoryes;
 using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
@@ -81,12 +82,12 @@ namespace DigitalWcfService
             rep.AddUserVersion(user.Id, xmlVersion);
         }
 
-        public string GetLastCatalogVersion(string login)
+        public UserDateVersion GetLastCatalogVersion(string login)
         {
             var rep = new Repository(RootPath);
             var user = rep.GetUserByName(login);
             var lastV =  rep.GetLastUserVersion(user.Id);
-            return lastV != null ? lastV.VersionXml : null;
+            return lastV;// != null ? lastV.VersionXml : null;
         }
 
         // public string GetLastFile

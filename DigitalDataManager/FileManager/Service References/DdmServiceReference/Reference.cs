@@ -9,7 +9,102 @@
 //------------------------------------------------------------------------------
 
 namespace FileSystemManager.DdmServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserDateVersion", Namespace="http://schemas.datacontract.org/2004/07/DbController.Entityes")]
+    [System.SerializableAttribute()]
+    public partial class UserDateVersion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal VersionNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VersionXmlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal VersionNumber {
+            get {
+                return this.VersionNumberField;
+            }
+            set {
+                if ((this.VersionNumberField.Equals(value) != true)) {
+                    this.VersionNumberField = value;
+                    this.RaisePropertyChanged("VersionNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VersionXml {
+            get {
+                return this.VersionXmlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VersionXmlField, value) != true)) {
+                    this.VersionXmlField = value;
+                    this.RaisePropertyChanged("VersionXml");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DdmServiceReference.IDigitalService")]
@@ -46,10 +141,10 @@ namespace FileSystemManager.DdmServiceReference {
         System.Threading.Tasks.Task UpdateCatalogVersionAsync(string login, string xmlVersion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse")]
-        string GetLastCatalogVersion(string login);
+        FileSystemManager.DdmServiceReference.UserDateVersion GetLastCatalogVersion(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse")]
-        System.Threading.Tasks.Task<string> GetLastCatalogVersionAsync(string login);
+        System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -119,11 +214,11 @@ namespace FileSystemManager.DdmServiceReference {
             return base.Channel.UpdateCatalogVersionAsync(login, xmlVersion);
         }
         
-        public string GetLastCatalogVersion(string login) {
+        public FileSystemManager.DdmServiceReference.UserDateVersion GetLastCatalogVersion(string login) {
             return base.Channel.GetLastCatalogVersion(login);
         }
         
-        public System.Threading.Tasks.Task<string> GetLastCatalogVersionAsync(string login) {
+        public System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login) {
             return base.Channel.GetLastCatalogVersionAsync(login);
         }
     }

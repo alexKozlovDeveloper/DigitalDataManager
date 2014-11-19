@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Xml;
+using DbController.Entityes;
 using DigitalWcfService.Entityes;
 
 namespace DigitalWcfService
@@ -33,7 +34,7 @@ namespace DigitalWcfService
         void UpdateCatalogVersion(string login, string xmlVersion);
 
         [OperationContract]
-        string GetLastCatalogVersion(string login);
+        UserDateVersion GetLastCatalogVersion(string login);
 
         // TODO: Add your service operations here
     }
