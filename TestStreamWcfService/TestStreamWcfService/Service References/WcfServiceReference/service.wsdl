@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfStreamService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPhotoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoList" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPhotoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPhotoStream_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoStream" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPhotoStream_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AppendFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppendFile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AppendFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppendFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFilePart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilePart" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFilePart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilePartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFileSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileSize" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFileSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileSizeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFile" message="tns:IService1_GetFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFileResponse" message="tns:IService1_GetFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddFile" message="tns:IService1_AddFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddFileResponse" message="tns:IService1_AddFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPhotoList" message="tns:IService1_GetPhotoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPhotoListResponse" message="tns:IService1_GetPhotoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoStream">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPhotoStream" message="tns:IService1_GetPhotoStream_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPhotoStreamResponse" message="tns:IService1_GetPhotoStream_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AppendFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AppendFile" message="tns:IService1_AppendFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AppendFileResponse" message="tns:IService1_AppendFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFilePart" message="tns:IService1_GetFilePart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFilePartResponse" message="tns:IService1_GetFilePart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFileSize" message="tns:IService1_GetFileSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFileSizeResponse" message="tns:IService1_GetFileSize_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoList">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPhotoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoStream">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPhotoStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppendFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/AppendFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePart">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFilePart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileSize">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFileSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfStreamService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
