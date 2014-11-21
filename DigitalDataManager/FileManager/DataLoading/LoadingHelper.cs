@@ -23,65 +23,65 @@ namespace FileSystemManager.DataLoading
 
         public void LoadFileToServer(PartFileData data, string filePath)
         {
-            //using (var fs = File.OpenRead(filePath))
-            //{
-            //    var n = 0;
+            using (var fs = File.OpenRead(filePath))
+            {
+                var n = 0;
 
-            //    while (fs.Position < fs.Length)
-            //    {
-            //        var bufferSize = PartSize;
+                while (fs.Position < fs.Length)
+                {
+                    var bufferSize = PartSize;
 
-            //        if (fs.Length - PartSize * n < PartSize)
-            //        {
-            //            bufferSize = (int)fs.Length - PartSize * n;
-            //        }
+                    if (fs.Length - PartSize * n < PartSize)
+                    {
+                        bufferSize = (int)fs.Length - PartSize * n;
+                    }
 
-            //        var buffer = new byte[bufferSize];
+                    var buffer = new byte[bufferSize];
 
-            //        fs.Read(buffer, 0, bufferSize);
+                    fs.Read(buffer, 0, bufferSize);
 
-            //        var ms = new MemoryStream(buffer);
+                    var ms = new MemoryStream(buffer);
 
-            //        data.ImageStream = ms;
+                    data.ImageStream = ms;
 
-            //        _client.AppendFile(BinarySerializerHelper.Serialize(data));
+                    _client.AppendFile(BinarySerializerHelper.Serialize(data));
 
-            //        n++;
-            //    }
-            //}
+                    n++;
+                }
+            }
         }
 
         public void DownloadFileToClient(PartFileData data, string filePath)
         {
-            //if (!File.Exists(filePath))
-            //{
-            //    using (File.Create(filePath)) { }
-            //}
+            if (!File.Exists(filePath))
+            {
+                using (File.Create(filePath)) { }
+            }
 
-            //using (var fs = File.OpenWrite(filePath))
-            //{
-            //    var size = _client.GetFileSize(data);
+            using (var fs = File.OpenWrite(filePath))
+            {
+                var size = _client.GetFileSize(BinarySerializerHelper.Serialize(data));
 
-            //    int n = 0;
+                var n = 0;
 
-            //    while (fs.Length < size)
-            //    {
-            //        var item = BinarySerializerHelper.Deserialize<PartFileData>(_client.GetFilePart(data, n));
+                while (fs.Length < size)
+                {
+                    var item = BinarySerializerHelper.Deserialize<PartFileData>(_client.GetFilePart(BinarySerializerHelper.Serialize(data)));
 
-            //        var buffer = new byte[item.FileStream.Length];
+                    var buffer = new byte[item.ImageStream.Length];
 
-            //        item.FileStream.Read(buffer, 0, (int)item.FileStream.Length);
+                    item.ImageStream.Read(buffer, 0, (int)item.ImageStream.Length);
 
-            //        if (fs.Length != 0)
-            //        {
-            //            fs.Position = fs.Length;
-            //        }
+                    if (fs.Length != 0)
+                    {
+                        fs.Position = fs.Length;
+                    }
 
-            //        fs.Write(buffer, 0, (int)item.FileStream.Length);
+                    fs.Write(buffer, 0, (int)item.ImageStream.Length);
 
-            //        n++;
-            //    }
-            //}
+                    n++;
+                }
+            }
         }
     }
 }

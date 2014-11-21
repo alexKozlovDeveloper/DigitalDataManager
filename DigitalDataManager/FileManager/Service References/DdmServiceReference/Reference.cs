@@ -145,6 +145,24 @@ namespace FileSystemManager.DdmServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse")]
         System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
+        System.IO.Stream GetFilePart(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
+        System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
+        void AppendFile(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
+        System.Threading.Tasks.Task AppendFileAsync(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
+        int GetFileSize(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
+        System.Threading.Tasks.Task<int> GetFileSizeAsync(System.IO.Stream data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -220,6 +238,30 @@ namespace FileSystemManager.DdmServiceReference {
         
         public System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login) {
             return base.Channel.GetLastCatalogVersionAsync(login);
+        }
+        
+        public System.IO.Stream GetFilePart(System.IO.Stream data) {
+            return base.Channel.GetFilePart(data);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(System.IO.Stream data) {
+            return base.Channel.GetFilePartAsync(data);
+        }
+        
+        public void AppendFile(System.IO.Stream data) {
+            base.Channel.AppendFile(data);
+        }
+        
+        public System.Threading.Tasks.Task AppendFileAsync(System.IO.Stream data) {
+            return base.Channel.AppendFileAsync(data);
+        }
+        
+        public int GetFileSize(System.IO.Stream data) {
+            return base.Channel.GetFileSize(data);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetFileSizeAsync(System.IO.Stream data) {
+            return base.Channel.GetFileSizeAsync(data);
         }
     }
 }
