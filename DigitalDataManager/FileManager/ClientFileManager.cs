@@ -143,7 +143,7 @@ namespace FileSystemManager
 
                         var imageDataStream = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+                        var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
 
                         FileReaderHelper.WriteStreamInFile(imageData.ImageStream, RootPath + changeCommand.ActualVersion.FileName);
 
@@ -179,7 +179,7 @@ namespace FileSystemManager
 
                         var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
 
-                        var data = new ImageData
+                        var data = new PartFileData
                         {
                             AlbumName = "All", // ?????
                             ImageName = changeCommand.ActualVersion.FileName,
@@ -197,7 +197,7 @@ namespace FileSystemManager
 
                         var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
 
-                        var data = new ImageData
+                        var data = new PartFileData
                         {
                             AlbumName = "All", // ?????
                             ImageName = changeCommand.ActualVersion.FileName,

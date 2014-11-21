@@ -11,7 +11,7 @@ namespace DigitalWcfService.Entityes
 {
     [Serializable]
     [DataContract]
-    public class ImageData
+    public class PartFileData
     {
         [DataMember]
         public string Login { get; set; }
@@ -24,6 +24,9 @@ namespace DigitalWcfService.Entityes
 
         [DataMember]
         public Stream ImageStream { get; set; }
+
+        [DataMember]
+        public int PartNumber { get; set; }
     }
 
     //public static class ImageDataHelper

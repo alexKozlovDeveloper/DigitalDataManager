@@ -34,14 +34,14 @@ namespace DigitalWcfService
 
             var imageStream = FileReaderHelper.ReadStreamFromFile(image.Path);
 
-            var imageData = new ImageData {ImageName = imageName,Login = login,ImageStream = imageStream};
+            var imageData = new PartFileData {ImageName = imageName,Login = login,ImageStream = imageStream};
 
             return BinarySerializerHelper.Serialize(imageData);
         }
 
         public void AddNewImage(Stream imageDataStream)
         {
-            var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+            var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
 
             var rep = new Repository(RootPath);
 
@@ -59,7 +59,7 @@ namespace DigitalWcfService
 
         public void UpdateImage(Stream imageDataStream)
         {
-            var imageData = BinarySerializerHelper.Deserialize<ImageData>(imageDataStream);
+            var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
 
             var rep = new Repository(RootPath);
 

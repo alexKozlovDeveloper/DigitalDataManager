@@ -49,7 +49,6 @@
     <Compile Include="Checksum\CsHelper.cs" />
     <Compile Include="FileReader\CreateUpdateFile.cs" />
     <Compile Include="FileReader\FileReaderHelper.cs" />
-    <Compile Include="LoadingToServer\LoadingHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialize\BinarySerializerHelper.cs" />
     <Compile Include="Serialize\XmlSerializerHelper.cs" />

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientFileManager.cs" />
+    <Compile Include="DataLoading\LoadingHelper.cs" />
     <Compile Include="FileReader\XmlVersionReader.cs" />
     <Compile Include="FileVersionHelper\FileVersionInfo.cs" />
     <Compile Include="FileVersionHelper\FileVersionItems\CatalogVersion.cs" />
