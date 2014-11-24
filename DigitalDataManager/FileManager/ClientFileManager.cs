@@ -6,6 +6,7 @@ using System.ServiceModel;
 using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
+using FileSystemManager.DataLoading;
 using FileSystemManager.DdmServiceReference;
 using FileSystemManager.FileReader;
 using FileSystemManager.FileVersionHelper;
@@ -87,6 +88,11 @@ namespace FileSystemManager
             return Directory.GetFiles(_root, SearchPattern);
         }
 
+        public string GetFilePath(string fileName)
+        {
+            return RootPath + fileName;
+        }
+
         public void UpdateFileVersion()
         {
             var serverVers = _wcfClient.GetLastCatalogVersion(Login);
@@ -141,20 +147,30 @@ namespace FileSystemManager
                     {
                         // подгружаем с сервера новую версию картинки и копируем в папку
 
-                        var imageDataStream = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
+                        //var imageDataStream = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
+                        //var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
 
-                        FileReaderHelper.WriteStreamInFile(imageData.ImageStream, RootPath + changeCommand.ActualVersion.FileName);
+                        //FileReaderHelper.WriteStreamInFile(imageData.ImageStream, GetFilePath(changeCommand.ActualVersion.FileName));
+
+                        var loader = new LoadingHelper(_wcfClient);
+
+                        loader.DownloadFileToClient(Login, changeCommand.ActualVersion.FileName, GetFilePath(changeCommand.ActualVersion.FileName));
 
                     }break;
                     case ChangeType.Update:
                     {
                         // подгружаем с сервера новую версию картинки и заменяем ей существующюю
 
-                        var image = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
+                        //var imageDataStream = _wcfClient.GetImage(Login, changeCommand.ActualVersion.FileName);
 
-                        FileReaderHelper.WriteStreamInFile(image, RootPath + changeCommand.ActualVersion.FileName);
+                        //var imageData = BinarySerializerHelper.Deserialize<PartFileData>(imageDataStream);
+
+                        //FileReaderHelper.WriteStreamInFile(imageData.ImageStream, GetFilePath(changeCommand.ActualVersion.FileName));
+
+                        var loader = new LoadingHelper(_wcfClient);
+
+                        loader.DownloadFileToClient(Login, changeCommand.ActualVersion.FileName, GetFilePath(changeCommand.ActualVersion.FileName));
 
                     }break;
                     default:
@@ -177,7 +193,9 @@ namespace FileSystemManager
                     {
                         // подгружаем на сервер новую картинку
 
-                        var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
+                        //var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
+
+                        var imageStream = new MemoryStream();
 
                         var data = new PartFileData
                         {
@@ -187,15 +205,24 @@ namespace FileSystemManager
                             ImageStream = imageStream
                         };
 
-                        var requestData = BinarySerializerHelper.Serialize(data);
+                        //var requestData = BinarySerializerHelper.Serialize(data);
 
-                        _wcfClient.AddNewImage(requestData);
+                        //_wcfClient.AddNewImage(requestData);
+
+                        _wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
+
+                        var loader = new LoadingHelper(_wcfClient);
+
+                        loader.LoadFileToServer(data, GetFilePath(changeCommand.ActualVersion.FileName));
+
                     }break;
                     case ChangeType.Update:
                     {
                         // подгружаем на сервер новую картинку и заменяем ее старую
 
-                        var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
+                        //var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
+
+                        var imageStream = new MemoryStream();
 
                         var data = new PartFileData
                         {
@@ -206,6 +233,12 @@ namespace FileSystemManager
                         };
 
                         _wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
+
+                        var loader = new LoadingHelper(_wcfClient);
+
+                        loader.LoadFileToServer(data, GetFilePath(changeCommand.ActualVersion.FileName));
+
+                        //_wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
 
                     }break;
                     default:

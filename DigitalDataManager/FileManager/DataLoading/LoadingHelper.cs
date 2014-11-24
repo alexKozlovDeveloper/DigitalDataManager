@@ -11,11 +11,11 @@ using FileSystemManager.DdmServiceReference;
 
 namespace FileSystemManager.DataLoading
 {
-    class LoadingHelper
+    public class LoadingHelper
     {
-        private readonly DigitalServiceClient _client;
+        private readonly IDigitalService _client;
 
-        public LoadingHelper(DigitalServiceClient client)
+        public LoadingHelper(IDigitalService client)
         {
             _client = client;
         }
@@ -51,7 +51,7 @@ namespace FileSystemManager.DataLoading
             }
         }
 
-        public void DownloadFileToClient(PartFileData data, string filePath)
+        public void DownloadFileToClient(string login, string fileName, string filePath)
         {
             if (!File.Exists(filePath))
             {
@@ -60,13 +60,13 @@ namespace FileSystemManager.DataLoading
 
             using (var fs = File.OpenWrite(filePath))
             {
-                var size = _client.GetFileSize(BinarySerializerHelper.Serialize(data));
+                var size = _client.GetFileSize(login, fileName);
 
                 var n = 0;
 
                 while (fs.Length < size)
                 {
-                    var item = BinarySerializerHelper.Deserialize<PartFileData>(_client.GetFilePart(BinarySerializerHelper.Serialize(data)));
+                    var item = BinarySerializerHelper.Deserialize<PartFileData>(_client.GetFilePart(login, fileName, n));
 
                     var buffer = new byte[item.ImageStream.Length];
 

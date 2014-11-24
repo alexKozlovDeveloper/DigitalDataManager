@@ -2,20 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/Message" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/DbController.Entityes" />
-  <xs:element name="GetData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetImage">
     <xs:complexType>
       <xs:sequence>
@@ -85,21 +71,23 @@
   <xs:element name="GetFilePart">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="data" type="q5:StreamBody" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partNumber" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFilePartResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/Message" name="GetFilePartResult" type="q6:StreamBody" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="GetFilePartResult" type="q5:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AppendFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="data" type="q7:StreamBody" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/Message" name="data" type="q6:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -111,14 +99,15 @@
   <xs:element name="GetFileSize">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/Message" name="data" type="q8:StreamBody" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFileSizeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetFileSizeResult" type="xs:int" />
+        <xs:element minOccurs="0" name="GetFileSizeResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

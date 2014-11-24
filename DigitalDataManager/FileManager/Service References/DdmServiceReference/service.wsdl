@@ -8,12 +8,6 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DbController.Entityes" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IDigitalService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="IDigitalService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
   <wsdl:message name="IDigitalService_GetImage_InputMessage">
     <wsdl:part name="parameters" element="tns:GetImage" />
   </wsdl:message>
@@ -63,10 +57,6 @@
     <wsdl:part name="parameters" element="tns:GetFileSizeResponse" />
   </wsdl:message>
   <wsdl:portType name="IDigitalService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetData" message="tns:IDigitalService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetDataResponse" message="tns:IDigitalService_GetData_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetImage" message="tns:IDigitalService_GetImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetImageResponse" message="tns:IDigitalService_GetImage_OutputMessage" />
@@ -102,15 +92,6 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDigitalService" type="tns:IDigitalService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IDigitalService/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetImage">
       <soap:operation soapAction="http://tempuri.org/IDigitalService/GetImage" style="document" />
       <wsdl:input>

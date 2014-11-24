@@ -110,12 +110,6 @@ namespace FileSystemManager.DdmServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DdmServiceReference.IDigitalService")]
     public interface IDigitalService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetData", ReplyAction="http://tempuri.org/IDigitalService/GetDataResponse")]
-        string GetData(string value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetData", ReplyAction="http://tempuri.org/IDigitalService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(string value);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetImage", ReplyAction="http://tempuri.org/IDigitalService/GetImageResponse")]
         System.IO.Stream GetImage(string login, string imageName);
         
@@ -147,10 +141,10 @@ namespace FileSystemManager.DdmServiceReference {
         System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
-        System.IO.Stream GetFilePart(System.IO.Stream data);
+        System.IO.Stream GetFilePart(string login, string fileName, int partNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
-        System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(System.IO.Stream data);
+        System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(string login, string fileName, int partNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
         void AppendFile(System.IO.Stream data);
@@ -159,10 +153,10 @@ namespace FileSystemManager.DdmServiceReference {
         System.Threading.Tasks.Task AppendFileAsync(System.IO.Stream data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
-        int GetFileSize(System.IO.Stream data);
+        long GetFileSize(string login, string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
-        System.Threading.Tasks.Task<int> GetFileSizeAsync(System.IO.Stream data);
+        System.Threading.Tasks.Task<long> GetFileSizeAsync(string login, string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -190,14 +184,6 @@ namespace FileSystemManager.DdmServiceReference {
         
         public DigitalServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string GetData(string value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
-            return base.Channel.GetDataAsync(value);
         }
         
         public System.IO.Stream GetImage(string login, string imageName) {
@@ -240,12 +226,12 @@ namespace FileSystemManager.DdmServiceReference {
             return base.Channel.GetLastCatalogVersionAsync(login);
         }
         
-        public System.IO.Stream GetFilePart(System.IO.Stream data) {
-            return base.Channel.GetFilePart(data);
+        public System.IO.Stream GetFilePart(string login, string fileName, int partNumber) {
+            return base.Channel.GetFilePart(login, fileName, partNumber);
         }
         
-        public System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(System.IO.Stream data) {
-            return base.Channel.GetFilePartAsync(data);
+        public System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(string login, string fileName, int partNumber) {
+            return base.Channel.GetFilePartAsync(login, fileName, partNumber);
         }
         
         public void AppendFile(System.IO.Stream data) {
@@ -256,12 +242,12 @@ namespace FileSystemManager.DdmServiceReference {
             return base.Channel.AppendFileAsync(data);
         }
         
-        public int GetFileSize(System.IO.Stream data) {
-            return base.Channel.GetFileSize(data);
+        public long GetFileSize(string login, string fileName) {
+            return base.Channel.GetFileSize(login, fileName);
         }
         
-        public System.Threading.Tasks.Task<int> GetFileSizeAsync(System.IO.Stream data) {
-            return base.Channel.GetFileSizeAsync(data);
+        public System.Threading.Tasks.Task<long> GetFileSizeAsync(string login, string fileName) {
+            return base.Channel.GetFileSizeAsync(login, fileName);
         }
     }
 }
