@@ -316,6 +316,12 @@ namespace FileSystemManager.DdmServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetAllAlbum", ReplyAction="http://tempuri.org/IDigitalService/GetAllAlbumResponse")]
         System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.Album[]> GetAllAlbumAsync(string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/CreateNewAlbum", ReplyAction="http://tempuri.org/IDigitalService/CreateNewAlbumResponse")]
+        void CreateNewAlbum(string login, string albumName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/CreateNewAlbum", ReplyAction="http://tempuri.org/IDigitalService/CreateNewAlbumResponse")]
+        System.Threading.Tasks.Task CreateNewAlbumAsync(string login, string albumName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
         System.IO.Stream GetFilePart(string login, string fileName, int partNumber);
         
@@ -408,6 +414,14 @@ namespace FileSystemManager.DdmServiceReference {
         
         public System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.Album[]> GetAllAlbumAsync(string login) {
             return base.Channel.GetAllAlbumAsync(login);
+        }
+        
+        public void CreateNewAlbum(string login, string albumName) {
+            base.Channel.CreateNewAlbum(login, albumName);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewAlbumAsync(string login, string albumName) {
+            return base.Channel.CreateNewAlbumAsync(login, albumName);
         }
         
         public System.IO.Stream GetFilePart(string login, string fileName, int partNumber) {

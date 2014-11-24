@@ -81,6 +81,8 @@ namespace FileSystemManager
             //_fileVersion = new FileVersionInfo(FileVersionPath);
 
             //_fileVersion.UpdateFilesChecksum(GetAllFilePath());
+
+            //_wcfClient.CreateNewAlbum(Login,"News");
         }
 
         public IEnumerable<string> GetAllFilePath()

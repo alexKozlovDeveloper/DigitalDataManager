@@ -98,6 +98,13 @@ namespace DigitalWcfService
             return rep.GetAllAlbums(user.Id);
         }
 
+        public void CreateNewAlbum(string login, string albumName)
+        {
+            var rep = new Repository(RootPath);
+            var user = rep.GetUserByName(login);
+            rep.CreateAlbum(albumName, user.Id);
+        }
+
         public Stream GetFilePart(string login, string fileName, int partNumber)
         {
             var rep = new Repository(RootPath);

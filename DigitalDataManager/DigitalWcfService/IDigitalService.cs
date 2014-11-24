@@ -39,6 +39,9 @@ namespace DigitalWcfService
         [OperationContract]
         IEnumerable<Album> GetAllAlbum(string login);
 
+        [OperationContract]
+        void CreateNewAlbum(string login, string albumName);
+
         // TODO: Add your service operations here
 
         [OperationContract]

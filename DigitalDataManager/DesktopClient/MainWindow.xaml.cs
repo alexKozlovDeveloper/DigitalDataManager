@@ -59,13 +59,18 @@ namespace DesktopClient
 
             foreach (var album in albums)
             {
+                var content = new ScrollViewer
+                {
+                    Content = new Grid(),
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Width = AlbumTabControl.Width - 10
+                };
+
                 var tab = new TabItem
                 {
                     Header = album.Name,
-                    Content = new ScrollViewer
-                    {
-                        Content = new Grid()
-                    }
+                    Content = content
                 };
 
                 var viewer = new ImagesViewer(tab.Content as ScrollViewer);
@@ -85,18 +90,7 @@ namespace DesktopClient
                 _albumViewers.Add(viewer);
             }
 
-            AlbumTabControl.SelectedItem = AlbumTabControl.Items[0];
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            //Init();
-
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            //_imagesViewer.Clear();
+            //AlbumTabControl.SelectedItem = AlbumTabControl.Items[0];
         }
     }
 }
