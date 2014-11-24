@@ -357,6 +357,11 @@ namespace DbController.Repositoryes
         }
 
 
+        public string GetFilePath(string login, string fileName)
+        {
+            return _manager.GetFilePath(login, fileName);
+        }
+
 
         private UserDbItem GetUser(DdmDateBaseContext db, Guid id)
         {

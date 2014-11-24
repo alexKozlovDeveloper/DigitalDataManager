@@ -4,18 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DdmHelpers.Const;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
+using FileSystemManager.DdmServiceReference;
 
 namespace FileSystemManager.DataLoading
 {
     class LoadingHelper
     {
-        public const int PartSize = 1000;
+        private readonly DigitalServiceClient _client;
 
-        private readonly DdmServiceReference.DigitalServiceClient _client;
-
-        public LoadingHelper(DdmServiceReference.DigitalServiceClient client)
+        public LoadingHelper(DigitalServiceClient client)
         {
             _client = client;
         }
@@ -29,11 +29,11 @@ namespace FileSystemManager.DataLoading
 
                 while (fs.Position < fs.Length)
                 {
-                    var bufferSize = PartSize;
+                    var bufferSize = ConstHelper.PartSize;
 
-                    if (fs.Length - PartSize * n < PartSize)
+                    if (fs.Length - ConstHelper.PartSize * n < ConstHelper.PartSize)
                     {
-                        bufferSize = (int)fs.Length - PartSize * n;
+                        bufferSize = (int)fs.Length - ConstHelper.PartSize * n;
                     }
 
                     var buffer = new byte[bufferSize];

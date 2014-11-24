@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.Text;
 using DbController.Entityes;
 using DbController.Repositoryes;
+using DdmHelpers.Const;
 using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
@@ -22,10 +23,10 @@ namespace DigitalWcfService
             get { return @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server"; }
         }
 
-        public string GetData(string value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
+        //public string GetData(string value)
+        //{
+        //    return string.Format("You entered: {0}", value);
+        //}
 
         public Stream GetImage(string login, string imageName)
         {
@@ -90,21 +91,22 @@ namespace DigitalWcfService
             return lastV;// != null ? lastV.VersionXml : null;
         }
 
-        public Stream GetFilePart(Stream data)
+
+        public Stream GetFilePart(string login, string fileName, int partNumber)
         {
-            var item = BinarySerializerHelper.Deserialize<PartFileData>(data);
-            var PartSize = 1000;
-            var filePath = ":";
+            var rep = new Repository(RootPath);
+
+            var filePath = rep.GetFilePath(login, fileName);
 
             using (var fs = File.OpenRead(filePath))
             {
-                fs.Position = PartSize * item.PartNumber;
+                fs.Position = ConstHelper.PartSize * partNumber;
 
-                var size = PartSize;
+                var size = ConstHelper.PartSize;
 
-                if (fs.Length - PartSize * item.PartNumber < PartSize)
+                if (fs.Length - ConstHelper.PartSize * partNumber < ConstHelper.PartSize)
                 {
-                    size = (int)fs.Length - PartSize * item.PartNumber;
+                    size = (int)fs.Length - ConstHelper.PartSize * partNumber;
                 }
 
                 var buffer = new byte[size];
@@ -126,7 +128,9 @@ namespace DigitalWcfService
         {
             var item = BinarySerializerHelper.Deserialize<PartFileData>(data);
 
-            var filePath = ":"; // путь к файлу куда писать
+            var rep = new Repository(RootPath);
+
+            var filePath = rep.GetFilePath(item.Login, item.ImageName);
 
             if (!File.Exists(filePath))
             {
@@ -148,9 +152,11 @@ namespace DigitalWcfService
             }
         }
 
-        public long GetFileSize(Stream data)
+        public long GetFileSize(string login, string fileName)
         {
-            var filePath = ":";
+            var rep = new Repository(RootPath);
+
+            var filePath = rep.GetFilePath(login, fileName);
 
             using (var fs = File.OpenRead(filePath))
             {

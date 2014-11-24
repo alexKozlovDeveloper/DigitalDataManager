@@ -76,6 +76,11 @@ namespace ServerFsManager
             return fielPath;
         }
 
+        public string GetFilePath(string login, string fileName)
+        {
+            return UsersPath + login + "\\" + fileName;
+        }
+
         //public MemoryStream GetFileStream(string path)
         //{
         //    var ms = new MemoryStream();

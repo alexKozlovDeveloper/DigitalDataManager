@@ -15,8 +15,8 @@ namespace DigitalWcfService
     [ServiceContract]
     public interface IDigitalService
     {
-        [OperationContract]
-        string GetData(string value);
+        //[OperationContract]
+        //string GetData(string value);
         
         //[OperationContract]
         //CompositeType GetDataUsingDataContract(CompositeType composite);
@@ -39,13 +39,13 @@ namespace DigitalWcfService
         // TODO: Add your service operations here
 
         [OperationContract]
-        Stream GetFilePart(Stream data);
+        Stream GetFilePart(string login, string fileName, int partNumber);
 
         [OperationContract]
         void AppendFile(Stream data);
 
         [OperationContract]
-        long GetFileSize(Stream data);
+        long GetFileSize(string login, string fileName);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
