@@ -43,8 +43,9 @@ namespace FileSystemManager.DataLoading
                     var ms = new MemoryStream(buffer);
 
                     data.ImageStream = ms;
+                    data.PartNumber = n;
 
-                    _client.AppendFile(BinarySerializerHelper.Serialize(data));
+                    var t = _client.AppendFile(BinarySerializerHelper.Serialize(data));
 
                     n++;
                 }

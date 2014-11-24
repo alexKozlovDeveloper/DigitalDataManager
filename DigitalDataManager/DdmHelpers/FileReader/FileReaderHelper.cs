@@ -11,7 +11,7 @@ namespace DdmHelpers.FileReader
     {
         public static void WriteStreamInFile(Stream stream, string filePath)
         {
-            using (FileStream fileStream = File.Create(filePath, (int)stream.Length))
+            using (var fileStream = File.Create(filePath, (int)stream.Length))
             {
                 var data = new byte[stream.Length];
 

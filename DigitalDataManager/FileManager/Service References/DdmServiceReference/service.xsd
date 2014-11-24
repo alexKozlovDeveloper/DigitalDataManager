@@ -93,7 +93,9 @@
   </xs:element>
   <xs:element name="AppendFileResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppendFileResult" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFileSize">

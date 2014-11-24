@@ -42,7 +42,7 @@ namespace DigitalWcfService
         Stream GetFilePart(string login, string fileName, int partNumber);
 
         [OperationContract]
-        void AppendFile(Stream data);
+        bool AppendFile(Stream data);
 
         [OperationContract]
         long GetFileSize(string login, string fileName);

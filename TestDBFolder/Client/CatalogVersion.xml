@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <CatalogVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VersionNumber>
-    <Number>3</Number>
+    <Number>5</Number>
   </VersionNumber>
   <Files>
+    <FileVersion>
+      <Checksum>15ac6f535633b18daca46c5200dd63ad</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\hs-2014-27-c-print.jpg</FullPath>
+      <FileName>hs-2014-27-c-print.jpg</FileName>
+    </FileVersion>
     <FileVersion>
       <Checksum>f38f61ae67d7f0713c41d176fad414fa</Checksum>
       <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images (2).jpg</FullPath>
@@ -13,6 +18,11 @@
       <Checksum>8a4873ef816d7ef01431977d960f6915</Checksum>
       <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\images.jpg</FullPath>
       <FileName>images.jpg</FileName>
+    </FileVersion>
+    <FileVersion>
+      <Checksum>8a4873ef816d7ef01431977d960f6915</Checksum>
+      <FullPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\imgNew.jpg</FullPath>
+      <FileName>imgNew.jpg</FileName>
     </FileVersion>
   </Files>
   <CatalogPath>C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client\</CatalogPath>

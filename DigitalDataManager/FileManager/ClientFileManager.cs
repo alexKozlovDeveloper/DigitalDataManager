@@ -195,21 +195,18 @@ namespace FileSystemManager
 
                         //var imageStream = FileReaderHelper.ReadStreamFromFile(RootPath + changeCommand.ActualVersion.FileName);
 
-                        var imageStream = new MemoryStream();
-
                         var data = new PartFileData
                         {
                             AlbumName = "All", // ?????
                             ImageName = changeCommand.ActualVersion.FileName,
                             Login = Login,
-                            ImageStream = imageStream
                         };
 
                         //var requestData = BinarySerializerHelper.Serialize(data);
 
                         //_wcfClient.AddNewImage(requestData);
 
-                        _wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
+                        //_wcfClient.AddNewImage(BinarySerializerHelper.Serialize(data));
 
                         var loader = new LoadingHelper(_wcfClient);
 

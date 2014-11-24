@@ -88,7 +88,7 @@ namespace DigitalWcfService
             var rep = new Repository(RootPath);
             var user = rep.GetUserByName(login);
             var lastV = rep.GetLastUserVersion(user.Id);
-            return lastV;// != null ? lastV.VersionXml : null;
+            return lastV;
         }
 
 
@@ -124,7 +124,7 @@ namespace DigitalWcfService
             }
         }
 
-        public void AppendFile(Stream data)
+        public bool AppendFile(Stream data)
         {
             var item = BinarySerializerHelper.Deserialize<PartFileData>(data);
 
@@ -135,21 +135,50 @@ namespace DigitalWcfService
             if (!File.Exists(filePath))
             {
                 using (File.Create(filePath)) { }
-            }
 
-            using (var fs = File.OpenWrite(filePath))
-            {
-                var buffer = new byte[item.ImageStream.Length];
+                var user = rep.GetUserByName(item.Login);
 
-                item.ImageStream.Read(buffer, 0, (int)item.ImageStream.Length);
+                var album = (from obj in user.Albums
+                             where obj.Name == item.AlbumName
+                             select obj).ToList();
 
-                if (fs.Length != 0)
+                if (album.Count != 0)
                 {
-                    fs.Position = fs.Length;
+                    rep.CreateImage(item.Login, album[0].Id, item.ImageName, item.ImageStream);
                 }
 
-                fs.Write(buffer, 0, (int)item.ImageStream.Length);
+                return true;
             }
+
+            while (true)
+            {
+                try
+                {
+                    using (var fs = File.OpenWrite(filePath))
+                    {
+                        var buffer = new byte[item.ImageStream.Length];
+
+                        item.ImageStream.Read(buffer, 0, (int) item.ImageStream.Length);
+
+                        fs.Position = ConstHelper.PartSize*item.PartNumber;
+
+                        //if (fs.Length != 0)
+                        //{
+                        //    fs.Position = fs.Length;
+                        //}
+
+                        fs.Write(buffer, 0, (int) item.ImageStream.Length);
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            return true;
         }
 
         public long GetFileSize(string login, string fileName)

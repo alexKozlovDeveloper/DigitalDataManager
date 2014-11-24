@@ -147,10 +147,10 @@ namespace FileSystemManager.DdmServiceReference {
         System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(string login, string fileName, int partNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
-        void AppendFile(System.IO.Stream data);
+        bool AppendFile(System.IO.Stream data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
-        System.Threading.Tasks.Task AppendFileAsync(System.IO.Stream data);
+        System.Threading.Tasks.Task<bool> AppendFileAsync(System.IO.Stream data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
         long GetFileSize(string login, string fileName);
@@ -234,11 +234,11 @@ namespace FileSystemManager.DdmServiceReference {
             return base.Channel.GetFilePartAsync(login, fileName, partNumber);
         }
         
-        public void AppendFile(System.IO.Stream data) {
-            base.Channel.AppendFile(data);
+        public bool AppendFile(System.IO.Stream data) {
+            return base.Channel.AppendFile(data);
         }
         
-        public System.Threading.Tasks.Task AppendFileAsync(System.IO.Stream data) {
+        public System.Threading.Tasks.Task<bool> AppendFileAsync(System.IO.Stream data) {
             return base.Channel.AppendFileAsync(data);
         }
         
