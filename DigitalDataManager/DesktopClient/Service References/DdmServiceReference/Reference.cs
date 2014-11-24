@@ -15,19 +15,24 @@ namespace DesktopClient.DdmServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Version", Namespace="http://schemas.datacontract.org/2004/07/DigitalWcfService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Album", Namespace="http://schemas.datacontract.org/2004/07/DbController.Entityes")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
-    public partial class Version : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Album : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
+        private System.Guid IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object[] XmlDocumentField;
+        private DesktopClient.DdmServiceReference.Image[] ImagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -40,7 +45,46 @@ namespace DesktopClient.DdmServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DesktopClient.DdmServiceReference.Image[] Images {
+            get {
+                return this.ImagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagesField, value) != true)) {
+                    this.ImagesField = value;
+                    this.RaisePropertyChanged("Images");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid UserId {
             get {
                 return this.UserIdField;
             }
@@ -52,15 +96,79 @@ namespace DesktopClient.DdmServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public object[] XmlDocument {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/DbController.Entityes")]
+    [System.SerializableAttribute()]
+    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PathField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.XmlDocumentField;
+                return this.extensionDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.XmlDocumentField, value) != true)) {
-                    this.XmlDocumentField = value;
-                    this.RaisePropertyChanged("XmlDocument");
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path {
+            get {
+                return this.PathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PathField, value) != true)) {
+                    this.PathField = value;
+                    this.RaisePropertyChanged("Path");
                 }
             }
         }
@@ -79,17 +187,59 @@ namespace DesktopClient.DdmServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DdmServiceReference.IDigitalService")]
     public interface IDigitalService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetData", ReplyAction="http://tempuri.org/IDigitalService/GetDataResponse")]
-        string GetData(string value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetImage", ReplyAction="http://tempuri.org/IDigitalService/GetImageResponse")]
+        System.IO.Stream GetImage(string login, string imageName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetData", ReplyAction="http://tempuri.org/IDigitalService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(string value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetImage", ReplyAction="http://tempuri.org/IDigitalService/GetImageResponse")]
+        System.Threading.Tasks.Task<System.IO.Stream> GetImageAsync(string login, string imageName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateFileVersion", ReplyAction="http://tempuri.org/IDigitalService/UpdateFileVersionResponse")]
-        void UpdateFileVersion(DesktopClient.DdmServiceReference.Version version);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AddNewImage", ReplyAction="http://tempuri.org/IDigitalService/AddNewImageResponse")]
+        void AddNewImage(System.IO.Stream imageDataStream);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateFileVersion", ReplyAction="http://tempuri.org/IDigitalService/UpdateFileVersionResponse")]
-        System.Threading.Tasks.Task UpdateFileVersionAsync(DesktopClient.DdmServiceReference.Version version);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AddNewImage", ReplyAction="http://tempuri.org/IDigitalService/AddNewImageResponse")]
+        System.Threading.Tasks.Task AddNewImageAsync(System.IO.Stream imageDataStream);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateImage", ReplyAction="http://tempuri.org/IDigitalService/UpdateImageResponse")]
+        void UpdateImage(System.IO.Stream imageDataStream);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateImage", ReplyAction="http://tempuri.org/IDigitalService/UpdateImageResponse")]
+        System.Threading.Tasks.Task UpdateImageAsync(System.IO.Stream imageDataStream);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/UpdateCatalogVersionResponse")]
+        void UpdateCatalogVersion(string login, string xmlVersion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/UpdateCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/UpdateCatalogVersionResponse")]
+        System.Threading.Tasks.Task UpdateCatalogVersionAsync(string login, string xmlVersion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse")]
+        FileSystemManager.DdmServiceReference.UserDateVersion GetLastCatalogVersion(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion", ReplyAction="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse")]
+        System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetAllAlbum", ReplyAction="http://tempuri.org/IDigitalService/GetAllAlbumResponse")]
+        DesktopClient.DdmServiceReference.Album[] GetAllAlbum(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetAllAlbum", ReplyAction="http://tempuri.org/IDigitalService/GetAllAlbumResponse")]
+        System.Threading.Tasks.Task<DesktopClient.DdmServiceReference.Album[]> GetAllAlbumAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
+        System.IO.Stream GetFilePart(string login, string fileName, int partNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFilePart", ReplyAction="http://tempuri.org/IDigitalService/GetFilePartResponse")]
+        System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(string login, string fileName, int partNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
+        bool AppendFile(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/AppendFile", ReplyAction="http://tempuri.org/IDigitalService/AppendFileResponse")]
+        System.Threading.Tasks.Task<bool> AppendFileAsync(System.IO.Stream data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
+        long GetFileSize(string login, string fileName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDigitalService/GetFileSize", ReplyAction="http://tempuri.org/IDigitalService/GetFileSizeResponse")]
+        System.Threading.Tasks.Task<long> GetFileSizeAsync(string login, string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -119,20 +269,76 @@ namespace DesktopClient.DdmServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(string value) {
-            return base.Channel.GetData(value);
+        public System.IO.Stream GetImage(string login, string imageName) {
+            return base.Channel.GetImage(login, imageName);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<System.IO.Stream> GetImageAsync(string login, string imageName) {
+            return base.Channel.GetImageAsync(login, imageName);
         }
         
-        public void UpdateFileVersion(DesktopClient.DdmServiceReference.Version version) {
-            base.Channel.UpdateFileVersion(version);
+        public void AddNewImage(System.IO.Stream imageDataStream) {
+            base.Channel.AddNewImage(imageDataStream);
         }
         
-        public System.Threading.Tasks.Task UpdateFileVersionAsync(DesktopClient.DdmServiceReference.Version version) {
-            return base.Channel.UpdateFileVersionAsync(version);
+        public System.Threading.Tasks.Task AddNewImageAsync(System.IO.Stream imageDataStream) {
+            return base.Channel.AddNewImageAsync(imageDataStream);
+        }
+        
+        public void UpdateImage(System.IO.Stream imageDataStream) {
+            base.Channel.UpdateImage(imageDataStream);
+        }
+        
+        public System.Threading.Tasks.Task UpdateImageAsync(System.IO.Stream imageDataStream) {
+            return base.Channel.UpdateImageAsync(imageDataStream);
+        }
+        
+        public void UpdateCatalogVersion(string login, string xmlVersion) {
+            base.Channel.UpdateCatalogVersion(login, xmlVersion);
+        }
+        
+        public System.Threading.Tasks.Task UpdateCatalogVersionAsync(string login, string xmlVersion) {
+            return base.Channel.UpdateCatalogVersionAsync(login, xmlVersion);
+        }
+        
+        public FileSystemManager.DdmServiceReference.UserDateVersion GetLastCatalogVersion(string login) {
+            return base.Channel.GetLastCatalogVersion(login);
+        }
+        
+        public System.Threading.Tasks.Task<FileSystemManager.DdmServiceReference.UserDateVersion> GetLastCatalogVersionAsync(string login) {
+            return base.Channel.GetLastCatalogVersionAsync(login);
+        }
+        
+        public DesktopClient.DdmServiceReference.Album[] GetAllAlbum(string login) {
+            return base.Channel.GetAllAlbum(login);
+        }
+        
+        public System.Threading.Tasks.Task<DesktopClient.DdmServiceReference.Album[]> GetAllAlbumAsync(string login) {
+            return base.Channel.GetAllAlbumAsync(login);
+        }
+        
+        public System.IO.Stream GetFilePart(string login, string fileName, int partNumber) {
+            return base.Channel.GetFilePart(login, fileName, partNumber);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.Stream> GetFilePartAsync(string login, string fileName, int partNumber) {
+            return base.Channel.GetFilePartAsync(login, fileName, partNumber);
+        }
+        
+        public bool AppendFile(System.IO.Stream data) {
+            return base.Channel.AppendFile(data);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AppendFileAsync(System.IO.Stream data) {
+            return base.Channel.AppendFileAsync(data);
+        }
+        
+        public long GetFileSize(string login, string fileName) {
+            return base.Channel.GetFileSize(login, fileName);
+        }
+        
+        public System.Threading.Tasks.Task<long> GetFileSizeAsync(string login, string fileName) {
+            return base.Channel.GetFileSizeAsync(login, fileName);
         }
     }
 }

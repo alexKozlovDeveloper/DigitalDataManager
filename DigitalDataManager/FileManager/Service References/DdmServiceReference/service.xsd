@@ -68,6 +68,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllAlbum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAlbumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DbController.Entityes" minOccurs="0" name="GetAllAlbumResult" nillable="true" type="q5:ArrayOfAlbum" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetFilePart">
     <xs:complexType>
       <xs:sequence>
@@ -80,14 +94,14 @@
   <xs:element name="GetFilePartResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="GetFilePartResult" type="q5:StreamBody" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/Message" name="GetFilePartResult" type="q6:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AppendFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/Message" name="data" type="q6:StreamBody" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="data" type="q7:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -76,6 +76,9 @@
     <None Include="Service References\DdmServiceReference\DbController.Entityes.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\DdmServiceReference\FileSystemManager.DdmServiceReference.Album.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\DdmServiceReference\FileSystemManager.DdmServiceReference.UserDateVersion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

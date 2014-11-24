@@ -93,15 +93,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FileSystemManager.DdmServiceReference.UserDateVersion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\DdmServiceReference\Arrays.xsd">
+    <None Include="Service References\DdmServiceReference\DbController.Entityes.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DdmServiceReference\DigitalWcfService.xsd">
+    <None Include="Service References\DdmServiceReference\DesktopClient.DdmServiceReference.Album.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DdmServiceReference\Message.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DdmServiceReference\service.wsdl" />

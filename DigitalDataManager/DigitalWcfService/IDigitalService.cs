@@ -36,6 +36,9 @@ namespace DigitalWcfService
         [OperationContract]
         UserDateVersion GetLastCatalogVersion(string login);
 
+        [OperationContract]
+        IEnumerable<Album> GetAllAlbum(string login);
+
         // TODO: Add your service operations here
 
         [OperationContract]

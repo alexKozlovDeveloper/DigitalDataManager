@@ -91,6 +91,12 @@ namespace DigitalWcfService
             return lastV;
         }
 
+        public IEnumerable<Album> GetAllAlbum(string login)
+        {
+            var rep = new Repository(RootPath);
+            var user = rep.GetUserByName(login);
+            return rep.GetAllAlbums(user.Id);
+        }
 
         public Stream GetFilePart(string login, string fileName, int partNumber)
         {

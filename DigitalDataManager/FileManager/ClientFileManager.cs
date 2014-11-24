@@ -113,8 +113,10 @@ namespace FileSystemManager
             // update to server version
             _catalogVersion = serverVersion;
 
-            var newVersion = new CatalogVersion(RootPath);
-            newVersion.VersionNumber.Number = _catalogVersion.VersionNumber.Number + 1;
+            var newVersion = new CatalogVersion(RootPath)
+            {
+                VersionNumber = {Number = _catalogVersion.VersionNumber.Number + 1}
+            };
 
             if (newVersion.Equals(_catalogVersion) == false)
             {
@@ -244,6 +246,10 @@ namespace FileSystemManager
             }
         }
 
+        public IEnumerable<Album> GetAllAlbums()
+        {
+            return _wcfClient.GetAllAlbum(Login);
+        }
 
         //public string CreateFile(Stream fileStream, string filePath)
         //{

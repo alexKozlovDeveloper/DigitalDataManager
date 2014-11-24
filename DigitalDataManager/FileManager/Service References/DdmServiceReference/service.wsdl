@@ -38,6 +38,12 @@
   <wsdl:message name="IDigitalService_GetLastCatalogVersion_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastCatalogVersionResponse" />
   </wsdl:message>
+  <wsdl:message name="IDigitalService_GetAllAlbum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlbum" />
+  </wsdl:message>
+  <wsdl:message name="IDigitalService_GetAllAlbum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlbumResponse" />
+  </wsdl:message>
   <wsdl:message name="IDigitalService_GetFilePart_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFilePart" />
   </wsdl:message>
@@ -76,6 +82,10 @@
     <wsdl:operation name="GetLastCatalogVersion">
       <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetLastCatalogVersion" message="tns:IDigitalService_GetLastCatalogVersion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetLastCatalogVersionResponse" message="tns:IDigitalService_GetLastCatalogVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetAllAlbum" message="tns:IDigitalService_GetAllAlbum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDigitalService/GetAllAlbumResponse" message="tns:IDigitalService_GetAllAlbum_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetFilePart">
       <wsdl:input wsaw:Action="http://tempuri.org/IDigitalService/GetFilePart" message="tns:IDigitalService_GetFilePart_InputMessage" />
@@ -130,6 +140,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetLastCatalogVersion">
       <soap:operation soapAction="http://tempuri.org/IDigitalService/GetLastCatalogVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlbum">
+      <soap:operation soapAction="http://tempuri.org/IDigitalService/GetAllAlbum" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
