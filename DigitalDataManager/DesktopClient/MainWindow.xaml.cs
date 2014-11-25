@@ -24,7 +24,7 @@ namespace DesktopClient
         private readonly ClientFileManager _manager;
         private readonly ImagesViewer _imagesViewer;
 
-        private List<ImagesViewer> _albumViewers;
+        private TabControlHelper _tabHelper;
 
         public MainWindow()
         {
@@ -55,42 +55,17 @@ namespace DesktopClient
 
             var albums = _manager.GetAllAlbums();
 
-            _albumViewers = new List<ImagesViewer>();
+            _tabHelper = new TabControlHelper(AlbumTabControl);
 
             foreach (var album in albums)
             {
-                var content = new ScrollViewer
-                {
-                    Content = new Grid(),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Width = AlbumTabControl.Width - 10
-                };
-
-                var tab = new TabItem
-                {
-                    Header = album.Name,
-                    Content = content
-                };
-
-                var viewer = new ImagesViewer(tab.Content as ScrollViewer);
+                _tabHelper.AddTab(album.Name);
 
                 foreach (var file in album.Images)
                 {
-                    var img = new System.Windows.Controls.Image
-                    {
-                        Source = new BitmapImage(new Uri(_manager.GetFilePath(file.Name))),
-                    };
-
-                    viewer.AddImage(img);
+                    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
                 }
-
-                AlbumTabControl.Items.Add(tab);
-
-                _albumViewers.Add(viewer);
             }
-
-            //AlbumTabControl.SelectedItem = AlbumTabControl.Items[0];
         }
     }
 }
