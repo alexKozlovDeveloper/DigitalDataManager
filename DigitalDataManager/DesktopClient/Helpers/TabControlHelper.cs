@@ -60,5 +60,27 @@ namespace DesktopClient.Helpers
 
             viewer.AddImage(img);
         }
+
+        public void Clear()
+        {
+            _tabControl.Items.Clear();
+            _tabs.Clear();
+            _viewers.Clear();
+        }
+
+        //public void Clear(string tabName)
+        //{
+        //    TabItem tab = null;
+
+        //    foreach (TabItem item in _tabControl.Items)
+        //    {
+        //        if (item.Header as string == tabName)
+        //        {
+        //            tab = item;
+        //        }
+        //    }
+
+
+        //}
     }
 }

@@ -7,11 +7,11 @@
             <ColumnDefinition Width="56*"/>
             <ColumnDefinition Width="159*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Name="ImagesScrollViewer" HorizontalAlignment="Left" Height="733" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" Grid.ColumnSpan="2">
+        <!--<ScrollViewer Name="ImagesScrollViewer" HorizontalAlignment="Left" Height="733" Margin="130,10,0,0" VerticalAlignment="Top" Width="467" Grid.ColumnSpan="2">
             <Grid Name="ImagesGrid">
             </Grid>
-        </ScrollViewer>
-        <TabControl Name="AlbumTabControl"  HorizontalAlignment="Left" Height="733" Margin="203,10,0,0" VerticalAlignment="Top" Width="636" Grid.Column="1">
+        </ScrollViewer>-->
+        <TabControl Name="AlbumTabControl"  HorizontalAlignment="Left" Height="733" Margin="277,10,0,0" VerticalAlignment="Top" Width="636" Grid.Column="1">
             <!--<TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -19,5 +19,7 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>-->
         </TabControl>
+        <Grid Grid.Column="0" Name="TestGrid" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <!--<Image Name="AddImageButton" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50"/>-->
     </Grid>
 </Window>

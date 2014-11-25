@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +15,7 @@ using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
 using FileSystemManager;
 using FileSystemManager.FileVersionHelper;
+using ImageConverter = DesktopClient.Helpers.ImageConverter;
 
 namespace DesktopClient
 {
@@ -30,28 +33,37 @@ namespace DesktopClient
         {
             InitializeComponent();
 
-            _imagesViewer = new ImagesViewer(ImagesScrollViewer);
+            //_imagesViewer = new ImagesViewer(ImagesScrollViewer);
             _manager = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
+
+            var img = new System.Windows.Controls.Image
+            {
+                Source = ImageConverter.ToBitmapImage(Properties.Resources.AddIcon)
+            };
+
+            //AddImageButton.Source = new BitmapImage(new Uri("Add-icon.png"));
+
+            TestGrid.Children.Add(img);
 
             Init();
         }
 
         public void Init()
         {
-            _imagesViewer.Clear();
+            //_imagesViewer.Clear();
 
-            var paths = _manager.GetAllFilePath();
+            //var paths = _manager.GetAllFilePath();
 
-            foreach (var path in paths)
-            {
-                var img = new System.Windows.Controls.Image
-                {
-                    Source = new BitmapImage(new Uri(path)),
-                };
+            //foreach (var path in paths)
+            //{
+            //    var img = new System.Windows.Controls.Image
+            //    {
+            //        Source = new BitmapImage(new Uri(path)),
+            //    };
 
-                _imagesViewer.AddImage(img);
-            }
+            //    _imagesViewer.AddImage(img);
+            //}
 
             var albums = _manager.GetAllAlbums();
 
