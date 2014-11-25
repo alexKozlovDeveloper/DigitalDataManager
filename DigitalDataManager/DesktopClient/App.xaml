@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--<Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background"       Value="Yellow" />
+                </Trigger>
+
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background"      Value="Violet" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
     </Application.Resources>
 </Application>

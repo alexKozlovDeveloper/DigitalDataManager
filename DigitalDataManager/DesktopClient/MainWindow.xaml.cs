@@ -25,81 +25,35 @@ namespace DesktopClient
     public partial class MainWindow : Window
     {
         private readonly ClientFileManager _manager;
-        private readonly ImagesViewer _imagesViewer;
 
         private TabControlHelper _tabHelper;
-
-        private ImageContextMenuHelper im;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            //_imagesViewer = new ImagesViewer(ImagesScrollViewer);
+            
             _manager = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
-
-            var img = new System.Windows.Controls.Image
-            {
-                Source = ImageConverter.ToBitmapImage(Properties.Resources.AddIcon)
-            };
-
-            //AddImageButton.Source = new BitmapImage(new Uri("Add-icon.png"));
-
-            //TestGrid.Children.Add(img);
-
-            //ButtonTest.Content = img;
-            
-            var cm = new ContextMenu();
-            TestMenuButton.ContextMenu = cm;
-            im = new ImageContextMenuHelper(cm);
-
+            MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
             Init();
         }
 
         public void Init()
         {
-            //_imagesViewer.Clear();
+            var albums = _manager.GetAllAlbums();
 
-            //var paths = _manager.GetAllFilePath();
+            _tabHelper = new TabControlHelper(AlbumTabControl);
 
-            //foreach (var path in paths)
-            //{
-            //    var img = new System.Windows.Controls.Image
-            //    {
-            //        Source = new BitmapImage(new Uri(path)),
-            //    };
+            foreach (var album in albums)
+            {
+                _tabHelper.AddTab(album.Name);
 
-            //    _imagesViewer.AddImage(img);
-            //}
-
-            //var albums = _manager.GetAllAlbums();
-
-            //_tabHelper = new TabControlHelper(AlbumTabControl);
-
-            //foreach (var album in albums)
-            //{
-            //    _tabHelper.AddTab(album.Name);
-
-            //    foreach (var file in album.Images)
-            //    {
-            //        _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
-            //    }
-            //}
-        }
-
-
-
-
-        private void OnClosed(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
-        private void OnOpened(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
+                foreach (var file in album.Images)
+                {
+                    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
+                }
+            }
         }
     }
 }

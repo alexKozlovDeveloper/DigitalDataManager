@@ -32,7 +32,8 @@ namespace DesktopClient.Helpers
                 Content = new Grid(),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
-                Width = _tabControl.Width - WidthDifferences
+                Width = _tabControl.Width - WidthDifferences,
+                Height = _tabControl.Height - WidthDifferences
             };
             
             var tab = new TabItem

@@ -1,56 +1,10 @@
 ﻿<Window x:Class="DesktopClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="782.55" Width="1255.5">
+        Title="Digital Data Manager" Height="564" Width="843" Name="MainWindowObject">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="56*"/>
-            <ColumnDefinition Width="159*"/>
-        </Grid.ColumnDefinitions>
-        <!--<ScrollViewer Name="ImagesScrollViewer" HorizontalAlignment="Left" Height="733" Margin="130,10,0,0" VerticalAlignment="Top" Width="467" Grid.ColumnSpan="2">
-            <Grid Name="ImagesGrid">
-            </Grid>
-        </ScrollViewer>-->
-        <TabControl Name="AlbumTabControl"  HorizontalAlignment="Left" Height="733" Margin="277,10,0,0" VerticalAlignment="Top" Width="636" Grid.Column="1">
-            <!--<TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>-->
+        <TabControl Name="AlbumTabControl" Margin="10,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="800">
+
         </TabControl>
-        <Grid Grid.Column="0" Name="TestGrid" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
-
-        </Grid>
-        <!--<Button Name="ButtonTest" HorizontalAlignment="Left" Margin="58,262,0,0" VerticalAlignment="Top" Width="223" Click="Button_Click_1" Height="126" Background="White" BorderBrush="#FF2F5FFF">
-            <StackPanel>
-                <TextBlock>Display Your Popup Text</TextBlock>
-                <Popup Name="myPopup">
-                    <TextBlock Name="myPopupText" 
-                 Background="LightBlue" 
-                 Foreground="Blue">
-                    Popup Text
-                    </TextBlock>
-                </Popup>
-            </StackPanel>
-        </Button>-->
-
-
-        <Button Grid.Column="0" Name="CmButton" Height="30" Margin="-10,648,10,75" Background="White">
-            Button with Context Menu
-            <Button.ContextMenu>
-                <ContextMenu Name="Cm" Opened="OnOpened" Closed="OnClosed" StaysOpen="true">
-                    <MenuItem Header="File" Background="#FFDE4646"/>
-                    <MenuItem Header="Save" Background="#FF4E81BD"/>
-                    <MenuItem Header="SaveAs" Background="#FFD2DE54"/>
-                    <MenuItem Header="Recent Files">
-                        <MenuItem Header="ReadMe.txt"/>
-                        <MenuItem Header="Schedule.xls" />
-                    </MenuItem>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button Name="TestMenuButton" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="130,368,0,0" VerticalAlignment="Top" Width="75"/>
-        <!--<Image Name="AddImageButton" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="50"/>-->
     </Grid>
 </Window>
