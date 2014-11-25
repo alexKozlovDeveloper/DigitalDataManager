@@ -29,6 +29,8 @@ namespace DesktopClient
 
         private TabControlHelper _tabHelper;
 
+        private ImageContextMenuHelper im;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +46,14 @@ namespace DesktopClient
 
             //AddImageButton.Source = new BitmapImage(new Uri("Add-icon.png"));
 
-            TestGrid.Children.Add(img);
+            //TestGrid.Children.Add(img);
+
+            //ButtonTest.Content = img;
+            
+            var cm = new ContextMenu();
+            TestMenuButton.ContextMenu = cm;
+            im = new ImageContextMenuHelper(cm);
+
 
             Init();
         }
@@ -65,19 +74,32 @@ namespace DesktopClient
             //    _imagesViewer.AddImage(img);
             //}
 
-            var albums = _manager.GetAllAlbums();
+            //var albums = _manager.GetAllAlbums();
 
-            _tabHelper = new TabControlHelper(AlbumTabControl);
+            //_tabHelper = new TabControlHelper(AlbumTabControl);
 
-            foreach (var album in albums)
-            {
-                _tabHelper.AddTab(album.Name);
+            //foreach (var album in albums)
+            //{
+            //    _tabHelper.AddTab(album.Name);
 
-                foreach (var file in album.Images)
-                {
-                    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
-                }
-            }
+            //    foreach (var file in album.Images)
+            //    {
+            //        _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
+            //    }
+            //}
+        }
+
+
+
+
+        private void OnClosed(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void OnOpened(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
         }
     }
 }
