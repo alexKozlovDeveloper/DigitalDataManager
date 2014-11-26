@@ -54,12 +54,7 @@ namespace DesktopClient.Helpers
         {
             var viewer = _viewers[tabName];
 
-            var img = new System.Windows.Controls.Image
-            {
-                Source = new BitmapImage(new Uri(imagePath))
-            };
-
-            viewer.AddImage(img);
+            viewer.AddImage(imagePath);
         }
 
         public void Clear()

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml;
 using DesktopClient.DdmServiceReference;
@@ -28,6 +29,10 @@ namespace DesktopClient
 
         private TabControlHelper _tabHelper;
 
+        private bool _flg = false;
+
+        private ImageItem it;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +41,8 @@ namespace DesktopClient
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
+
+            it = new ImageItem(GridTest, @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\TestImages\abc14004.jpg");
             Init();
         }
 
@@ -55,5 +62,38 @@ namespace DesktopClient
                 }
             }
         }
+
+        //private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    var img = sender as System.Windows.Controls.Image;
+
+        //    img.Source = ImageConverter.ToBitmapImage(Properties.Resources.AddIcon);
+        //}
+
+        //private void ImageTest_OnMouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    var img = sender as System.Windows.Controls.Image;
+
+        //    img.Source = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon); 
+        //}
+
+        //private void ImageTest_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+            
+        //}
+
+        //private void ImageTest_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (_flg)
+        //    {
+        //        GridTest.Background = new SolidColorBrush(Colors.AliceBlue);
+        //        _flg = false;
+        //    }
+        //    else
+        //    {
+        //        GridTest.Background = new SolidColorBrush(Colors.DeepSkyBlue);
+        //        _flg = true;
+        //    }
+        //}
     }
 }

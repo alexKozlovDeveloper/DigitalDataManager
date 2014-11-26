@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\ImageContextMenuHelper.cs" />
     <Compile Include="Helpers\ImageConverter.cs" />
+    <Compile Include="Helpers\ImageItem.cs" />
     <Compile Include="Helpers\TabControlHelper.cs" />
     <Compile Include="Service References\DdmServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>

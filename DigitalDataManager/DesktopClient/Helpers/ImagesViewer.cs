@@ -14,11 +14,12 @@ namespace DesktopClient.Helpers
 
         private readonly ScrollViewer _viewer;
         private readonly Grid _grid;
-        private readonly List<Image> _images;
 
         private readonly int _imageHeight;
         private readonly int _imageWidth;
         private readonly Thickness _imageMargin;
+
+        private readonly List<ImageItem> _images; 
 
         public int HorizontalImageCount
         {
@@ -42,9 +43,9 @@ namespace DesktopClient.Helpers
         public ImagesViewer(ScrollViewer viewer, int imageWidth = 150, int imageHeight = 150)
         {
             this._viewer = viewer;
-            this._grid = (Grid)_viewer.Content;
+            this._grid = _viewer.Content as Grid;
 
-            _images = new List<Image>();
+            _images = new List<ImageItem>();
 
             _imageHeight = imageWidth;
             _imageWidth = imageHeight;
@@ -55,23 +56,26 @@ namespace DesktopClient.Helpers
             SetGridHeight();
         }
 
-        public void AddImage(Image image)
+        public void AddImage(string imagePath)
         {
-            image.Margin = _imageMargin;
-
-            image.HorizontalAlignment = HorizontalAlignment.Left;
-            image.VerticalAlignment = VerticalAlignment.Top;
-
-            image.Height = _imageHeight;
-            image.Width = _imageWidth;
-
             var h = _images.Count / HorizontalImageCount;
             var w = _images.Count - h * HorizontalImageCount;
 
-            image.Margin = new Thickness(_imageMargin.Left + w * _imageWidth, _imageMargin.Top + h * _imageHeight, _imageMargin.Right, _imageMargin.Bottom);
+            var imageGrid = new Grid
+            {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Height = _imageHeight,
+                Width = _imageWidth,
+                Margin =
+                    new Thickness(_imageMargin.Left + w*_imageWidth, _imageMargin.Top + h*_imageHeight,
+                        _imageMargin.Right, _imageMargin.Bottom)
+            };
 
-            _images.Add(image);
-            _grid.Children.Add(image);
+            var img = new ImageItem(imageGrid, imagePath);
+
+            _images.Add(img);
+            _grid.Children.Add(imageGrid);
 
             SetGridHeight();
         }
@@ -92,14 +96,23 @@ namespace DesktopClient.Helpers
 
         public void Clear()
         {
-            while (_images.Count != 0)
+            _grid.Children.Clear();
+            _images.Clear();
+        }
+
+        public List<ImageItem> GetAllSelectItems()
+        {
+            var res = new List<ImageItem>();
+
+            foreach (var imageItem in _images)
             {
-                var image = _images[0];
-
-                _grid.Children.Remove(image);
-
-                _images.RemoveAt(0);
+                if (imageItem.IsSelect)
+                {
+                    res.Add(imageItem);
+                }
             }
+
+            return res;
         }
     }
 }
