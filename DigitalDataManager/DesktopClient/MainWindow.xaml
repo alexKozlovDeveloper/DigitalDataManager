@@ -7,7 +7,7 @@
 
         </TabControl>
 
-        <Grid Name="GridTest" HorizontalAlignment="Left" Height="150" Margin="834,32,0,0" VerticalAlignment="Top" Width="150">
+        <Grid Name="GridTest" HorizontalAlignment="Left" Height="182" Margin="834,32,0,0" VerticalAlignment="Top" Width="184" Background="#FF9FBFF7">
 
         </Grid>
     </Grid>

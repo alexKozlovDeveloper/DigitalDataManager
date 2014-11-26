@@ -16,6 +16,7 @@ using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
 using FileSystemManager;
 using FileSystemManager.FileVersionHelper;
+using Image = System.Windows.Controls.Image;
 using ImageConverter = DesktopClient.Helpers.ImageConverter;
 
 namespace DesktopClient
@@ -31,8 +32,6 @@ namespace DesktopClient
 
         private bool _flg = false;
 
-        private ImageItem it;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -41,9 +40,19 @@ namespace DesktopClient
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
+            GridTest.Drop += GridTest_Drop;
 
-            it = new ImageItem(GridTest, @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\TestImages\abc14004.jpg");
+
             Init();
+        }
+
+        void GridTest_Drop(object sender, DragEventArgs e)
+        {
+            var obj = sender as Grid;
+
+            var data = e.Data.GetData(typeof (Image));
+
+            GridTest.Children.Add(data as Image);
         }
 
         public void Init()
@@ -62,38 +71,5 @@ namespace DesktopClient
                 }
             }
         }
-
-        //private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    var img = sender as System.Windows.Controls.Image;
-
-        //    img.Source = ImageConverter.ToBitmapImage(Properties.Resources.AddIcon);
-        //}
-
-        //private void ImageTest_OnMouseLeave(object sender, MouseEventArgs e)
-        //{
-        //    var img = sender as System.Windows.Controls.Image;
-
-        //    img.Source = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon); 
-        //}
-
-        //private void ImageTest_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-            
-        //}
-
-        //private void ImageTest_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (_flg)
-        //    {
-        //        GridTest.Background = new SolidColorBrush(Colors.AliceBlue);
-        //        _flg = false;
-        //    }
-        //    else
-        //    {
-        //        GridTest.Background = new SolidColorBrush(Colors.DeepSkyBlue);
-        //        _flg = true;
-        //    }
-        //}
     }
 }
