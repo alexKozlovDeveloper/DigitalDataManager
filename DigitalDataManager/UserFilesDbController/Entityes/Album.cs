@@ -13,5 +13,6 @@ namespace UserFilesDbController.Entityes
         public string Name { get; set; }
 
         public List<DigitalFile> Files { get; set; }
+        public List<Guid> UsersId { get; set; }
     }
 }

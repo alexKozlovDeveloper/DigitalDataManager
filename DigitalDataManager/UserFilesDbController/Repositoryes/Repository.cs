@@ -147,9 +147,18 @@ namespace UserFilesDbController.Repositoryes
         {
             using (var db = new DdmDataBase())
             {
-                var album = GetAlbumT(albumId, db);
+                var albumT = GetAlbumT(albumId, db);
 
-                return DbConverter.GetAlbum(album);
+                var album =  DbConverter.GetAlbum(albumT);
+
+                album.UsersId = new List<Guid>();
+
+                foreach (var userT in albumT.Users)
+                {
+                    album.UsersId.Add(userT.Id);
+                }
+
+                return album;
             }
         }
 
@@ -157,9 +166,18 @@ namespace UserFilesDbController.Repositoryes
         {
             using (var db = new DdmDataBase())
             {
-                var file = GetFileT(fileId, db);
+                var fileT = GetFileT(fileId, db);
 
-                return DbConverter.GetFile(file);
+                var file = DbConverter.GetFile(fileT);
+
+                file.AlbumsId = new List<Guid>();
+
+                foreach (var albumT in fileT.Albums)
+                {
+                    file.AlbumsId.Add(albumT.Id);
+                }
+
+                return file;
             }
         }
 
