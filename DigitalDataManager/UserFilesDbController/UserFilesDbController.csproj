@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\UserFilesDbContext.cs" />
+    <Compile Include="Convert\DbConverter.cs" />
+    <Compile Include="Entityes\Album.cs" />
+    <Compile Include="Entityes\DigitalFile.cs" />
+    <Compile Include="Entityes\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoryes\IRepository.cs" />
