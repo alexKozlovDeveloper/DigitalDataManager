@@ -124,9 +124,22 @@ namespace UserFilesDbController.Repositoryes
         {
             using (var db = new DdmDataBase())
             {
-                var user = GetUserT(userId, db);
+                var userT = GetUserT(userId, db);
 
-                return DbConverter.GetUser(user);
+                var user = DbConverter.GetUser(userT);
+
+                user.FriendsId = new List<Guid>();
+
+                var ids = from item in db.FriendLinks
+                        where item.UserId == userId
+                        select item;
+
+                foreach (var linkT in ids)
+                {
+                    user.FriendsId.Add(linkT.FriendUserId);
+                }
+
+                return user;
             }
         }
 
@@ -147,6 +160,61 @@ namespace UserFilesDbController.Repositoryes
                 var file = GetFileT(fileId, db);
 
                 return DbConverter.GetFile(file);
+            }
+        }
+
+
+        public List<User> GetAllUsers()
+        {
+            using (var db = new DdmDataBase())
+            {
+                var userIds = from item in db.Users
+                    select item.Id;
+
+                var res = new List<User>();
+
+                foreach (var id in userIds)
+                {
+                    res.Add(GetUser(id));
+                }
+
+                return res;
+            }
+        }
+
+        public List<Album> GetAllAlbums()
+        {
+            using (var db = new DdmDataBase())
+            {
+                var albumIds = from item in db.Albums
+                              select item.Id;
+
+                var res = new List<Album>();
+
+                foreach (var id in albumIds)
+                {
+                    res.Add(GetAlbum(id));
+                }
+
+                return res;
+            }
+        }
+
+        public List<DigitalFile> GetAllFiles()
+        {
+            using (var db = new DdmDataBase())
+            {
+                var fileIds = from item in db.Files
+                              select item.Id;
+
+                var res = new List<DigitalFile>();
+
+                foreach (var id in fileIds)
+                {
+                    res.Add(GetFile(id));
+                }
+
+                return res;
             }
         }
 

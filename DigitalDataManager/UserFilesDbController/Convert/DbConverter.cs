@@ -20,11 +20,14 @@ namespace UserFilesDbController.Convert
             {
                 var resProp = result.GetType().GetProperty(propertyInfo.Name);
 
-                if (propertyInfo.PropertyType == resProp.PropertyType)
+                if (resProp != null)
                 {
-                    var value = propertyInfo.GetValue(item);
+                    if (propertyInfo.PropertyType == resProp.PropertyType)
+                    {
+                        var value = propertyInfo.GetValue(item);
 
-                    result.GetType().GetProperty(propertyInfo.Name).SetValue(result, value);
+                        result.GetType().GetProperty(propertyInfo.Name).SetValue(result, value);
+                    }
                 }
             }
 

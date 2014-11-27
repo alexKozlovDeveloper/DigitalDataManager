@@ -13,6 +13,7 @@ namespace UserFilesDbController.Entityes
         public string Name { get; set; }
         public string Password { get; set; }
 
-        public virtual List<Album> Albums { get; set; }
+        public List<Album> Albums { get; set; }
+        public List<Guid> FriendsId { get; set; }
     }
 }

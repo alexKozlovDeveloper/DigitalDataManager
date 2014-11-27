@@ -12,6 +12,6 @@ namespace UserFilesDbController.Entityes
 
         public string Name { get; set; }
 
-        public virtual List<DigitalFile> Files { get; set; }
+        public List<DigitalFile> Files { get; set; }
     }
 }

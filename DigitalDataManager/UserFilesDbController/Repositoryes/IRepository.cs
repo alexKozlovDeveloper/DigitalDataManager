@@ -29,5 +29,12 @@ namespace UserFilesDbController.Repositoryes
         Album GetAlbum(Guid albumId);
 
         DigitalFile GetFile(Guid fileId);
+
+
+        List<User> GetAllUsers();
+
+        List<Album> GetAllAlbums();
+
+        List<DigitalFile> GetAllFiles();
     }
 }
