@@ -51,10 +51,12 @@
     <Compile Include="Context\UserFilesDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoryes\IRepository.cs" />
     <Compile Include="Repositoryes\Repository.cs" />
-    <Compile Include="Tables\AlbumTable.cs" />
-    <Compile Include="Tables\FileTable.cs" />
-    <Compile Include="Tables\UserTable.cs" />
+    <Compile Include="Tables\AlbumT.cs" />
+    <Compile Include="Tables\FileT.cs" />
+    <Compile Include="Tables\FriendT.cs" />
+    <Compile Include="Tables\UserT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

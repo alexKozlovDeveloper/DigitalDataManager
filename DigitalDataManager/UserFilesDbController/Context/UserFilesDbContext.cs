@@ -8,10 +8,11 @@ using UserFilesDbController.Tables;
 
 namespace UserFilesDbController.Context
 {
-    public class UserFilesDbContext : DbContext
+    public class DdmDataBase : DbContext
     {
-        public DbSet<UserTable> Users { get; set; }
-        public DbSet<AlbumTable> Albums { get; set; }
-        public DbSet<FileTable> Files { get; set; }
+        public DbSet<UserT> Users { get; set; }
+        public DbSet<FriendsLinkT> FriendLinks { get; set; }
+        public DbSet<AlbumT> Albums { get; set; }
+        public DbSet<FileT> Files { get; set; }
     }
 }
