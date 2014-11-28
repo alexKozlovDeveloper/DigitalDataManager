@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServerFsManager.UserFilesManager;
 using UserFilesDbController.Context;
 using UserFilesDbController.Convert;
 using UserFilesDbController.Entityes;
@@ -12,6 +13,14 @@ namespace UserFilesDbController.Repositoryes
 {
     public class Repository : IRepository
     {
+        private IUserFilesServerManager _userFilesManager;
+
+        public Repository(IUserFilesServerManager manager)
+        {
+            _userFilesManager = manager;
+        }
+
+
         public Guid CreateUser(string name, string password)
         {
             var id = Guid.NewGuid();

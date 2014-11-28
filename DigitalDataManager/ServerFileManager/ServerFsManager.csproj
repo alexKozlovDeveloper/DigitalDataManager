@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="ServerFileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserFilesManager\IUserFilesServerManager.cs" />
+    <Compile Include="UserFilesManager\UserFilesServerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
