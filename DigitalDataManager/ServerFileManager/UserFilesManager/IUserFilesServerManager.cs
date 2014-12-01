@@ -12,13 +12,13 @@ namespace ServerFsManager.UserFilesManager
         string RootFolder { get; }
 
 
-        void CreateOrUpdateFile(Stream fileStream, string name, string fileName);
+        void CreateOrUpdateFile(Stream fileStream, Guid fileId, string fileName);
 
-        void DeleteFile(string name, string fileName);
+        void DeleteFile(Guid fileId, string fileName);
 
 
-        void CreateUserFolder(string name);
+        //void CreateUserFolder(string name);
 
-        void DeleteUserFolder(string name);
+        //void DeleteUserFolder(string name);
     }
 }

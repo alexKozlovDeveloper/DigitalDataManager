@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace UserFilesDbController.Repositoryes
         }
 
 
-        public Guid CreateUser(string name, string password)
+        public Guid CreateUser(string userName, string password)
         {
             var id = Guid.NewGuid();
 
@@ -30,7 +31,7 @@ namespace UserFilesDbController.Repositoryes
                 var user = new UserT
                 {
                     Id = id,
-                    Name = name,
+                    Name = userName,
                     Password = password
                 };
 
@@ -42,7 +43,7 @@ namespace UserFilesDbController.Repositoryes
             return id;
         }
 
-        public Guid CreateAlbum(string name)
+        public Guid CreateAlbum(string albumName)
         {
             var id = Guid.NewGuid();
 
@@ -51,7 +52,7 @@ namespace UserFilesDbController.Repositoryes
                 var album = new AlbumT
                 {
                     Id = id,
-                    Name = name
+                    Name = albumName
                 };
 
                 db.Albums.Add(album);
@@ -62,7 +63,7 @@ namespace UserFilesDbController.Repositoryes
             return id;
         }
 
-        public Guid CreateFile(string name)
+        public Guid CreateFile(Stream fileStream, string fielName)
         {
             var id = Guid.NewGuid();
 
@@ -71,15 +72,24 @@ namespace UserFilesDbController.Repositoryes
                 var file = new FileT
                 {
                     Id = id,
-                    Name = name
+                    Name = fielName
                 };
 
                 db.Files.Add(file);
+
+                _userFilesManager.CreateOrUpdateFile(fileStream, id, fielName);
 
                 db.SaveChanges();
             }
 
             return id;
+        }
+
+        public void UpdateFile(Stream fileStream, Guid fileId)
+        {
+            var file = GetFile(fileId);
+
+            _userFilesManager.CreateOrUpdateFile(fileStream, fileId, file.Name);
         }
 
 

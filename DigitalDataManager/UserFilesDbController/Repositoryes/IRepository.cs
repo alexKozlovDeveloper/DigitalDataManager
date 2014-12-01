@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -10,11 +11,13 @@ namespace UserFilesDbController.Repositoryes
 {
     public interface IRepository
     {
-        Guid CreateUser(string name, string password);
+        Guid CreateUser(string userName, string password);
 
-        Guid CreateAlbum(string name);
+        Guid CreateAlbum(string albumName);
 
-        Guid CreateFile(string name);
+        Guid CreateFile(Stream fileStream, string fielName);
+
+        void UpdateFile(Stream fileStream, Guid fileId);
 
 
         void AddAlbumToUser(Guid userId, Guid albumId);

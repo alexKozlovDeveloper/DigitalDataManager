@@ -15,7 +15,9 @@ namespace UserFilesDbController
     {
         private static void Main(string[] args)
         {
-            var rep = new Repository(new UserFilesServerManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server"));
+            const string root = @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server";
+
+            var rep = new Repository(new UserFilesServerManager(root));
 
             var users = rep.GetAllUsers();
 
