@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerFsManager", "ServerFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserFilesDbController", "UserFilesDbController\UserFilesDbController.csproj", "{22E1FCFC-8838-474F-B764-0CAA568EC65C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DdmWcfService", "DdmWcfService\DdmWcfService.csproj", "{633777B7-C852-4B15-92D1-A7C068A8A93A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{22E1FCFC-8838-474F-B764-0CAA568EC65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E1FCFC-8838-474F-B764-0CAA568EC65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E1FCFC-8838-474F-B764-0CAA568EC65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633777B7-C852-4B15-92D1-A7C068A8A93A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633777B7-C852-4B15-92D1-A7C068A8A93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633777B7-C852-4B15-92D1-A7C068A8A93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633777B7-C852-4B15-92D1-A7C068A8A93A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

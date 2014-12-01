@@ -14,7 +14,7 @@ namespace UserFilesDbController.Repositoryes
 {
     public class Repository : IRepository
     {
-        private IUserFilesServerManager _userFilesManager;
+        private readonly IUserFilesServerManager _userFilesManager;
 
         public Repository(IUserFilesServerManager manager)
         {
