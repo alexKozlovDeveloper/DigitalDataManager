@@ -58,6 +58,13 @@ namespace ServerFsManager.UserFilesManager
             }
         }
 
+        public Stream GetFileStream(Guid fileId, string fileName)
+        {
+            var fielPath = GetFilePath(fileId, fileName);
+
+            return File.OpenRead(fielPath);
+        }
+
 
         //public void CreateUserFolder(string name)
         //{

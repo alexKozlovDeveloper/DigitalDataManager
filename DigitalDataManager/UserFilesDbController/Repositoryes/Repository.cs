@@ -92,6 +92,13 @@ namespace UserFilesDbController.Repositoryes
             _userFilesManager.CreateOrUpdateFile(fileStream, fileId, file.Name);
         }
 
+        public Stream GetFileStream(Guid fileId)
+        {
+            var file = GetFile(fileId);
+
+            return _userFilesManager.GetFileStream(fileId, file.Name);
+        }
+
 
         public void AddAlbumToUser(Guid userId, Guid albumId)
         {

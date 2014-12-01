@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using DdmHelpers.Serialize;
+using DdmWcfService.Entityes;
 using ServerFsManager.UserFilesManager;
 using UserFilesDbController.Entityes;
 using UserFilesDbController.Repositoryes;
@@ -52,20 +54,31 @@ namespace DdmWcfService
             return id;
         }
 
-        public Guid CreateFile(Stream fileStream, string fielName)
+        public Guid CreateFile(Stream dataStream)
         {
+            var data = BinarySerializerHelper.Deserialize<CreateFileEntity>(dataStream);
+
             var rep = new Repository(new UserFilesServerManager(Root));
 
-            var id = rep.CreateFile(fileStream, fielName);
+            var id = rep.CreateFile(data.FileStream, data.FileName);
 
             return id;
         }
 
-        public void UpdateFile(Stream fileStream, Guid fileId)
+        public void UpdateFile(Stream dataStream)
+        {
+            var data = BinarySerializerHelper.Deserialize<UpdateFileEntity>(dataStream);
+            
+            var rep = new Repository(new UserFilesServerManager(Root));
+
+            rep.UpdateFile(data.FileStream, data.FileId);
+        }
+
+        public Stream GetFileStream(Guid fileId)
         {
             var rep = new Repository(new UserFilesServerManager(Root));
 
-            rep.UpdateFile(fileStream, fileId);
+            return rep.GetFileStream(fileId);
         }
 
 

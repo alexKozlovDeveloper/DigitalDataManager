@@ -28,11 +28,13 @@ namespace DdmWcfService
         Guid CreateAlbum(string albumName);
 
         [OperationContract]
-        Guid CreateFile(Stream fileStream, string fielName);
+        Guid CreateFile(Stream dataStream);
 
         [OperationContract]
-        void UpdateFile(Stream fileStream, Guid fileId);
+        void UpdateFile(Stream dataStream);
 
+        [OperationContract]
+        Stream GetFileStream(Guid fileId);
 
         [OperationContract]
         void AddAlbumToUser(Guid userId, Guid albumId);

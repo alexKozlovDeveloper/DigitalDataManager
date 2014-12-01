@@ -1,0 +1,40 @@
+﻿@model DdmWebClient.Models.TestModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>TestPage</title>
+</head>
+<body>
+    <div>
+        @Model.UserName
+    </div>
+    <div>
+        <img src=@Model.ImageSrc />
+    </div>
+    <div>
+        <img src=@Model.ImageSrc />
+    </div>
+    <div>
+        @foreach (var album in Model.Albums)
+        {
+            <div>
+                @album.Name
+            </div>
+            <div>
+                @foreach (var file in album.Images)
+                {
+                    <div>
+                        @file.Name
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DdmService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/UserFilesDbController.Entityes" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDdmService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_CreateAlbum_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAlbum" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_CreateAlbum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAlbumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_CreateFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFile" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_CreateFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_UpdateFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFile" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_UpdateFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetFileStream_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileStream" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetFileStream_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddAlbumToUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlbumToUser" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddAlbumToUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlbumToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddFileToAlbum_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileToAlbum" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddFileToAlbum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileToAlbumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddFriendLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendLink" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_AddFriendLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAlbum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlbum" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAlbum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlbumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllAlbums_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlbums" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllAlbums_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlbumsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFiles" />
+  </wsdl:message>
+  <wsdl:message name="IDdmService_GetAllFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFilesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDdmService">
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/CreateUser" message="tns:IDdmService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/CreateUserResponse" message="tns:IDdmService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/CreateAlbum" message="tns:IDdmService_CreateAlbum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/CreateAlbumResponse" message="tns:IDdmService_CreateAlbum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/CreateFile" message="tns:IDdmService_CreateFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/CreateFileResponse" message="tns:IDdmService_CreateFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/UpdateFile" message="tns:IDdmService_UpdateFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/UpdateFileResponse" message="tns:IDdmService_UpdateFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetFileStream" message="tns:IDdmService_GetFileStream_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetFileStreamResponse" message="tns:IDdmService_GetFileStream_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlbumToUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/AddAlbumToUser" message="tns:IDdmService_AddAlbumToUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/AddAlbumToUserResponse" message="tns:IDdmService_AddAlbumToUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFileToAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/AddFileToAlbum" message="tns:IDdmService_AddFileToAlbum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/AddFileToAlbumResponse" message="tns:IDdmService_AddFileToAlbum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/AddFriendLink" message="tns:IDdmService_AddFriendLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/AddFriendLinkResponse" message="tns:IDdmService_AddFriendLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetUser" message="tns:IDdmService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetUserResponse" message="tns:IDdmService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetAlbum" message="tns:IDdmService_GetAlbum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetAlbumResponse" message="tns:IDdmService_GetAlbum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetFile" message="tns:IDdmService_GetFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetFileResponse" message="tns:IDdmService_GetFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetAllUsers" message="tns:IDdmService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetAllUsersResponse" message="tns:IDdmService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlbums">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetAllAlbums" message="tns:IDdmService_GetAllAlbums_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetAllAlbumsResponse" message="tns:IDdmService_GetAllAlbums_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDdmService/GetAllFiles" message="tns:IDdmService_GetAllFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDdmService/GetAllFilesResponse" message="tns:IDdmService_GetAllFiles_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDdmService" type="tns:IDdmService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAlbum">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/CreateAlbum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/CreateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFile">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/UpdateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetFileStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlbumToUser">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/AddAlbumToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFileToAlbum">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/AddFileToAlbum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendLink">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/AddFriendLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbum">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetAlbum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlbums">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetAllAlbums" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFiles">
+      <soap:operation soapAction="http://tempuri.org/IDdmService/GetAllFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DdmService">
+    <wsdl:port name="BasicHttpBinding_IDdmService" binding="tns:BasicHttpBinding_IDdmService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/DdmWcfService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

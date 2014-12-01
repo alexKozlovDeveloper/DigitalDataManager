@@ -19,6 +19,8 @@ namespace UserFilesDbController.Repositoryes
 
         void UpdateFile(Stream fileStream, Guid fileId);
 
+        Stream GetFileStream(Guid fileId);
+
 
         void AddAlbumToUser(Guid userId, Guid albumId);
 

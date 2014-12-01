@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/UserFilesDbController.Entityes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UserFilesDbController.Entityes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Albums" nillable="true" type="tns:ArrayOfAlbum" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FriendsId" nillable="true" type="q1:ArrayOfguid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfAlbum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Album" nillable="true" type="tns:Album" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlbum" nillable="true" type="tns:ArrayOfAlbum" />
+  <xs:complexType name="Album">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Files" nillable="true" type="tns:ArrayOfDigitalFile" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UsersId" nillable="true" type="q2:ArrayOfguid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Album" nillable="true" type="tns:Album" />
+  <xs:complexType name="ArrayOfDigitalFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalFile" nillable="true" type="tns:DigitalFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalFile" nillable="true" type="tns:ArrayOfDigitalFile" />
+  <xs:complexType name="DigitalFile">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AlbumsId" nillable="true" type="q3:ArrayOfguid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DigitalFile" nillable="true" type="tns:DigitalFile" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+</xs:schema>

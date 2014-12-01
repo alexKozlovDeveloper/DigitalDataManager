@@ -16,6 +16,7 @@ namespace ServerFsManager.UserFilesManager
 
         void DeleteFile(Guid fileId, string fileName);
 
+        Stream GetFileStream(Guid fileId, string fileName);
 
         //void CreateUserFolder(string name);
 
