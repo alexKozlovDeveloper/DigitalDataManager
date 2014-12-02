@@ -15,37 +15,54 @@ namespace DdmWebClient.Controllers
         //
         // GET: /Home/
 
+        private readonly Guid _userId;
+
+        public HomeController()
+        {
+            _userId = new Guid("c5a15e50-db46-4941-9312-c89bccaa10fe");
+        }
+
         public ActionResult Index()
         {
+
+
             var client = new DdmServiceClient();
 
-            var users = client.GetAllUsers();
+            var user = client.GetUser(_userId);
 
-            var user = users[2];
+            var model = new TestModel();
 
-            var album = user.Albums[0];
+            model.UserName = user.Name;
 
-            var img = album.Files[1];
+            model.Albums = new List<Album>();
 
-            var model = new TestModel
-            {
-                UserName = "alex",
-                ImageSrc = "http://localhost:56338/Home/Image/dsafasdfsd",
-                Albums = new List<Album>
-                {
-                    new Album
-                    {
-                        Name = "all",
-                        Images = new List<Image>
-                        {
-                            new Image
-                            {
-                                Name = "test.jpg"
-                            }
-                        }
-                    }
-                }
-            };
+            //var users = client.GetAllUsers();
+
+            //var user = users[2];
+
+            //var album = user.Albums[0];
+
+            //var img = album.Files[1];
+
+            //var model = new TestModel
+            //{
+            //    UserName = "alex",
+            //    ImageSrc = "http://localhost:56338/Home/Image/?fileId=47c74322-eca8-405a-ad86-771888967337",
+            //    Albums = new List<Album>
+            //    {
+            //        new Album
+            //        {
+            //            Name = "all",
+            //            Images = new List<Image>
+            //            {
+            //                new Image
+            //                {
+            //                    Name = "test.jpg"
+            //                }
+            //            }
+            //        }
+            //    }
+            //};
 
 
             return View(model);
@@ -53,7 +70,7 @@ namespace DdmWebClient.Controllers
 
         public ActionResult Image(string fileId)
         {
-            var id = new Guid("47c74322-eca8-405a-ad86-771888967337");
+            var id = new Guid(fileId);
 
             var client = new DdmServiceClient();
 
