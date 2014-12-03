@@ -131,7 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\HomeIndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DdmWcfServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -267,6 +267,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DdmWcfServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserFilesDbController\UserFilesDbController.csproj">
+      <Project>{22e1fcfc-8838-474f-b764-0caa568ec65c}</Project>
+      <Name>UserFilesDbController</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

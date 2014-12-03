@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using DdmWebClient.DdmWcfServiceReference;
 using DdmWebClient.Models;
-using Album = DdmWebClient.Models.Album;
+using UserFilesDbController.Entityes;
 
 namespace DdmWebClient.Controllers
 {
@@ -24,46 +24,15 @@ namespace DdmWebClient.Controllers
 
         public ActionResult Index()
         {
-
-
             var client = new DdmServiceClient();
 
             var user = client.GetUser(_userId);
 
-            var model = new TestModel();
-
-            model.UserName = user.Name;
-
-            model.Albums = new List<Album>();
-
-            //var users = client.GetAllUsers();
-
-            //var user = users[2];
-
-            //var album = user.Albums[0];
-
-            //var img = album.Files[1];
-
-            //var model = new TestModel
-            //{
-            //    UserName = "alex",
-            //    ImageSrc = "http://localhost:56338/Home/Image/?fileId=47c74322-eca8-405a-ad86-771888967337",
-            //    Albums = new List<Album>
-            //    {
-            //        new Album
-            //        {
-            //            Name = "all",
-            //            Images = new List<Image>
-            //            {
-            //                new Image
-            //                {
-            //                    Name = "test.jpg"
-            //                }
-            //            }
-            //        }
-            //    }
-            //};
-
+            var model = new HomeIndexModel
+            {
+                User = user,
+                ImagePath = "http://localhost:56338/Home/Image/?fileId="
+            };
 
             return View(model);
         }

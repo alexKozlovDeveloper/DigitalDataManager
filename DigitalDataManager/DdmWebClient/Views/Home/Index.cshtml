@@ -1,4 +1,4 @@
-﻿@model DdmWebClient.Models.TestModel
+﻿@model DdmWebClient.Models.HomeIndexModel
 
 @{
     Layout = null;
@@ -12,29 +12,42 @@
 </head>
 <body>
     <div>
-        @Model.UserName
+        Name [@Model.User.Name]
     </div>
     <div>
-        <img src=@Model.ImageSrc />
+        Id [@Model.User.Id]
     </div>
-    <div>
-        <img src=@Model.ImageSrc />
-    </div>
-    <div>
-        @foreach (var album in Model.Albums)
+    <table border="1">
+        <tr>
+            <td align="center">Album Name</td>
+            <td align="center">Album Id</td>
+            <td align="center">File Name</td>
+            <td align="center">File Id</td>
+            <td align="center">File content</td>
+        </tr>
+        @foreach (var album in Model.User.Albums)
         {
-            <div>
-                @album.Name
-            </div>
-            <div>
-                @foreach (var file in album.Images)
-                {
-                    <div>
+            foreach (var file in album.Files)
+            {
+                <tr>
+                    <td align="center">
+                        @album.Name
+                    </td>
+                    <td align="center">
+                        @album.Id
+                    </td >
+                    <td align="center">
                         @file.Name
-                    </div>
-                }
-            </div>
+                    </td>
+                    <td align="center">
+                        @file.Id
+                    </td>
+                    <td>
+                        <img src="@string.Format("{0}{1}", @Model.ImagePath, file.Id)" width="100" height="100"/>
+                    </td>
+                </tr>
+            }
         }
-    </div>
+    </table>
 </body>
 </html>
