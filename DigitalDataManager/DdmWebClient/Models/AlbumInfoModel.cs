@@ -1,12 +1,14 @@
 ﻿using System;
-using UserFilesDbController.Entityes;
-using User = DdmWebClient.DdmWcfServiceReference.User;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using DdmWebClient.DdmWcfServiceReference;
 
 namespace DdmWebClient.Models
 {
-    public class HomeIndexModel // need rename
+    public class AlbumInfoModel
     {
-        public User User { get; set; }
+        public Album Album { get; set; }
 
         public string GetImagePath(Guid id)
         {

@@ -1,0 +1,25 @@
+﻿@model DdmWebClient.Models.AlbumInfoModel
+
+<table border="1">
+
+    <tr>
+        <td align="center">File Name</td>
+        <td align="center">File Id</td>
+        <td align="center">File content</td>
+    </tr>
+
+    @foreach (var file in @Model.Album.Files)
+    {
+        <tr>
+            <td align="center">
+                @file.Name
+            </td>
+            <td align="center">
+                @file.Id
+            </td>
+            <td>
+                <img src="@Model.GetImagePath(file.Id)" width="100" height="100"/>
+            </td>
+        </tr>
+    }
+</table>

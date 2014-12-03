@@ -30,8 +30,7 @@ namespace DdmWebClient.Controllers
 
             var model = new HomeIndexModel
             {
-                User = user,
-                ImagePath = "http://localhost:56338/Home/Image/?fileId="
+                User = user
             };
 
             return View(model);
@@ -48,5 +47,18 @@ namespace DdmWebClient.Controllers
             return File(fs, "image/gif");
         }
 
+        public ActionResult GetAlbumImages(Guid albumId)
+        {
+            var client = new DdmServiceClient();
+
+            var album = client.GetAlbum(albumId);
+
+            var model = new AlbumInfoModel
+            {
+                Album = album
+            };
+
+            return View(model);
+        }
     }
 }

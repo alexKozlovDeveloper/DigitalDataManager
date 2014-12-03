@@ -1,7 +1,14 @@
-﻿@model DdmWebClient.Models.HomeIndexModel
+﻿@using DdmWebClient.Models
+@model DdmWebClient.Models.HomeIndexModel
 
 @{
     Layout = null;
+
+    var ajaxImagesGet = new AjaxOptions
+    {
+        UpdateTargetId = "messageList",
+        Url = Url.Action("GetAlbumImages")
+    };
 }
 
 <!DOCTYPE html>
@@ -17,37 +24,40 @@
     <div>
         Id [@Model.User.Id]
     </div>
-    <table border="1">
-        <tr>
-            <td align="center">Album Name</td>
-            <td align="center">Album Id</td>
-            <td align="center">File Name</td>
-            <td align="center">File Id</td>
-            <td align="center">File content</td>
-        </tr>
+    <div>
+        Albums:
+        @*        @foreach (var album in Model.User.Albums)
+        {
+            <button>
+                @album.Name
+            </button>  
+        }*@
+    </div>
+    <div>
+
+        @using (Ajax.BeginForm(ajaxImagesGet))
+        {
+            <tbody id="messageList">
+                @Html.Partial("GetAlbumImages", new AlbumInfoModel { Album = Model.User.Albums.FirstOrDefault() })
+            </tbody>
+            
+            @*foreach (var album in Model.User.Albums)
+            {
+            <input type="submit" value="@album.Name" id="@album.Id" />
+            }*@
+        }
+
         @foreach (var album in Model.User.Albums)
         {
-            foreach (var file in album.Files)
+            using (Ajax.BeginForm("GetAlbumImages", new AjaxOptions
+                                         {
+                                             Url = Url.Action("GetAlbumImages", new { albumId = album.Id}),
+                                             UpdateTargetId = "messageList"
+                                         }))
             {
-                <tr>
-                    <td align="center">
-                        @album.Name
-                    </td>
-                    <td align="center">
-                        @album.Id
-                    </td >
-                    <td align="center">
-                        @file.Name
-                    </td>
-                    <td align="center">
-                        @file.Id
-                    </td>
-                    <td>
-                        <img src="@string.Format("{0}{1}", @Model.ImagePath, file.Id)" width="100" height="100"/>
-                    </td>
-                </tr>
+            <input type="submit" value="@album.Name" />
             }
         }
-    </table>
+    </div>
 </body>
 </html>
