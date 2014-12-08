@@ -1,0 +1,37 @@
+﻿@model DdmWebClient.Models.MainControllerModels.AllUserInfoModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewFriend</title>
+</head>
+<body>
+    <div>
+        Add new friend to user @Model.UserInfo.Name
+    </div>
+
+    <div>
+        Users:
+        
+        @foreach (var user in Model.Users)
+        {
+            <div>
+                User name @user.Name
+            </div>
+            <div>
+                User id @user.Id
+            </div>
+            
+            string path = "/Main/AddUserInFriend/?ids=" + Model.UserInfo.Id + ":" + user.Id;
+            <a href=@path>Add to friend</a>
+        }
+
+    </div>
+</body>
+</html>

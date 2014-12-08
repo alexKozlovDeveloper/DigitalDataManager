@@ -128,11 +128,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlbumInfoModel.cs" />
     <Compile Include="Models\HomeIndexModel.cs" />
+    <Compile Include="Models\MainControllerModels\AllFileInfoModel.cs" />
+    <Compile Include="Models\MainControllerModels\AllUserInfoModel.cs" />
+    <Compile Include="Models\MainControllerModels\UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\DdmWcfServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -257,6 +261,9 @@
     </None>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GetAlbumImages.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Main\AddNewFile.cshtml" />
+    <Content Include="Views\Main\AddNewFriend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
