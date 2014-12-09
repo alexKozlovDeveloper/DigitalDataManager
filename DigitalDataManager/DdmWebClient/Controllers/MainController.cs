@@ -151,5 +151,23 @@ namespace DdmWebClient.Controllers
 
             return client.GetFileStream(new Guid(fileId));
         }
+
+        public ActionResult LoadToServer(IEnumerable<HttpPostedFileBase> fileUpload)
+        {
+            foreach (var file in fileUpload)
+            {
+                if (file == null) continue;
+                string path = @"D:\";//AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                string filename = Path.GetFileName(file.FileName);
+                if (filename != null) file.SaveAs(Path.Combine(path, filename));
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public FileStreamResult GetFile()
+        {
+            return File(System.IO.File.OpenRead(@"D:\Sync.png"), "image/png", "someFile");
+        }
     }
 }
