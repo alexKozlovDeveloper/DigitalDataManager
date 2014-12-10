@@ -40,7 +40,7 @@
     
     <h2>Загрузка одного файла</h2>
     <p>
-    @using (Html.BeginForm("LoadToServer", "Main", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UploadFile", "Main", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {       
         <input type="file" name="fileUpload" /><br />      
         <input type="submit" name="Submit" id="SubmitSingle" value="Upload" />

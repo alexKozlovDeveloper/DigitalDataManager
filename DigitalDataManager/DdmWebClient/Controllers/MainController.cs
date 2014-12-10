@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DdmHelpers.Serialize;
+using DdmWcfService.Entityes;
 using DdmWebClient.DdmWcfServiceReference;
 using DdmWebClient.Models.MainControllerModels;
 
@@ -69,6 +71,8 @@ namespace DdmWebClient.Controllers
                 AlbumInfo = album,
                 Files = files
             };
+
+            Session["CurrentAlbumId"] = albumId;
 
             return View(model);
         }
@@ -155,9 +159,21 @@ namespace DdmWebClient.Controllers
             {
                 if (file == null) continue;
 
-                //var fileId = client.CreateFile(file);
-                
-                //client.AddFileToAlbum(albumId, fileId);
+                var ms = new MemoryStream();
+
+                file.InputStream.CopyTo(ms);
+
+                var data = new CreateFileEntity
+                {
+                    FileName = file.FileName,
+                    FileStream = ms
+                };
+
+                var streamData = BinarySerializerHelper.Serialize(data);
+
+                var fileId = client.CreateFile(streamData);
+
+                client.AddFileToAlbum(albumId, fileId);
 
                 //string path = @"D:\";//AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
                 //string filename = Path.GetFileName(file.FileName);

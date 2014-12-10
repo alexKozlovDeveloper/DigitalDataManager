@@ -278,6 +278,14 @@
     <WCFMetadataStorage Include="Service References\DdmWcfServiceReference\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
+      <Project>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</Project>
+      <Name>DdmHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DdmWcfService\DdmWcfService.csproj">
+      <Project>{633777B7-C852-4B15-92D1-A7C068A8A93A}</Project>
+      <Name>DdmWcfService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserFilesDbController\UserFilesDbController.csproj">
       <Project>{22e1fcfc-8838-474f-b764-0caa568ec65c}</Project>
       <Name>UserFilesDbController</Name>
