@@ -144,30 +144,40 @@ namespace DdmWebClient.Controllers
 
             return Redirect("/Main/AddNewFriend/?userId=" + userId);
         }
-
-        public Stream DownloadFile(string fileId) // dont work
+        
+        public ActionResult UploadFile(IEnumerable<HttpPostedFileBase> fileUpload)
         {
+            var albumId = new Guid((string)Session["CurrentAlbumId"]);
+
             var client = new DdmServiceClient();
 
-            return client.GetFileStream(new Guid(fileId));
-        }
-
-        public ActionResult LoadToServer(IEnumerable<HttpPostedFileBase> fileUpload)
-        {
             foreach (var file in fileUpload)
             {
                 if (file == null) continue;
-                string path = @"D:\";//AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
-                string filename = Path.GetFileName(file.FileName);
-                if (filename != null) file.SaveAs(Path.Combine(path, filename));
+
+                //var fileId = client.CreateFile(file);
+                
+                //client.AddFileToAlbum(albumId, fileId);
+
+                //string path = @"D:\";//AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                //string filename = Path.GetFileName(file.FileName);
+                //if (filename != null) file.SaveAs(Path.Combine(path, filename));
             }
 
             return RedirectToAction("Index");
         }
 
-        public FileStreamResult GetFile()
+        public FileStreamResult DownloadFile(string fileId)
         {
-            return File(System.IO.File.OpenRead(@"D:\Sync.png"), "image/png", "someFile");
+            var id = new Guid(fileId);
+
+            var client = new DdmServiceClient();
+
+            var fs = client.GetFileStream(id);
+
+            var file = client.GetFile(id);
+
+            return File(fs, "image/png", file.Name);
         }
     }
 }
