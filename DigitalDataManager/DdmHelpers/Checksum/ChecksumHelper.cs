@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DdmHelpers.Checksum
 {
-    public class CsHelper
+    public class ChecksumHelper
     {
         public static string GetFileChecksum(string filePath)
         {
@@ -16,12 +16,6 @@ namespace DdmHelpers.Checksum
             {
                 return GetHashFromStream(fileStream);
             }
-
-            //var fi = new FileInfo(filePath);
-
-            //var checksum = GetHashFromStream(fi.OpenRead());
-
-            //return checksum;
         }
 
         private static string GetHashFromStream(Stream fielStream)

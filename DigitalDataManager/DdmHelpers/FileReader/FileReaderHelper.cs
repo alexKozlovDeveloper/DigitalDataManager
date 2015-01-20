@@ -22,7 +22,7 @@ namespace DdmHelpers.FileReader
 
         public static Stream ReadStreamFromFile(string filePath)
         {
-            using (FileStream fileStream = File.Open(filePath, FileMode.Open))
+            using (var fileStream = File.Open(filePath, FileMode.Open))
             {
                 var data = new byte[fileStream.Length];
 
