@@ -84,7 +84,7 @@ namespace FileSystemManager.FileVersionHelper
             fileInfo.Attributes.Append(attribute);
 
             XmlNode checksum = _xmlDocument.CreateElement(Checksum);
-            checksum.InnerText = CsHelper.GetFileChecksum(filePath);
+            checksum.InnerText = ChecksumHelper.GetFileChecksum(filePath);
 
             XmlNode path = _xmlDocument.CreateElement(FullPath);
             path.InnerText = filePath;

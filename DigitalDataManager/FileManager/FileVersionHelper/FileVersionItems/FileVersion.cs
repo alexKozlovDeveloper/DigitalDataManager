@@ -26,7 +26,7 @@ namespace FileSystemManager.FileVersionHelper.FileVersionItems
 
             FileName = Path.GetFileName(FullPath);
 
-            Checksum = CsHelper.GetFileChecksum(FullPath);
+            Checksum = ChecksumHelper.GetFileChecksum(FullPath);
         }
 
         public override bool Equals(object obj)

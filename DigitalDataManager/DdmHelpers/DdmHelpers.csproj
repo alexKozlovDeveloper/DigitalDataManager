@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checksum\ChecksumHelper.cs" />
-    <Compile Include="Const\ConstHelper.cs" />
+    <Compile Include="Config\ConfigKeysHelper.cs" />
     <Compile Include="FileReader\FileReaderHelper.cs" />
     <Compile Include="FileTree\Entity\FolderEntity.cs" />
     <Compile Include="FileTree\FileTreeHelper.cs" />

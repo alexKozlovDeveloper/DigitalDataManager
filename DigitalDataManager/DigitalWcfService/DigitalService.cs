@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ using System.ServiceModel;
 using System.Text;
 using DbController.Entityes;
 using DbController.Repositoryes;
-using DdmHelpers.Const;
+using DdmHelpers.Config;
 using DdmHelpers.FileReader;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
@@ -111,15 +112,17 @@ namespace DigitalWcfService
 
             var filePath = rep.GetFilePath(login, fileName);
 
+            var partSize = int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
+
             using (var fs = File.OpenRead(filePath))
             {
-                fs.Position = ConstHelper.PartSize * partNumber;
+                fs.Position = partSize * partNumber;
 
-                var size = ConstHelper.PartSize;
+                var size = partSize;
 
-                if (fs.Length - ConstHelper.PartSize * partNumber < ConstHelper.PartSize)
+                if (fs.Length - partSize * partNumber < partSize)
                 {
-                    size = (int)fs.Length - ConstHelper.PartSize * partNumber;
+                    size = (int)fs.Length - partSize * partNumber;
                 }
 
                 var buffer = new byte[size];
@@ -140,6 +143,8 @@ namespace DigitalWcfService
         public bool AppendFile(Stream data)
         {
             var item = BinarySerializerHelper.Deserialize<PartFileData>(data);
+
+            var partSize = int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
 
             var rep = new Repository(RootPath);
 
@@ -173,7 +178,7 @@ namespace DigitalWcfService
 
                         item.ImageStream.Read(buffer, 0, (int) item.ImageStream.Length);
 
-                        fs.Position = ConstHelper.PartSize*item.PartNumber;
+                        fs.Position = partSize * item.PartNumber;
 
                         //if (fs.Length != 0)
                         //{

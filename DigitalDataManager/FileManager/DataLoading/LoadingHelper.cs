@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DdmHelpers.Const;
+using DdmHelpers.Config;
 using DdmHelpers.Serialize;
 using DigitalWcfService.Entityes;
 using FileSystemManager.DdmServiceReference;
@@ -29,11 +30,12 @@ namespace FileSystemManager.DataLoading
 
                 while (fs.Position < fs.Length)
                 {
-                    var bufferSize = ConstHelper.PartSize;
+                    var partSize = int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
+                    var bufferSize = partSize;
 
-                    if (fs.Length - ConstHelper.PartSize * n < ConstHelper.PartSize)
+                    if (fs.Length - partSize * n < partSize)
                     {
-                        bufferSize = (int)fs.Length - ConstHelper.PartSize * n;
+                        bufferSize = (int)fs.Length - partSize * n;
                     }
 
                     var buffer = new byte[bufferSize];
