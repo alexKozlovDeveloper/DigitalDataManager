@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DdmWebClient.DdmWcfServiceReference;
+using UserFilesDbController.Entityes;
 
 namespace DdmWebClient.Models
 {

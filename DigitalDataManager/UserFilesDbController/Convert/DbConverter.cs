@@ -8,7 +8,7 @@ using UserFilesDbController.Tables;
 
 namespace UserFilesDbController.Convert
 {
-    static class DbConverter
+    public static class DbConverter
     {
         public static T Convert<T, TS>(TS item) where T : new()
         {
