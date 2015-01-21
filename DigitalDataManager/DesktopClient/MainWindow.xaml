@@ -1,14 +1,19 @@
 ﻿<Window x:Class="DesktopClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Digital Data Manager" Height="564" Width="1063.5" Name="MainWindowObject">
+        Title="Digital Data Manager" Height="564" Width="1203.016" Name="MainWindowObject">
     <Grid>
-        <TabControl Name="AlbumTabControl" Margin="10,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl Name="AlbumTabControl" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="800">
 
         </TabControl>
 
-        <Grid Name="GridTest" HorizontalAlignment="Left" Height="182" Margin="834,32,0,0" VerticalAlignment="Top" Width="184" Background="#FF9FBFF7">
+        <Grid Name="GridTest" HorizontalAlignment="Left" Height="60" Margin="834,10,0,0" VerticalAlignment="Top" Width="184" Background="#FF9FBFF7">
 
         </Grid>
+        <TreeView Name="TreeView11" HorizontalAlignment="Left" Height="435" Margin="834,75,0,0" VerticalAlignment="Top" Width="344"/>
     </Grid>
 </Window>

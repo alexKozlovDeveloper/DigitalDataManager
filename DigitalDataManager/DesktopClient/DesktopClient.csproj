@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Tree\TreeViewer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
+      <Project>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</Project>
+      <Name>DdmHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileManager\ClientFsManager.csproj">
       <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
       <Name>ClientFsManager</Name>

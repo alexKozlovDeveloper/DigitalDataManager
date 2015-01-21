@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using DdmWebClient.DdmWcfServiceReference;
 using UserFilesDbController.Entityes;
+using Album = DdmWebClient.DdmWcfServiceReference.Album;
 
 namespace DdmWebClient.Models
 {

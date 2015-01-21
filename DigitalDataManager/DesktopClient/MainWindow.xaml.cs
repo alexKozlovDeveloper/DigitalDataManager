@@ -12,8 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml;
+using DdmHelpers.FileTree;
 using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
+using DesktopClient.Tree;
 using FileSystemManager;
 using FileSystemManager.FileVersionHelper;
 using Image = System.Windows.Controls.Image;
@@ -42,6 +44,7 @@ namespace DesktopClient
 
             GridTest.Drop += GridTest_Drop;
 
+            var t = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\SomeTask"));
 
             Init();
         }
