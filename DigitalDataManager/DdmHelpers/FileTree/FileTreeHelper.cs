@@ -48,5 +48,21 @@ namespace DdmHelpers.FileTree
                 PrintFolderTreeToConsole(folderEntity, tab + "    ");
             }
         }
+
+        public static IEnumerable<string> GetAllFileInFolderAndSubfolders(string folderPath)
+        {
+            var result = new List<string>();
+
+            result.AddRange(Directory.GetFiles(folderPath));
+
+            var folders = Directory.GetDirectories(folderPath);
+
+            foreach (var folder in folders)
+            {
+                result.AddRange(GetAllFileInFolderAndSubfolders(folder));
+            }
+
+            return result;
+        }
     }
 }

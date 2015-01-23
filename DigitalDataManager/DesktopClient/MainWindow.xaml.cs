@@ -44,8 +44,10 @@ namespace DesktopClient
 
             GridTest.Drop += GridTest_Drop;
 
-            var t = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\SomeTask"));
+            var t = new ImagesViewer(ScrollViewerFromFolder);
 
+            var tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\images"), t);
+            
             Init();
         }
 

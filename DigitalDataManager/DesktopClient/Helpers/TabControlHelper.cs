@@ -67,7 +67,6 @@ namespace DesktopClient.Helpers
         //public void Clear(string tabName)
         //{
         //    TabItem tab = null;
-
         //    foreach (TabItem item in _tabControl.Items)
         //    {
         //        if (item.Header as string == tabName)
@@ -75,8 +74,6 @@ namespace DesktopClient.Helpers
         //            tab = item;
         //        }
         //    }
-
-
         //}
     }
 }
