@@ -191,7 +191,7 @@ namespace FileSystemManager
                 {
                     case ChangeType.Remove:
                         // удаляем картинку с сервера
-                        //-
+                        // -
                         break;
                     case ChangeType.Create:
                     {

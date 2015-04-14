@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using DdmHelpers.FileTree;
 using DdmHelpers.FileTree.Entity;
 using DesktopClient.Helpers;
@@ -48,6 +50,25 @@ namespace DesktopClient.Tree
 
         public TreeViewItem InitTree(FolderEntity folder)
         {
+            var grid = new Grid();
+
+            var img = new Image
+            {
+                Source = new BitmapImage(new Uri(@"D:\fdf.jpg")),
+                Margin = new Thickness(0, 0, 0, 0)
+            };
+
+            var tb = new Label
+            {
+                Content = folder.Name,
+                Margin = new Thickness(10, 0, 0, 0)
+                //Text = "folder.Name",
+                //Margin = new Thickness(10, 0, 0, 0)
+            };
+
+            grid.Children.Add(img);
+            grid.Children.Add(tb);
+
             var item = new TreeViewItem
             {
                 Header = folder.Name
