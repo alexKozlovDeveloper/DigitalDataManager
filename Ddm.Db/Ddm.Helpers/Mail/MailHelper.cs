@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ddm.Helpers.Mail
 {
-    class MailHelper
+    public class MailHelper
     {
         public string SmtpServer { get; private set; }
         public string MailFrom { get; private set; }

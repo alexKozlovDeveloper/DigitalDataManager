@@ -6,8 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ddm.Db", "Ddm.Db\Ddm.Db.csproj", "{2F801788-A6A9-4651-BA66-52E6DD2CC982}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ddm.WpfApplication", "Ddm.WpfApplication\Ddm.WpfApplication.csproj", "{98C6AC32-3C98-40EC-BDD9-5D777DB46625}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB000D8B-3A07-4EBE-830D-2021C4A21DC2} = {DB000D8B-3A07-4EBE-830D-2021C4A21DC2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ddm.Helpers", "Ddm.Helpers\Ddm.Helpers.csproj", "{6E9E6BC1-5D78-41BF-8975-C43C0A181D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DdmService", "DdmService\DdmService.csproj", "{DB000D8B-3A07-4EBE-830D-2021C4A21DC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,10 @@ Global
 		{6E9E6BC1-5D78-41BF-8975-C43C0A181D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E9E6BC1-5D78-41BF-8975-C43C0A181D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E9E6BC1-5D78-41BF-8975-C43C0A181D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB000D8B-3A07-4EBE-830D-2021C4A21DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB000D8B-3A07-4EBE-830D-2021C4A21DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB000D8B-3A07-4EBE-830D-2021C4A21DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB000D8B-3A07-4EBE-830D-2021C4A21DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

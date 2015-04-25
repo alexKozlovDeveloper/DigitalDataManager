@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ddm.Helpers.Mail
 {
-    class MailEntity
+    public class MailEntity
     {
         public string Subject { get; private set; }
         public string Message { get; private set; }

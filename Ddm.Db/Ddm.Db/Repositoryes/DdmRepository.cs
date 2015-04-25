@@ -3,33 +3,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ddm.Db.Convert;
+using Ddm.Db.TableEntityes;
 using Ddm.Db.Tables;
 using Ddm.Db.Tables.Context;
 
 namespace Ddm.Db.Repositoryes
 {
-    class DdmRepository
+    public class DdmRepository
     {
-        public Guid CreateUser(string login, string password, string email)
+        public User CreateUser(string login, string password, string email)
         {
-            var id = Guid.NewGuid();
-
             using (var db = new DdmDbContextV1())
             {
                 var user = new UserT
                 {
-                    Id = id,
+                    Id = Guid.NewGuid(),
                     Login = login,
                     Password = password,
-                    Email = email
+                    Email = email,
+                    IsActivate = false
                 };
 
                 db.Users.Add(user);
 
                 db.SaveChanges();
-            }
 
-            return id;
+                return DbConverter.GetUser(user);
+            }
+        }
+
+        public ActivateCode CreateActivateCode(Guid userId)
+        {
+            using (var db = new DdmDbContextV1())
+            {
+                var id = Guid.NewGuid();
+
+                var code = new ActivateCodeT
+                {
+                    Id = id,
+                    Date = DateTime.Now,
+                    Code = id.ToString().Substring(9,4),
+                    UserId = userId
+                };
+
+                db.ActivateCodes.Add(code);
+
+                db.SaveChanges(); 
+
+                return DbConverter.GetActivateCode(code);
+            }
+        }
+
+        public void ActivateUser(Guid userId)
+        {
+            using (var db = new DdmDbContextV1())
+            {
+                var user = GetUserT(userId, db);
+
+                user.IsActivate = true;
+
+                db.SaveChanges();
+            }
+        }
+
+        private UserT GetUserT(Guid userId, DdmDbContextV1 db)
+        {
+            var user = (from item in db.Users
+                        where item.Id == userId
+                        select item).FirstOrDefault();
+
+            return user;
         }
     }
 }
