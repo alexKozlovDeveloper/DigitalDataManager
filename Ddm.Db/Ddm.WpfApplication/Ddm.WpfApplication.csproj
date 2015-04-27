@@ -64,6 +64,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\FileProcessingPage.xaml.cs">
+      <DependentUpon>FileProcessingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FileTreePage.xaml.cs">
+      <DependentUpon>FileTreePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FileViewPage.xaml.cs">
+      <DependentUpon>FileViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolderViewPage.xaml.cs">
+      <DependentUpon>FolderViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SortingPage.xaml.cs">
+      <DependentUpon>SortingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\DdmServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,7 +97,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\FileProcessingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FileTreePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FileViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FolderViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SortingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

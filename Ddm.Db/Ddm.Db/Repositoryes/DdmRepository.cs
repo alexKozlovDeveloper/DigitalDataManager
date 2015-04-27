@@ -33,6 +33,12 @@ namespace Ddm.Db.Repositoryes
             }
         }
 
+        public ActivateCode CreateActivateCode(string login, string password, string email)
+        {
+            return new ActivateCode();
+        }
+
+
         public ActivateCode CreateActivateCode(Guid userId)
         {
             using (var db = new DdmDbContextV1())
@@ -55,6 +61,7 @@ namespace Ddm.Db.Repositoryes
             }
         }
 
+
         public void ActivateUser(Guid userId)
         {
             using (var db = new DdmDbContextV1())
@@ -66,6 +73,7 @@ namespace Ddm.Db.Repositoryes
                 db.SaveChanges();
             }
         }
+
 
         private UserT GetUserT(Guid userId, DdmDbContextV1 db)
         {
