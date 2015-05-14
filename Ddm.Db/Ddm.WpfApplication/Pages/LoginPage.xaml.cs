@@ -29,6 +29,8 @@ namespace Ddm.WpfApplication.Pages
             if (currentUser == null)
             {
                 GridLogout.Visibility = Visibility.Visible;
+                GridLogin.Visibility = Visibility.Hidden;
+                GridRegistration.Visibility = Visibility.Hidden;
             }
             else
             {
