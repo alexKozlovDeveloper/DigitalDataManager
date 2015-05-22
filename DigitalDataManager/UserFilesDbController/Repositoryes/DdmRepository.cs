@@ -12,11 +12,11 @@ using UserFilesDbController.Tables;
 
 namespace UserFilesDbController.Repositoryes
 {
-    public class Repository : IRepository
+    public class DdmRepository : IDdmRepository
     {
         private readonly IUserFilesServerManager _userFilesManager;
 
-        public Repository(IUserFilesServerManager manager)
+        public DdmRepository(IUserFilesServerManager manager)
         {
             _userFilesManager = manager;
         }

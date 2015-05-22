@@ -24,5 +24,15 @@ namespace Ddm.WpfApplication.Pages
         {
             InitializeComponent();
         }
+
+        void LoadFromFolder(string folderpath)
+        { 
+        
+        }
+
+        void LoadSortFiles(List<string> sortFiles) 
+        { 
+
+        }
     }
 }

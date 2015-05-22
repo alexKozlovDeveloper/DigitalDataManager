@@ -30,7 +30,7 @@ namespace FileSystemManager.DataLoading
 
                 while (fs.Position < fs.Length)
                 {
-                    var partSize = int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
+                    var partSize = 1000;// int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
                     var bufferSize = partSize;
 
                     if (fs.Length - partSize * n < partSize)

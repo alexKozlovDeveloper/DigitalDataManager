@@ -24,5 +24,30 @@ namespace Ddm.WpfApplication.Pages
         {
             InitializeComponent();
         }
+
+        private void ButtonHarshnessFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonBlurFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonMedianFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonErosionFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSpecificFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

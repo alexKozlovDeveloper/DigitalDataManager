@@ -24,5 +24,35 @@ namespace Ddm.WpfApplication.Pages
         {
             InitializeComponent();
         }
+
+        public void LoadTreeFromFolder(string folderPath)
+        { 
+        
+        }
+
+        private void ButtonReplaseFolder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonFolderToV_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonFolderToF_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAddFolder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonRemoveFolder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

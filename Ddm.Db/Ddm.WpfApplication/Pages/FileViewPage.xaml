@@ -8,6 +8,11 @@
 	Title="FileViewPage">
 
     <Grid>
-        
+        <Button Name="ButtonGoLeft"  Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonGoLeft_Click"/>
+        <Button Name="ButtonGoRight" Content="Button" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="ButtonGoRight_Click"/>
+        <Button Name="ButtonAddTag" Content="Button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddTag_Click"/>
+        <Button Name="ButtonAddComment" Content="Button" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddComment_Click"/>
+        <Button Name="ButtonRemoveTag" Content="Button" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddComment_Click"/>
+
     </Grid>
 </Page>

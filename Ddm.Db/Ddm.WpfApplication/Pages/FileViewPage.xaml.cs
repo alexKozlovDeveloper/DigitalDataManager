@@ -24,5 +24,25 @@ namespace Ddm.WpfApplication.Pages
         {
             InitializeComponent();
         }
+
+        private void ButtonGoLeft_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonGoRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAddTag_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAddComment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

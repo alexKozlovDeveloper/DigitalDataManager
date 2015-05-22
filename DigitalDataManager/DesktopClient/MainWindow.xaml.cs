@@ -37,16 +37,16 @@ namespace DesktopClient
         public MainWindow()
         {
             InitializeComponent();
-            
-            _manager = new ClientFileManager(@"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client");
 
+            _manager = new ClientFileManager(@"C:\Ddm\Client");//C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client
+            //_manager.UpdateFileVersion();
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
             GridTest.Drop += GridTest_Drop;
 
             var t = new ImagesViewer(ScrollViewerFromFolder);
 
-            var tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\images"), t);
+            var tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), t);
             
             Init();
         }

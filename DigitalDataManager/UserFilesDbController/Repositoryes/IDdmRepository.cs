@@ -9,7 +9,7 @@ using UserFilesDbController.Entityes;
 
 namespace UserFilesDbController.Repositoryes
 {
-    public interface IRepository
+    public interface IDdmRepository
     {
         Guid CreateUser(string userName, string password);
 

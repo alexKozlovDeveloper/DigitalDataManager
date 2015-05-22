@@ -13,6 +13,11 @@ namespace DbController.Convert
     {
         public static T Convert<T, TS>(TS item) where T : new()
         {
+            if (item == null)
+            {
+                return new T();
+            }
+
             var result = new T();
 
             var fields = item.GetType().GetProperties();

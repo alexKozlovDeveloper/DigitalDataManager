@@ -16,7 +16,7 @@ namespace DdmWcfService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class DdmService : IDdmService
     {
-        private const string Root = @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server";
+        private const string Root = @"C:\Ddm\Server";//C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server
 
         //public string GetData(int value)
         //{
@@ -38,7 +38,7 @@ namespace DdmWcfService
 
         public Guid CreateUser(string userName, string password)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var id = rep.CreateUser(userName, password);
 
@@ -47,7 +47,7 @@ namespace DdmWcfService
 
         public Guid CreateAlbum(string albumName)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var id = rep.CreateAlbum(albumName);
 
@@ -58,7 +58,7 @@ namespace DdmWcfService
         {
             var data = BinarySerializerHelper.Deserialize<CreateFileEntity>(dataStream);
 
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var id = rep.CreateFile(data.FileStream, data.FileName);
 
@@ -69,14 +69,14 @@ namespace DdmWcfService
         {
             var data = BinarySerializerHelper.Deserialize<UpdateFileEntity>(dataStream);
             
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             rep.UpdateFile(data.FileStream, data.FileId);
         }
 
         public Stream GetFileStream(Guid fileId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             return rep.GetFileStream(fileId);
         }
@@ -84,21 +84,21 @@ namespace DdmWcfService
 
         public void AddAlbumToUser(Guid userId, Guid albumId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             rep.AddAlbumToUser(userId, albumId);
         }
 
         public void AddFileToAlbum(Guid albumId, Guid fileId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             rep.AddFileToAlbum(albumId, fileId);
         }
 
         public void AddFriendLink(Guid userId, Guid friendId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             rep.AddFriendLink(userId, friendId);
         }
@@ -106,7 +106,7 @@ namespace DdmWcfService
 
         public User GetUser(Guid userId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var user = rep.GetUser(userId);
 
@@ -115,7 +115,7 @@ namespace DdmWcfService
 
         public Album GetAlbum(Guid albumId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var album = rep.GetAlbum(albumId);
 
@@ -124,7 +124,7 @@ namespace DdmWcfService
 
         public DigitalFile GetFile(Guid fileId)
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var file = rep.GetFile(fileId);
 
@@ -134,7 +134,7 @@ namespace DdmWcfService
 
         public List<User> GetAllUsers()
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var users = rep.GetAllUsers();
 
@@ -143,7 +143,7 @@ namespace DdmWcfService
 
         public List<Album> GetAllAlbums()
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var albums = rep.GetAllAlbums();
 
@@ -152,7 +152,7 @@ namespace DdmWcfService
 
         public List<DigitalFile> GetAllFiles()
         {
-            var rep = new Repository(new UserFilesServerManager(Root));
+            var rep = new DdmRepository(new UserFilesServerManager(Root));
 
             var files = rep.GetAllFiles();
 

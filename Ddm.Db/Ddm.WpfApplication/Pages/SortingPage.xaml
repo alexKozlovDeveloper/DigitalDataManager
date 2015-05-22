@@ -8,6 +8,10 @@
 	Title="SortingPage">
 
     <Grid>
-        
+        <Button Name="ButtonDeskSort" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonDeskSort_Click"/>
+        <Button Name="ButtonAskSort" Content="Button" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAskSort_Click"/>
+        <Button Name="ButtonDateSort" Content="Button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="ButtonDateSort_Click"/>
+        <Button Name="ButtonTagSort" Content="Button" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="ButtonTagSort_Click"/>
+
     </Grid>
 </Page>

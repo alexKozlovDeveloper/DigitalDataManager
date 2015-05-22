@@ -8,6 +8,11 @@
 	Title="FileTreePage">
 
     <Grid>
-        
+        <Button Name="ButtonReplaseFolder" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReplaseFolder_Click"/>
+        <Button Name="ButtonRemoveFolder" Content="Button" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveFolder_Click"/>
+        <Button Name="ButtonAddFolder" Content="Button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddFolder_Click"/>
+        <Button Name="ButtonFolderToF" Content="Button" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="ButtonFolderToF_Click"/>
+        <Button Name="ButtonFolderToV" Content="Button" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Click="ButtonFolderToV_Click"/>
+
     </Grid>
 </Page>

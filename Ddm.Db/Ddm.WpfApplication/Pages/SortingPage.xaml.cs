@@ -24,5 +24,25 @@ namespace Ddm.WpfApplication.Pages
         {
             InitializeComponent();
         }
+
+        private void ButtonDeskSort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAskSort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDateSort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonTagSort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -47,6 +47,8 @@ namespace FileSystemManager
 
         public ClientFileManager(string root)
         {
+            
+
             _root = root;
 
             if (!Directory.Exists(_root))
@@ -102,6 +104,7 @@ namespace FileSystemManager
             if (serverVers == null)
             {
                 _wcfClient.UpdateCatalogVersion(Login, _catalogVersion.ToXmlString());
+                serverVers = new UserDateVersion();
                 serverVers.VersionXml = _catalogVersion.ToXmlString();
             }
 

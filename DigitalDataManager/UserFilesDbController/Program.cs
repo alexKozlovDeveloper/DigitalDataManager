@@ -18,7 +18,7 @@ namespace UserFilesDbController
         {
             const string root = @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server";
 
-            var rep = new Repository(new UserFilesServerManager(root));
+            var rep = new DdmRepository(new UserFilesServerManager(root));
 
             //var fs = FileReaderHelper.ReadStreamFromFile(@"C:\Users\Aliaksei_Kazlou\Downloads\Sync.png");
 

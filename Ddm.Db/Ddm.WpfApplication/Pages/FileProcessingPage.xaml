@@ -8,6 +8,11 @@
 	Title="FileProcessingPage">
 
     <Grid>
-        
+        <Button Name="ButtonHarshnessFilter" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="19" Click="ButtonHarshnessFilter_Click"/>
+        <Button Name="ButtonBlurFilter" Content="Button" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="ButtonBlurFilter_Click"/>
+        <Button Name="ButtonMedianFilter" Content="Button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="ButtonMedianFilter_Click"/>
+        <Button Name="ButtonErosionFilter" Content="Button" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="ButtonErosionFilter_Click"/>
+        <Button Name="ButtonSpecificFilter" Content="Button" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSpecificFilter_Click"/>
+
     </Grid>
 </Page>

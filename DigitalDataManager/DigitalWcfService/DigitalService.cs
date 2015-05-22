@@ -21,7 +21,7 @@ namespace DigitalWcfService
     {
         public string RootPath
         {
-            get { return @"C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Server"; }
+            get { return @"C:\Ddm\Server"; }
         }
 
         //public string GetData(string value)
@@ -95,6 +95,7 @@ namespace DigitalWcfService
         public IEnumerable<Album> GetAllAlbum(string login)
         {
             var rep = new Repository(RootPath);
+
             var user = rep.GetUserByName(login);
             return rep.GetAllAlbums(user.Id);
         }
@@ -144,7 +145,7 @@ namespace DigitalWcfService
         {
             var item = BinarySerializerHelper.Deserialize<PartFileData>(data);
 
-            var partSize = int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
+            var partSize = 1000;// int.Parse(ConfigurationManager.AppSettings[ConfigKeysHelper.PartSizeKey]);
 
             var rep = new Repository(RootPath);
 
