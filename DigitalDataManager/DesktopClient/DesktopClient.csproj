@@ -56,16 +56,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConfigController.cs" />
     <Compile Include="Helpers\ImageContextMenuHelper.cs" />
     <Compile Include="Helpers\ImageConverter.cs" />
     <Compile Include="Helpers\ImageItem.cs" />
     <Compile Include="Helpers\TabControlHelper.cs" />
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\DdmServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Tree\TreeViewer.cs" />
+    <Compile Include="Windows\AddNewFolder.xaml.cs">
+      <DependentUpon>AddNewFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +89,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddNewFolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -125,6 +147,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Ddm.Db\Ddm.Db\Ddm.Db.csproj">
+      <Project>{2f801788-a6a9-4651-ba66-52e6dd2cc982}</Project>
+      <Name>Ddm.Db</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
       <Project>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</Project>
       <Name>DdmHelpers</Name>

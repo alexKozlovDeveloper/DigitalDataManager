@@ -1,0 +1,8 @@
+﻿<Window x:Class="DesktopClient.Windows.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setting" Height="300" Width="552.5">
+    <Grid>
+        <Frame Name="FrameUserInfo" HorizontalAlignment="Left" Height="99" Margin="10,10,0,0" VerticalAlignment="Top" Width="526"/>
+    </Grid>
+</Window>

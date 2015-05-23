@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\ImageItem.cs" />
+    <Compile Include="Helpers\ImagesViewer.cs" />
+    <Compile Include="Helpers\TreeViewer.cs" />
     <Compile Include="Pages\FileProcessingPage.xaml.cs">
       <DependentUpon>FileProcessingPage.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <ProjectReference Include="..\Ddm.Db\Ddm.Db.csproj">
       <Project>{2f801788-a6a9-4651-ba66-52e6dd2cc982}</Project>
       <Name>Ddm.Db</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ddm.Helpers\Ddm.Helpers.csproj">
+      <Project>{6e9e6bc1-5d78-41bf-8975-c43c0a181d93}</Project>
+      <Name>Ddm.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

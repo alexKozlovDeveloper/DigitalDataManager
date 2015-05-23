@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileTree\FileTreeHelper.cs" />
+    <Compile Include="FileTree\FolderEntity.cs" />
     <Compile Include="Mail\MailEntity.cs" />
     <Compile Include="Mail\MailHelper.cs" />
     <Compile Include="Program.cs" />

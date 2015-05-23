@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace DesktopClient.Helpers
 {
-    class ImagesViewer
+    public class ImagesViewer
     {
         private const int ScrollWidth = 17;
 

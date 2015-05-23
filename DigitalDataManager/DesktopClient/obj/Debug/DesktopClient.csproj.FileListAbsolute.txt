@@ -26,3 +26,11 @@ C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopC
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.exe
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.pdb
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DesktopClient.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Pages\LoginPage.baml
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Pages\LoginPage.g.cs
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\Ddm.Db.exe
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\Ddm.Db.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Windows\SettingWindow.baml
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Windows\SettingWindow.g.cs
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Windows\AddNewFolder.baml
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\Windows\AddNewFolder.g.cs

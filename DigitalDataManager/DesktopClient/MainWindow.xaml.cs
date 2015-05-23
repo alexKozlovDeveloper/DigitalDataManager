@@ -20,6 +20,9 @@ using FileSystemManager;
 using FileSystemManager.FileVersionHelper;
 using Image = System.Windows.Controls.Image;
 using ImageConverter = DesktopClient.Helpers.ImageConverter;
+using DesktopClient.Pages;
+using DesktopClient.Windows;
+using DdmHelpers.FileTree.Entity;
 
 namespace DesktopClient
 {
@@ -32,23 +35,43 @@ namespace DesktopClient
 
         private TabControlHelper _tabHelper;
 
+        private SettingWindow _settingWindow;
+        private AddNewFolder _addNewFolder;
+
         private bool _flg = false;
+
+        private TreeViewer _tree;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _manager = new ClientFileManager(@"C:\Ddm\Client");//C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\TestDBFolder\Client
-            //_manager.UpdateFileVersion();
+            _manager = new ClientFileManager(@"C:\Ddm\Client");
+
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
-            GridTest.Drop += GridTest_Drop;
+            var imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
 
-            var t = new ImagesViewer(ScrollViewerFromFolder);
+            _tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), imagesViewer);
 
-            var tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), t);
-            
+            ButtonSetting.Click += ButtonSetting_Click;
+
             Init();
+
+            ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
+        }
+
+        void ButtonAddNewFolder_Click(object sender, RoutedEventArgs e)
+        {
+            _addNewFolder = new AddNewFolder(_tree, this);
+            _addNewFolder.Show();
+            //_tree.AddItem(TreeView11.SelectedItem as TreeViewItem, new FolderEntity { Name = "newfolder", Path = "sd"});
+        }
+
+        void ButtonSetting_Click(object sender, RoutedEventArgs e)
+        {
+            _settingWindow = new SettingWindow();
+            _settingWindow.Show();
         }
 
         void GridTest_Drop(object sender, DragEventArgs e)
@@ -57,23 +80,23 @@ namespace DesktopClient
 
             var data = e.Data.GetData(typeof (Image));
 
-            GridTest.Children.Add(data as Image);
+            //GridTest.Children.Add(data as Image);
         }
 
         public void Init()
         {
             var albums = _manager.GetAllAlbums();
 
-            _tabHelper = new TabControlHelper(AlbumTabControl);
+            //_tabHelper = new TabControlHelper(AlbumTabControl);
 
             foreach (var album in albums)
             {
-                _tabHelper.AddTab(album.Name);
+                //_tabHelper.AddTab(album.Name);
 
-                foreach (var file in album.Images)
-                {
-                    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
-                }
+                //foreach (var file in album.Images)
+                //{
+                //    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
+                //}
             }
         }
     }

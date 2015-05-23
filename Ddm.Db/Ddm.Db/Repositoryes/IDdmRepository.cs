@@ -9,6 +9,6 @@ namespace Ddm.Db.Repositoryes
 {
     interface IDdmRepository
     {
-        ActivateCode CreateActivateCode()
+        ActivateCode CreateActivateCode();
     }
 }

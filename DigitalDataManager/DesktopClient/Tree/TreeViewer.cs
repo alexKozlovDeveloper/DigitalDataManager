@@ -14,7 +14,7 @@ using DesktopClient.Helpers;
 
 namespace DesktopClient.Tree
 {
-    class TreeViewer
+    public class TreeViewer
     {
         private TreeView _treeView;
         private readonly ImagesViewer _imagesViewer;
@@ -85,6 +85,31 @@ namespace DesktopClient.Tree
 
             item.ItemsSource = itemsSource;
             return item;
+        }
+
+        public void AddItem(TreeViewItem item, FolderEntity folder)
+        {
+            var obj = new TreeViewItem
+            {
+                Header = folder.Name
+            };
+
+            var path = _folderPaths[item.Header as string] + "\\" + folder.Name;
+
+            _folderPaths.Add(folder.Name, path);
+
+            Directory.CreateDirectory(path);
+
+            var itemsSource = new List<TreeViewItem>();
+
+            foreach (TreeViewItem f in item.Items)
+            {
+                itemsSource.Add(f);
+            }
+
+            itemsSource.Add(obj);
+
+            item.ItemsSource = itemsSource;
         }
     }
 }

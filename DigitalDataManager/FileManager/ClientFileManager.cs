@@ -256,41 +256,5 @@ namespace FileSystemManager
             return _wcfClient.GetAllAlbum(Login);
         }
 
-        //public string CreateFile(Stream fileStream, string filePath)
-        //{
-        //    var file = System.IO.File.OpenWrite(filePath);
-
-        //    var data = new byte[fileStream.Length];
-
-        //    fileStream.Read(data, 0, data.Length);
-
-        //    file.Write(data, 0, (int)fileStream.Length);
-
-        //    return filePath;
-        //}
-
-        //public string UpdateFile(Stream fileStream, string filePath)
-        //{
-        //    var file = System.IO.File.OpenWrite(filePath);
-
-        //    var data = new byte[fileStream.Length];
-
-        //    fileStream.Read(data, 0, data.Length);
-
-        //    file.Write(data, 0, (int)fileStream.Length);
-
-        //    return filePath;
-        //}
-
-        //public MemoryStream GetFileStream(string path)
-        //{
-        //    var ms = new MemoryStream();
-        //    var fs = System.IO.File.OpenRead(path);
-        //    fs.CopyTo(ms);
-        //    fs.Close();
-        //    ms.Position = 0;
-
-        //    return ms;
-        //}
     }
 }

@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace DesktopClient.Helpers
 {
-    class ImageItem
+    public class ImageItem
     {
         private readonly Thickness _imageMargin;
 
