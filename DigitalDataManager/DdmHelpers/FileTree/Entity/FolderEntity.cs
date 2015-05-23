@@ -19,5 +19,12 @@ namespace DdmHelpers.FileTree.Entity
             FilesPath = new List<string>();
             Folders = new List<FolderEntity>();
         }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as FolderEntity;
+
+            return item.Name.Equals(Name);
+        }
     }
 }

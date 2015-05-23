@@ -2,6 +2,7 @@
 using DbController.TableEntityes;
 using DbController.Tables.Context;
 using DbController.Tables.DigitalDate;
+using DdmHelpers.FileTree.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,15 @@ namespace DbController.Repositoryes
             return user;
         }
 
+        private FolderT GetFolderT(Guid folderId, DdmDbContextV1 db)
+        {
+            var folder = (from item in db.Folders
+                        where item.Id == folderId
+                        select item).FirstOrDefault();
+
+            return folder;
+        }
+
         public Folder AddFolder(Guid userId, string folderName, Guid ParrentFolder)
         {
             using (var db = new DdmDbContextV1())
@@ -93,12 +103,72 @@ namespace DbController.Repositoryes
                     ParrentId = ParrentFolder
                 };
 
+                var folderToUser = new FolderVsUserT
+                {
+                    Id = Guid.NewGuid(),
+                    FolderId = folder.Id,
+                    UserId = userId
+                };
+
                 db.Folders.Add(folder);
+                db.FolderVsUsers.Add(folderToUser);
 
                 db.SaveChanges();
 
                 return DbConverter.GetFolder(folder);
             }
+        }
+
+        public FolderEntity GetFolderStruct(Guid userId)
+        {
+            using (var db = new DdmDbContextV1())
+            {
+                var root = new FolderEntity();
+
+                var allfolder = new List<Folder>();
+
+                foreach (var item in db.FolderVsUsers)
+                {
+                    if (item.UserId == userId)
+                    {
+                        allfolder.Add(DbConverter.GetFolder(GetFolderT(item.FolderId, db)));
+                    }
+                }
+
+                foreach (var item in allfolder)
+                {
+                    if (item.ParrentId == null)
+                    {
+                        root.Folders.Add(new FolderEntity 
+                        { 
+                            Name = item.Name,
+                            Folders = GetChildFolder(item.Id, db)
+                        });
+                    }
+                }
+
+                return root;
+            }
+        }
+
+        private List<FolderEntity> GetChildFolder(Guid folderId, DdmDbContextV1 db)
+        {
+            var res = new List<FolderEntity>();
+
+            foreach (var item in db.Folders)
+            {
+                if (item.ParrentId == folderId)
+                {
+                    var fe = new FolderEntity();
+
+                    fe.Name = item.Name;
+                    fe.Folders.AddRange(GetChildFolder(item.Id, db));
+
+                    res.Add(fe);
+                }
+            }
+
+            return res;
         }
     }
 }
