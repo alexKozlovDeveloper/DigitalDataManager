@@ -12,6 +12,7 @@ namespace DdmHelpers.FileTree
         public static FolderEntity MergeFolders(FolderEntity folder1, FolderEntity folder2)
         {
             var newFolders = new List<FolderEntity>();
+            var changeFolders = new List<FolderEntity>();
 
             foreach (var item in folder1.Folders)
             {
@@ -19,7 +20,7 @@ namespace DdmHelpers.FileTree
                 {
                     var fd = GetFolder(folder2.Folders, item.Name);
 
-                    newFolders.Add(MergeFolders(item, fd));
+                    changeFolders.Add(MergeFolders(item, fd));
                 }
                 else
                 {
@@ -27,9 +28,15 @@ namespace DdmHelpers.FileTree
                 }
             }
 
-            folder1.Folders.AddRange(newFolders);
+            foreach (var item in changeFolders)
+            {
+                folder2.Folders.Remove(item);
+            }
 
-            return folder1;
+            folder2.Folders.AddRange(newFolders);
+            folder2.Folders.AddRange(changeFolders);
+
+            return folder2;
         }
 
         private static FolderEntity GetFolder(List<FolderEntity> folders, string name)
@@ -47,7 +54,5 @@ namespace DdmHelpers.FileTree
 
             return res;
         }
-
-
     }
 }

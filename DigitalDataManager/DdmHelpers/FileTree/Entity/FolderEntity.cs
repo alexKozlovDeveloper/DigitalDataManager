@@ -24,7 +24,9 @@ namespace DdmHelpers.FileTree.Entity
         {
             var item = obj as FolderEntity;
 
-            return item.Name.Equals(Name);
+            var res = item.Name == Name;
+
+            return res;
         }
     }
 }

@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace DbController.Repositoryes
 {
-    class DdmRepository
+    public class DdmRepository
     {
         public User CreateUser(string login, string password, string email)
         {
-            using (var db = new DdmDbContextV1())
+            using (var db = new DdmDbContextV2())
             {
                 var user = new UserT
                 {
@@ -41,7 +41,7 @@ namespace DbController.Repositoryes
         
         public ActivateCode CreateActivateCode(Guid userId)
         {
-            using (var db = new DdmDbContextV1())
+            using (var db = new DdmDbContextV2())
             {
                 var id = Guid.NewGuid();
 
@@ -63,7 +63,7 @@ namespace DbController.Repositoryes
         
         public void ActivateUser(Guid userId)
         {
-            using (var db = new DdmDbContextV1())
+            using (var db = new DdmDbContextV2())
             {
                 var user = GetUserT(userId, db);
 
@@ -73,7 +73,7 @@ namespace DbController.Repositoryes
             }
         }
         
-        private UserT GetUserT(Guid userId, DdmDbContextV1 db)
+        private UserT GetUserT(Guid userId, DdmDbContextV2 db)
         {
             var user = (from item in db.Users
                         where item.Id == userId
@@ -82,7 +82,7 @@ namespace DbController.Repositoryes
             return user;
         }
 
-        private FolderT GetFolderT(Guid folderId, DdmDbContextV1 db)
+        private FolderT GetFolderT(Guid folderId, DdmDbContextV2 db)
         {
             var folder = (from item in db.Folders
                         where item.Id == folderId
@@ -93,7 +93,7 @@ namespace DbController.Repositoryes
 
         public Folder AddFolder(Guid userId, string folderName, Guid ParrentFolder)
         {
-            using (var db = new DdmDbContextV1())
+            using (var db = new DdmDbContextV2())
             {
                 var folder = new FolderT
                 {
@@ -121,7 +121,7 @@ namespace DbController.Repositoryes
 
         public FolderEntity GetFolderStruct(Guid userId)
         {
-            using (var db = new DdmDbContextV1())
+            using (var db = new DdmDbContextV2())
             {
                 var root = new FolderEntity();
 
@@ -137,7 +137,7 @@ namespace DbController.Repositoryes
 
                 foreach (var item in allfolder)
                 {
-                    if (item.ParrentId == null)
+                    if (item.ParrentId == Guid.Empty)
                     {
                         root.Folders.Add(new FolderEntity 
                         { 
@@ -151,7 +151,7 @@ namespace DbController.Repositoryes
             }
         }
 
-        private List<FolderEntity> GetChildFolder(Guid folderId, DdmDbContextV1 db)
+        private List<FolderEntity> GetChildFolder(Guid folderId, DdmDbContextV2 db)
         {
             var res = new List<FolderEntity>();
 
@@ -169,6 +169,25 @@ namespace DbController.Repositoryes
             }
 
             return res;
+        }
+
+        public User GetUser(string login)
+        {
+            using (var db = new DdmDbContextV2())
+            {
+                UserT res = null;
+
+                foreach (var item in db.Users)
+                {
+                    if (item.Login == login)
+                    {
+                        res = item;
+                        break;
+                    }
+                }
+
+                return DbConverter.GetUser(res);
+            }
         }
     }
 }
