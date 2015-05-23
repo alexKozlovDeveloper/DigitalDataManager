@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DbController.Entityes;
 using DbController.Tables.DigitalDate;
 using DbController.Tables.Versions;
+using DbController.TableEntityes;
+using Ddm.Db.TableEntityes;
 
 namespace DbController.Convert
 {
@@ -37,9 +39,9 @@ namespace DbController.Convert
             return result;
         }
 
-        public static User GetUser(UserDbItem item)
+        public static DbController.Entityes.User GetUser(UserDbItem item)
         {
-            var res = Convert<User, UserDbItem>(item);
+            var res = Convert<DbController.Entityes.User, UserDbItem>(item);
 
             res.Albums = new List<Album>();
 
@@ -73,6 +75,61 @@ namespace DbController.Convert
         public static UserDateVersion GetVersion(UserDateVersionDbItem item)
         {
             return Convert<UserDateVersion, UserDateVersionDbItem>(item);
+        }
+
+        public static ActivateCode GetActivateCode(ActivateCodeT item)
+        {
+            return Convert<ActivateCode, ActivateCodeT>(item);
+        }
+
+        public static Comment GetComment(CommentT item)
+        {
+            return Convert<Comment, CommentT>(item);
+        }
+
+        public static DigitalFile GetFile(DigitalFileT item)
+        {
+            return Convert<DigitalFile, DigitalFileT>(item);
+        }
+
+        public static FileVsTag GetFileVsTag(FileVsTagT item)
+        {
+            return Convert<FileVsTag, FileVsTagT>(item);
+        }
+
+        public static Folder GetFolder(FolderT item)
+        {
+            return Convert<Folder, FolderT>(item);
+        }
+
+        public static FolderVsFile GetFolderVsFile(FolderVsFileT item)
+        {
+            return Convert<FolderVsFile, FolderVsFileT>(item);
+        }
+
+        public static FolderVsUser GetFolderVsUser(FolderVsUserT item)
+        {
+            return Convert<FolderVsUser, FolderVsUserT>(item);
+        }
+
+        public static FriendLink GetFriendLink(FriendLinkT item)
+        {
+            return Convert<FriendLink, FriendLinkT>(item);
+        }
+
+        public static Message GetMessage(MessageT item)
+        {
+            return Convert<Message, MessageT>(item);
+        }
+
+        public static Tag GetTag(TagT item)
+        {
+            return Convert<Tag, TagT>(item);
+        }
+
+        public static DbController.TableEntityes.User GetUser(UserT item)
+        {
+            return Convert<DbController.TableEntityes.User, UserT>(item);
         }
     }
 }

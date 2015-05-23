@@ -68,11 +68,35 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoryes\DdmRepository.cs" />
     <Compile Include="Repositoryes\Repository.cs" />
+    <Compile Include="TableEntityes\ActivateCode.cs" />
+    <Compile Include="TableEntityes\Comment.cs" />
+    <Compile Include="TableEntityes\DigitalFile.cs" />
+    <Compile Include="TableEntityes\FileVsTag.cs" />
+    <Compile Include="TableEntityes\Folder.cs" />
+    <Compile Include="TableEntityes\FolderVsFile.cs" />
+    <Compile Include="TableEntityes\FolderVsUser.cs" />
+    <Compile Include="TableEntityes\FriendLink.cs" />
+    <Compile Include="TableEntityes\Message.cs" />
+    <Compile Include="TableEntityes\Tag.cs" />
+    <Compile Include="TableEntityes\User.cs" />
     <Compile Include="Tables\Context\DdmContext.cs" />
+    <Compile Include="Tables\Context\DdmDbContextV1.cs" />
     <Compile Include="Tables\DigitalDate\AlbumDbItem.cs" />
     <Compile Include="Tables\DigitalDate\ImageDbItem.cs" />
     <Compile Include="Tables\DigitalDate\UserDbItem.cs" />
+    <Compile Include="Tables\Tables\ActivateCodeT.cs" />
+    <Compile Include="Tables\Tables\CommentT.cs" />
+    <Compile Include="Tables\Tables\DigitalFileT.cs" />
+    <Compile Include="Tables\Tables\FileVsTagT.cs" />
+    <Compile Include="Tables\Tables\FolderT.cs" />
+    <Compile Include="Tables\Tables\FolderVsFileT.cs" />
+    <Compile Include="Tables\Tables\FolderVsUserT.cs" />
+    <Compile Include="Tables\Tables\FriendLinkT.cs" />
+    <Compile Include="Tables\Tables\MessageT.cs" />
+    <Compile Include="Tables\Tables\TagT.cs" />
+    <Compile Include="Tables\Tables\UserT.cs" />
     <Compile Include="Tables\Versions\UserDateVersionDbItem.cs" />
   </ItemGroup>
   <ItemGroup>
