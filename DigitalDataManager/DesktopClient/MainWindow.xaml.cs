@@ -23,6 +23,8 @@ using ImageConverter = DesktopClient.Helpers.ImageConverter;
 using DesktopClient.Pages;
 using DesktopClient.Windows;
 using DdmHelpers.FileTree.Entity;
+using DdmFileManager.Clent;
+using DbController.Repositoryes;
 
 namespace DesktopClient
 {
@@ -32,6 +34,7 @@ namespace DesktopClient
     public partial class MainWindow : Window
     {
         private readonly ClientFileManager _manager;
+        private readonly ClientFM _mf;
 
         private TabControlHelper _tabHelper;
 
@@ -46,14 +49,24 @@ namespace DesktopClient
         {
             InitializeComponent();
 
+            var rep = new DdmRepository();
+
+            var user = rep.GetUser("Alex");
+            
+            //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
+
             _manager = new ClientFileManager(@"C:\Ddm\Client");
+            _mf = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
+
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
             var imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
 
-            _tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), imagesViewer);
+            var g = _mf.UpdateCurrentFolderStruct();
 
+            //_tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), imagesViewer);
+            _tree = new TreeViewer(TreeView11, g, imagesViewer);
             ButtonSetting.Click += ButtonSetting_Click;
 
             Init();

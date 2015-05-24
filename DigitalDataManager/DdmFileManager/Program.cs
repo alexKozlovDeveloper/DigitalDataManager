@@ -1,6 +1,8 @@
 ﻿using DbController.Repositoryes;
 using DdmFileManager.Clent;
+using DdmHelpers.FileReader;
 using DdmHelpers.FileTree;
+using DdmHelpers.Serialize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +32,19 @@ namespace DdmFileManager
 
             var folder = rep.GetFolderStruct(user.Id);
 
+            FileTreeHelper.SetAllFolderPath(folder, "");
+
             //var fn = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
             //fn.UpdateCurrentFolderStruct();
             //var st = fn.CurrentFolderStruct;
 
-            var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
+            //var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
 
-            var res = MergeTree.MergeFolders(folder, folderStruct);
+            //var res = MergeTree.MergeFolders(folder, folderStruct);
+
+            //var t = XmlSerializerHelper.Serialize(folder);
+
+            //FileReaderHelper.WriteStreamInFile(t, @"D:\olo.xml");
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DbController.Tables.Context
 {
-    class DdmDbContextV2 : DbContext
+    class DdmDbContextV3 : DbContext
     {
         public DbSet<ActivateCodeT> ActivateCodes { get; set; }
         public DbSet<CommentT> Comments { get; set; }

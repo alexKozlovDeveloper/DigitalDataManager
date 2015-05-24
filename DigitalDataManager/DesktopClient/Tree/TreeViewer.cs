@@ -71,7 +71,7 @@ namespace DesktopClient.Tree
 
             var item = new TreeViewItem
             {
-                Header = folder.Name
+                Header = folder.ToString()
             };
 
             _folderPaths.Add(folder.Name, folder.Path);

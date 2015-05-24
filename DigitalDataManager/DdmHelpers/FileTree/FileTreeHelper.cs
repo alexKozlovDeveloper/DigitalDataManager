@@ -10,20 +10,26 @@ namespace DdmHelpers.FileTree
 {
     public static class FileTreeHelper
     {
-        public static FolderEntity GetFolderTree(string folderPath)
+        public static FolderEntity GetFolderTree(string folderPath, FolderEntity parrent = null)
         {
             var folder = new FolderEntity
             {
                 FilesPath = Directory.GetFiles(folderPath).ToList(),
                 Path = folderPath,
-                Name = GetFolderName(folderPath)
+                Name = GetFolderName(folderPath),
+                IsVirtual = false
             };
+
+            if (parrent != null)
+            {
+                folder.Parrent = parrent;
+            }
 
             var folders = Directory.GetDirectories(folderPath);
 
             foreach (var s in folders)
             {
-                folder.Folders.Add(GetFolderTree(s));
+                folder.Folders.Add(GetFolderTree(s, folder));
             }
 
             return folder;
@@ -53,6 +59,11 @@ namespace DdmHelpers.FileTree
         {
             var result = new List<string>();
 
+            if (Directory.Exists(folderPath) == false)
+            {
+                return result;
+            }
+
             result.AddRange(Directory.GetFiles(folderPath));
 
             var folders = Directory.GetDirectories(folderPath);
@@ -63,6 +74,18 @@ namespace DdmHelpers.FileTree
             }
 
             return result;
+        }
+
+        public static FolderEntity SetAllFolderPath(FolderEntity folder, string root = "")
+        {
+            folder.Path = root + "\\" + folder.Name;
+
+            foreach (var item in folder.Folders)
+            {
+                SetAllFolderPath(item, folder.Path);
+            }
+
+            return folder;
         }
     }
 }

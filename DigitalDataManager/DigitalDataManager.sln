@@ -14,6 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalWcfService", "Digita
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClient", "DesktopClient\DesktopClient.csproj", "{B6B082EE-08B0-48CD-9DBC-DC0A961F5FA2}"
 	ProjectSection(ProjectDependencies) = postProject
+		{1E53084C-6D98-4F85-A79D-D7711F7AB451} = {1E53084C-6D98-4F85-A79D-D7711F7AB451}
 		{15B3E0D2-6217-493A-A690-158C497F5318} = {15B3E0D2-6217-493A-A690-158C497F5318}
 	EndProjectSection
 EndProject

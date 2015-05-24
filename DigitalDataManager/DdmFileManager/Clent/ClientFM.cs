@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DdmFileManager.Clent
 {
-    class ClientFM
+    public class ClientFM
     {
         private string _rootPath;
         private Guid _userId;
@@ -21,15 +21,19 @@ namespace DdmFileManager.Clent
             _userId = userId;
         }
 
-        public void UpdateCurrentFolderStruct()
+        public FolderEntity UpdateCurrentFolderStruct()
         {
             var folderStruct = FileTreeHelper.GetFolderTree(_rootPath);
 
-            //var service = new ServiceReference1.ServiceClient();
+            var service = new ServiceReference1.ServiceClient();
 
-            //var clientStruct = service.GetUserFolders(_userId);
+            var clientStruct = service.GetUserFolders(_userId);
 
-            //var res = MergeTree.MergeFolders(folderStruct, clientStruct);
+            FileTreeHelper.SetAllFolderPath(clientStruct);
+
+            CurrentFolderStruct = MergeTree.MergeFolders(clientStruct, folderStruct);
+
+            return CurrentFolderStruct;
         }
     }
 }

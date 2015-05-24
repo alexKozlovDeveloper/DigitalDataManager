@@ -15,7 +15,7 @@ namespace DbController.Repositoryes
     {
         public User CreateUser(string login, string password, string email)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
                 var user = new UserT
                 {
@@ -41,7 +41,7 @@ namespace DbController.Repositoryes
         
         public ActivateCode CreateActivateCode(Guid userId)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
                 var id = Guid.NewGuid();
 
@@ -63,7 +63,7 @@ namespace DbController.Repositoryes
         
         public void ActivateUser(Guid userId)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
                 var user = GetUserT(userId, db);
 
@@ -73,7 +73,7 @@ namespace DbController.Repositoryes
             }
         }
         
-        private UserT GetUserT(Guid userId, DdmDbContextV2 db)
+        private UserT GetUserT(Guid userId, DdmDbContextV3 db)
         {
             var user = (from item in db.Users
                         where item.Id == userId
@@ -82,7 +82,7 @@ namespace DbController.Repositoryes
             return user;
         }
 
-        private FolderT GetFolderT(Guid folderId, DdmDbContextV2 db)
+        private FolderT GetFolderT(Guid folderId, DdmDbContextV3 db)
         {
             var folder = (from item in db.Folders
                         where item.Id == folderId
@@ -93,7 +93,7 @@ namespace DbController.Repositoryes
 
         public Folder AddFolder(Guid userId, string folderName, Guid ParrentFolder)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
                 var folder = new FolderT
                 {
@@ -121,9 +121,15 @@ namespace DbController.Repositoryes
 
         public FolderEntity GetFolderStruct(Guid userId)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
-                var root = new FolderEntity();
+                var root = new FolderEntity 
+                { 
+                    Name = "root",
+                    Path = "",
+                    Parrent = null,
+                    IsVirtual = true
+                };
 
                 var allfolder = new List<Folder>();
 
@@ -139,11 +145,15 @@ namespace DbController.Repositoryes
                 {
                     if (item.ParrentId == Guid.Empty)
                     {
-                        root.Folders.Add(new FolderEntity 
-                        { 
+                        var fe = new FolderEntity
+                        {
                             Name = item.Name,
-                            Folders = GetChildFolder(item.Id, db)
-                        });
+                            Parrent = root
+                        };
+
+                        fe.Folders = GetChildFolder(item.Id, fe, db);
+
+                        root.Folders.Add(fe);
                     }
                 }
 
@@ -151,7 +161,7 @@ namespace DbController.Repositoryes
             }
         }
 
-        private List<FolderEntity> GetChildFolder(Guid folderId, DdmDbContextV2 db)
+        private List<FolderEntity> GetChildFolder(Guid folderId, FolderEntity parrent, DdmDbContextV3 db)
         {
             var res = new List<FolderEntity>();
 
@@ -162,7 +172,8 @@ namespace DbController.Repositoryes
                     var fe = new FolderEntity();
 
                     fe.Name = item.Name;
-                    fe.Folders.AddRange(GetChildFolder(item.Id, db));
+                    fe.Parrent = parrent;
+                    fe.Folders.AddRange(GetChildFolder(item.Id, fe, db));
 
                     res.Add(fe);
                 }
@@ -171,9 +182,11 @@ namespace DbController.Repositoryes
             return res;
         }
 
+        
+
         public User GetUser(string login)
         {
-            using (var db = new DdmDbContextV2())
+            using (var db = new DdmDbContextV3())
             {
                 UserT res = null;
 
