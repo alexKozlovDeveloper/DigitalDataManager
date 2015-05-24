@@ -148,7 +148,8 @@ namespace DbController.Repositoryes
                         var fe = new FolderEntity
                         {
                             Name = item.Name,
-                            Parrent = root
+                            Parrent = root,
+                            IsVirtual = true
                         };
 
                         fe.Folders = GetChildFolder(item.Id, fe, db);
@@ -173,6 +174,7 @@ namespace DbController.Repositoryes
 
                     fe.Name = item.Name;
                     fe.Parrent = parrent;
+                    fe.IsVirtual = true;
                     fe.Folders.AddRange(GetChildFolder(item.Id, fe, db));
 
                     res.Add(fe);
