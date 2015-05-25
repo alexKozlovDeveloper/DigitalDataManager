@@ -174,15 +174,19 @@ namespace DesktopClient
         {
             var tags = new Dictionary<string, int>();
 
-            tags.Add("culture", 40);
-            tags.Add("sds", 27);
-            tags.Add("sdssds", 50);
-            tags.Add("sdssssss", 22);
+            var tagsVal = service.GetAllUserTags(ConfigController.CurrentUser.Id);
+
+            var rnd = new Random();
+
+            foreach (var item in tagsVal)
+            {
+                tags.Add(item.Name, rnd.Next(30,45));
+            }
 
             var min = 20;
-            var max = 60;
+            var max = 50;
 
-            var maxFon = 50;
+            var maxFon = 25;
 
             WrapPanelTags.Children.Clear();
 
