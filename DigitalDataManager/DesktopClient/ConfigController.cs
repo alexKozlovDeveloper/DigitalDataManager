@@ -1,4 +1,4 @@
-﻿using Ddm.Db.TableEntityes;
+﻿using DbController.TableEntityes;
 using System;
 using System.Collections.Generic;
 using System.IO;

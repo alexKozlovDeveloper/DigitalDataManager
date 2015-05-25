@@ -41,34 +41,48 @@ namespace DesktopClient
 
         private SettingWindow _settingWindow;
         private AddNewFolder _addNewFolder;
+        private AddNewTag _addNewTag;
 
         private bool _flg = false;
 
         private TreeViewer _tree;
         private ImagesViewer _imagesViewer;
 
+        private ServiceReference1.ServiceClient service;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            service = new ServiceReference1.ServiceClient();
+
             var rep = new DdmRepository();
 
-            //var user = rep.GetUser("Alex");
-            
+            var user = rep.GetUser("Alex");
+
+            //service.AddTag(user.Id, "Minsk");
+            //service.AddTag(user.Id, "Milan");
+            //service.AddTag(user.Id, "Belarus");
+            //service.AddTag(user.Id, "Russian");
+            //service.AddTag(user.Id, "Nature");
+            //service.AddTag(user.Id, "Tourism");
+
+            ConfigController.CurrentUser = user;
+
             //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
 
             _manager = new ClientFileManager(@"D:\Ddm\Client");
-            //_mf = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
+            _mf = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
 
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
             _imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
 
-            //var g = _mf.UpdateCurrentFolderStruct();
+            var g = _mf.UpdateCurrentFolderStruct();
 
-            _tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\Ddm\Images"), _imagesViewer);
-            //_tree = new TreeViewer(TreeView11, g, imagesViewer);
+            //_tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\Ddm\Images"), _imagesViewer);
+            _tree = new TreeViewer(TreeView11, g, _imagesViewer);
             ButtonSetting.Click += ButtonSetting_Click;
 
             Init();
@@ -76,8 +90,23 @@ namespace DesktopClient
             ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
             ButtonBlackWhite.Click += ButtonBlackWhite_Click;
             ButtonAplly.Click += ButtonAplly_Click;
+            ButtonAddNewTag.Click += ButtonAddNewTag_Click;
+            ButtonAddTagToImage.Click += ButtonAddTagToImage_Click;
 
-            InitTags();
+            InitTagsCloud();
+            InitTagsDropdownList();
+        }
+
+        void ButtonAddTagToImage_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        void ButtonAddNewTag_Click(object sender, RoutedEventArgs e)
+        {
+            _addNewTag = new AddNewTag(this, service, ConfigController.CurrentUser);
+
+            _addNewTag.Show();
         }
 
         void ButtonAplly_Click(object sender, RoutedEventArgs e)
@@ -129,7 +158,19 @@ namespace DesktopClient
             //}
         }
 
-        public void InitTags()
+        public void InitTagsDropdownList()
+        {           
+            var tags = service.GetAllUserTags(ConfigController.CurrentUser.Id);
+
+            ComboBoxTags.Items.Clear();
+
+            foreach (var item in tags)
+            {
+                ComboBoxTags.Items.Add(item);
+            }
+        }
+
+        public void InitTagsCloud()
         {
             var tags = new Dictionary<string, int>();
 

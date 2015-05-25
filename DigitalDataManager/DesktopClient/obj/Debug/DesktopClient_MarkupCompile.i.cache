@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\
 DesktopClient
 none
 false
 DEBUG;TRACE
-C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\App.xaml
-4-615754315
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\App.xaml
+51309737059
 
-21-1506342385
-23-194677184
-MainWindow.xaml;Pages\LoginPage.xaml;Windows\AddNewFolder.xaml;Windows\SettingWindow.xaml;
+22-379712675
+231214201156
+MainWindow.xaml;Pages\LoginPage.xaml;Windows\AddNewFolder.xaml;Windows\AddNewTag.xaml;Windows\SettingWindow.xaml;
 
 False
 

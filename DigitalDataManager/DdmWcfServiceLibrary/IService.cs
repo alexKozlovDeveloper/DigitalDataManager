@@ -1,4 +1,5 @@
-﻿using DdmHelpers.FileTree.Entity;
+﻿using DbController.TableEntityes;
+using DdmHelpers.FileTree.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,11 @@ namespace DdmWcfServiceLibrary
 
         [OperationContract]
         FolderEntity GetUserFolders(Guid userId);
+
+        [OperationContract]
+        List<Tag> GetAllUserTags(Guid userId);
+
+        [OperationContract]
+        Tag AddTag(Guid userId, string name);
     }
 }

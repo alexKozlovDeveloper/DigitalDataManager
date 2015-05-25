@@ -10,26 +10,6 @@ c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManage
 c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.dll
 c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.xml
 c:\users\aliaksei_kazlou\documents\visual studio 2012\Projects\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe.config
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.exe
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DdmHelpers.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DdmHelpers.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.xml
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.exe
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.pdb
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe.config
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.pdb
@@ -50,3 +30,23 @@ C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\Digital
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.exe
 C:\Users\Aliaksei_Kazlou\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe.config
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.exe
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalDataManager.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.exe
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DdmHelpers.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DbController.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DdmHelpers.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\DigitalWcfService.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\FileManager.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.xml
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\bin\Debug\ServerFileManager.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.csprojResolveAssemblyReference.cache
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.exe
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DigitalDataManager\obj\Debug\DigitalDataManager.pdb

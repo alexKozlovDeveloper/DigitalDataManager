@@ -119,6 +119,25 @@ namespace DbController.Repositoryes
             }
         }
 
+        public Tag AddTag(Guid userId, string name)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                var tag = new TagT
+                {
+                    Id = Guid.NewGuid(),
+                    Name = name,
+                    UserId = userId
+                };
+
+                db.Tags.Add(tag);
+
+                db.SaveChanges();
+
+                return DbConverter.GetTag(tag);
+            }
+        }
+
         public FolderEntity GetFolderStruct(Guid userId)
         {
             using (var db = new DdmDbContextV3())
@@ -202,6 +221,24 @@ namespace DbController.Repositoryes
                 }
 
                 return DbConverter.GetUser(res);
+            }
+        }
+
+        public List<Tag> GetAllUserTags(Guid userId)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                var res = new List<Tag>();
+
+                foreach (var item in db.Tags)
+                {
+                    if (item.UserId == userId)
+                    {
+                        res.Add(DbConverter.GetTag(item));
+                    }
+                }
+
+                return res;
             }
         }
     }

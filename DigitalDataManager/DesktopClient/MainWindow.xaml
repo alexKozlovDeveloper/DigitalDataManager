@@ -14,13 +14,15 @@
             <Grid Height="430" Width="770"/>
         </ScrollViewer>
         <Grid Name="GridToolbar" HorizontalAlignment="Left" Height="45" Margin="289,10,0,0" VerticalAlignment="Top" Width="791">
-            <DatePicker Name="DatePickerFrom" HorizontalAlignment="Left" Margin="58,13,0,0" VerticalAlignment="Top"/>
-            <Label Content="From" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top"/>
-            <Label Content="To" HorizontalAlignment="Left" Margin="160,12,0,0" VerticalAlignment="Top"/>
-            <DatePicker Name="DatePickerTo" HorizontalAlignment="Left" Margin="188,11,0,0" VerticalAlignment="Top"/>
-            <Button Name="ButtonAplly" Content="Aplly" HorizontalAlignment="Left" Margin="295,13,0,0" VerticalAlignment="Top" Width="75"/>
-            <ComboBox Name="ComboBoxTags" HorizontalAlignment="Left" Margin="415,13,0,0" VerticalAlignment="Top" Width="120"/>
+            <DatePicker Name="DatePickerFrom" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Height="29"/>
+            <Label Content="From" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+            <Label Content="To" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
+            <DatePicker Name="DatePickerTo" HorizontalAlignment="Left" Margin="188,10,0,0" VerticalAlignment="Top" Height="29"/>
+            <Button Name="ButtonAplly" Content="Aplly" HorizontalAlignment="Left" Margin="295,10,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
+            <ComboBox Name="ComboBoxTags" HorizontalAlignment="Left" Margin="415,10,0,0" VerticalAlignment="Top" Width="120" Height="29"/>
             <Label Content="Tags" HorizontalAlignment="Left" Margin="375,12,0,0" VerticalAlignment="Top"/>
+            <Button Name="ButtonAddNewTag" Content="Add New Tag" HorizontalAlignment="Left" Margin="540,10,0,0" VerticalAlignment="Top" Width="129" Height="29"/>
+            <Button Name="ButtonAddTagToImage" Content="Add tag to image" HorizontalAlignment="Left" Margin="674,10,0,0" VerticalAlignment="Top" Width="107" Height="29"/>
         </Grid>
         <Grid Name="GridProcessing" HorizontalAlignment="Left" Height="552" Margin="1185,60,0,0" VerticalAlignment="Top" Width="144">
             <Button Name="ButtonBlackWhite" Content="Black-White" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Width="96"/>

@@ -26,6 +26,18 @@ namespace DesktopClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserFolders", ReplyAction="http://tempuri.org/IService/GetUserFoldersResponse")]
         System.Threading.Tasks.Task<DdmHelpers.FileTree.Entity.FolderEntity> GetUserFoldersAsync(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUserTags", ReplyAction="http://tempuri.org/IService/GetAllUserTagsResponse")]
+        DbController.TableEntityes.Tag[] GetAllUserTags(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUserTags", ReplyAction="http://tempuri.org/IService/GetAllUserTagsResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.Tag[]> GetAllUserTagsAsync(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddTag", ReplyAction="http://tempuri.org/IService/AddTagResponse")]
+        DbController.TableEntityes.Tag AddTag(System.Guid userId, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddTag", ReplyAction="http://tempuri.org/IService/AddTagResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.Tag> AddTagAsync(System.Guid userId, string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace DesktopClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<DdmHelpers.FileTree.Entity.FolderEntity> GetUserFoldersAsync(System.Guid userId) {
             return base.Channel.GetUserFoldersAsync(userId);
+        }
+        
+        public DbController.TableEntityes.Tag[] GetAllUserTags(System.Guid userId) {
+            return base.Channel.GetAllUserTags(userId);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.Tag[]> GetAllUserTagsAsync(System.Guid userId) {
+            return base.Channel.GetAllUserTagsAsync(userId);
+        }
+        
+        public DbController.TableEntityes.Tag AddTag(System.Guid userId, string name) {
+            return base.Channel.AddTag(userId, name);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.Tag> AddTagAsync(System.Guid userId, string name) {
+            return base.Channel.AddTagAsync(userId, name);
         }
     }
 }

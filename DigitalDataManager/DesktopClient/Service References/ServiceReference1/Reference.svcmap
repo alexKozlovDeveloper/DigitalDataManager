@@ -27,6 +27,7 @@
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cef87907-b4bf-40bd-aa64-a4f7eb535286" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
     <MetadataFile FileName="DdmHelpers.FileTree.Entity.xsd" MetadataType="Schema" ID="bafafb84-46b9-4deb-99d5-ffe9c2170316" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="0c935f4f-32c0-4509-9eba-513301ec11cf" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="DbController.TableEntityes.xsd" MetadataType="Schema" ID="2a1ff9f8-3651-4bf6-ab64-986aa2fce70d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
