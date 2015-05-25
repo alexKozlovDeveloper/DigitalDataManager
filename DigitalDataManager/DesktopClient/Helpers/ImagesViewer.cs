@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DdmHelpers.Processing;
 
 namespace DesktopClient.Helpers
 {
@@ -19,7 +21,8 @@ namespace DesktopClient.Helpers
         private readonly int _imageWidth;
         private readonly Thickness _imageMargin;
 
-        private readonly List<ImageItem> _images; 
+        private readonly List<ImageItem> _images;
+        private List<ImageItem> _filterImages;
 
         public int HorizontalImageCount
         {
@@ -113,6 +116,69 @@ namespace DesktopClient.Helpers
             }
 
             return res;
+        }
+
+        public List<ImageItem> GetAllItems()
+        {
+            return _images;
+        }
+
+        public void ProccessingAllSelectItems(IProcessing proc)
+        {
+            var items = GetAllSelectItems();
+
+            var procImages = new List<string>();
+
+            foreach (var imageItem in items)
+            {
+                var resPath = Path.GetDirectoryName(imageItem.ImagePath) + "\\" +
+                              Path.GetFileNameWithoutExtension(imageItem.ImagePath) + proc.ProcessingName + 
+                              Path.GetExtension(imageItem.ImagePath);
+
+                proc.Process(imageItem.ImagePath, resPath);
+
+                procImages.Add(resPath);
+            }
+
+            foreach (var procImage in procImages)
+            {
+                AddImage(procImage);
+            }
+        }
+
+        public void FilterByDate(DateTime? from, DateTime? to)
+        {
+            var filderItems = new List<ImageItem>();
+
+            foreach (var imageItem in _images)
+            {
+                var date = File.GetCreationTime(imageItem.ImagePath);
+
+                if (from != null)
+                {
+                    if (date < from)
+                    {
+                        continue;
+                    }
+                }
+
+                if (to != null)
+                {
+                    if (date > to)
+                    {
+                        continue;
+                    }
+                }
+
+                filderItems.Add(imageItem);
+            }
+
+            Clear();
+
+            foreach (var filderItem in filderItems)
+            {
+                AddImage(filderItem.ImagePath);
+            }
         }
     }
 }

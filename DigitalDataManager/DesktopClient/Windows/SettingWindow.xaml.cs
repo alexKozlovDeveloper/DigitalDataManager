@@ -25,6 +25,13 @@ namespace DesktopClient.Windows
             InitializeComponent();
 
             FrameUserInfo.Content = new LoginPage();
+
+            ButtonApllyWorkFolder.Click += ButtonApllyWorkFolder_Click;
+        }
+
+        void ButtonApllyWorkFolder_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigController.WorkFolder = TextBoxWorkFolder.Text;
         }
     }
 }

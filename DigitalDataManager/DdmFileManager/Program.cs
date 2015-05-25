@@ -2,6 +2,7 @@
 using DdmFileManager.Clent;
 using DdmHelpers.FileReader;
 using DdmHelpers.FileTree;
+using DdmHelpers.Processing;
 using DdmHelpers.Serialize;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace DdmFileManager
     {
         static void Main(string[] args)
         {
-            var rep = new DdmRepository();
+            //var rep = new DdmRepository();
 
             //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
 
@@ -28,11 +29,11 @@ namespace DdmFileManager
 
             //var a11 = rep.AddFolder(user.Id, "a11", a1.Id);
 
-            var user = rep.GetUser("Alex");
+            //var user = rep.GetUser("Alex");
 
-            var folder = rep.GetFolderStruct(user.Id);
+            //var folder = rep.GetFolderStruct(user.Id);
 
-            FileTreeHelper.SetAllFolderPath(folder, "");
+            //FileTreeHelper.SetAllFolderPath(folder, "");
 
             //var fn = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
             //fn.UpdateCurrentFolderStruct();
@@ -45,6 +46,11 @@ namespace DdmFileManager
             //var t = XmlSerializerHelper.Serialize(folder);
 
             //FileReaderHelper.WriteStreamInFile(t, @"D:\olo.xml");
+
+
+            var proc = new BlackWhiteProcessing();
+
+            proc.Process(@"D:\sample.jpg", @"D:\sample1.jpg");
         }
     }
 }

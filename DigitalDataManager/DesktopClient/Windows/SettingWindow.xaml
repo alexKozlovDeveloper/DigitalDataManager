@@ -4,5 +4,8 @@
         Title="Setting" Height="300" Width="552.5">
     <Grid>
         <Frame Name="FrameUserInfo" HorizontalAlignment="Left" Height="99" Margin="10,10,0,0" VerticalAlignment="Top" Width="526"/>
+        <Label Content="Work folder" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="TextBoxWorkFolder" HorizontalAlignment="Left" Height="23" Margin="88,117,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="366"/>
+        <Button Name="ButtonApllyWorkFolder" Content="Aplly" HorizontalAlignment="Left" Margin="459,118,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

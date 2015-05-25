@@ -54,7 +54,7 @@ namespace DesktopClient.Tree
 
             var img = new Image
             {
-                Source = new BitmapImage(new Uri(@"C:\Ddm\sample.jpg")),
+                Source = new BitmapImage(new Uri(@"D:\Ddm\sample.jpg")),
                 Margin = new Thickness(0, 0, 0, 0)
             };
 
@@ -71,7 +71,7 @@ namespace DesktopClient.Tree
 
             var item = new TreeViewItem
             {
-                Header = folder.ToString()
+                Header = folder.Name//ToString()
             };
 
             _folderPaths.Add(folder.Name, folder.Path);
