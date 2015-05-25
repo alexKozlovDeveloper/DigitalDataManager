@@ -76,6 +76,8 @@ namespace DesktopClient
             ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
             ButtonBlackWhite.Click += ButtonBlackWhite_Click;
             ButtonAplly.Click += ButtonAplly_Click;
+
+            InitTags();
         }
 
         void ButtonAplly_Click(object sender, RoutedEventArgs e)
@@ -125,6 +127,34 @@ namespace DesktopClient
             //    //    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
             //    //}
             //}
+        }
+
+        public void InitTags()
+        {
+            var tags = new Dictionary<string, int>();
+
+            tags.Add("culture", 40);
+            tags.Add("sds", 27);
+            tags.Add("sdssds", 50);
+            tags.Add("sdssssss", 22);
+
+            var min = 20;
+            var max = 60;
+
+            var maxFon = 50;
+
+            WrapPanelTags.Children.Clear();
+
+            foreach (var tag in tags)
+            {
+                var s = (maxFon * (tag.Value - min)) / (max - min);
+
+                var lab = new Label();
+                lab.Content = tag.Key;
+                lab.FontSize = s;
+
+                WrapPanelTags.Children.Add(lab);
+            }
         }
     }
 }
