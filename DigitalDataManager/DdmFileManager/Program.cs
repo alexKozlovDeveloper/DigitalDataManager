@@ -1,5 +1,4 @@
-﻿using DbController.Repositoryes;
-using DdmFileManager.Clent;
+﻿using DdmFileManager.Clent;
 using DdmHelpers.FileReader;
 using DdmHelpers.FileTree;
 using DdmHelpers.Processing;
@@ -48,9 +47,17 @@ namespace DdmFileManager
             //FileReaderHelper.WriteStreamInFile(t, @"D:\olo.xml");
 
 
-            var proc = new BlackWhiteProcessing();
+            //var proc = new BlackWhiteProcessing();
+            //proc.Process(@"D:\sample.jpg", @"D:\sample1.jpg");
 
-            proc.Process(@"D:\sample.jpg", @"D:\sample1.jpg");
+
+            //var user = rep.GetUser("Alex");
+
+            //var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
+
+            //rep.UpdateFolderStruct(user.Id, folderStruct);
+
+            //var s = rep.GetFolderStruct(user.Id);
         }
     }
 }

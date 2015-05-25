@@ -2,9 +2,11 @@
 using DbController.TableEntityes;
 using DbController.Tables.Context;
 using DbController.Tables.DigitalDate;
+using Ddm.Db.TableEntityes;
 using DdmHelpers.FileTree.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +40,7 @@ namespace DbController.Repositoryes
         {
             return new ActivateCode();
         }
-        
+
         public ActivateCode CreateActivateCode(Guid userId)
         {
             using (var db = new DdmDbContextV3())
@@ -49,18 +51,18 @@ namespace DbController.Repositoryes
                 {
                     Id = id,
                     Date = DateTime.Now,
-                    Code = id.ToString().Substring(9,4),
+                    Code = id.ToString().Substring(9, 4),
                     UserId = userId
                 };
 
                 db.ActivateCodes.Add(code);
 
-                db.SaveChanges(); 
+                db.SaveChanges();
 
                 return DbConverter.GetActivateCode(code);
             }
         }
-        
+
         public void ActivateUser(Guid userId)
         {
             using (var db = new DdmDbContextV3())
@@ -72,7 +74,7 @@ namespace DbController.Repositoryes
                 db.SaveChanges();
             }
         }
-        
+
         private UserT GetUserT(Guid userId, DdmDbContextV3 db)
         {
             var user = (from item in db.Users
@@ -85,8 +87,8 @@ namespace DbController.Repositoryes
         private FolderT GetFolderT(Guid folderId, DdmDbContextV3 db)
         {
             var folder = (from item in db.Folders
-                        where item.Id == folderId
-                        select item).FirstOrDefault();
+                          where item.Id == folderId
+                          select item).FirstOrDefault();
 
             return folder;
         }
@@ -142,8 +144,8 @@ namespace DbController.Repositoryes
         {
             using (var db = new DdmDbContextV3())
             {
-                var root = new FolderEntity 
-                { 
+                var root = new FolderEntity
+                {
                     Name = "root",
                     Path = "",
                     Parrent = null,
@@ -203,8 +205,6 @@ namespace DbController.Repositoryes
             return res;
         }
 
-        
-
         public User GetUser(string login)
         {
             using (var db = new DdmDbContextV3())
@@ -224,6 +224,81 @@ namespace DbController.Repositoryes
             }
         }
 
+        public List<DigitalFile> GetFileFromFolder(Guid folderId)
+        { 
+            var res = new List<DigitalFile>();
+
+            using (var db = new DdmDbContextV3())
+            {
+                foreach (var item in db.FolderVsFiles)
+                {
+                    if (item.FolderId == folderId)
+                    {
+                        res.Add(GetFile(item.FileId));
+                    }
+                }
+            }
+
+            return res;
+        }
+
+        public DigitalFile GetFile(Guid fileId)
+        {
+            DigitalFileT res = null;
+
+            using (var db = new DdmDbContextV3())
+            {
+                foreach (var item in db.Files)
+                {
+                    if (item.Id == fileId)
+                    {
+                        res = item;
+                        break;
+                    }
+                }
+            }
+
+            return DbConverter.GetFile(res);
+        }
+
+        public FolderVsFile AddFileToFolder(Guid fileId, Guid folderId)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                var fvf = new FolderVsFileT
+                {
+                    Id = Guid.NewGuid(),
+                    FileId = fileId,
+                    FolderId = folderId
+                };
+
+                db.FolderVsFiles.Add(fvf);
+
+                db.SaveChanges();
+
+                return DbConverter.GetFolderVsFile(fvf);
+            }
+        }
+
+        public Folder GetFolder(Guid UserId, string folderName)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                FolderT res = null;
+
+                foreach (var item in db.Folders)
+                {
+                    if (item.CreateUserId == UserId && item.Name == folderName)
+                    {
+                        res = item;
+                        break;
+                    }
+                }
+
+                return DbConverter.GetFolder(res);
+            }
+        }
+
         public List<Tag> GetAllUserTags(Guid userId)
         {
             using (var db = new DdmDbContextV3())
@@ -240,6 +315,101 @@ namespace DbController.Repositoryes
 
                 return res;
             }
+        }
+
+        public void UpdateFolderStruct(Guid userId, FolderEntity userFolder)
+        {
+            var dbFolder = GetFolderStruct(userId);
+
+            UpdateFolderStructRecurs(userId, userFolder, dbFolder);
+        }
+
+        private FolderEntity UpdateFolderStructRecurs(Guid userId, FolderEntity userFolder, FolderEntity dbFolder)
+        {
+            var newFolders = new List<FolderEntity>();
+            var changeFolders = new List<FolderEntity>();
+
+            foreach (var item in userFolder.Folders)
+            {
+                if (dbFolder.Folders.Contains(item) == true)
+                {
+                    var fd = GetFolder(dbFolder.Folders, item.Name);
+
+                    changeFolders.Add(UpdateFolderStructRecurs(userId, item, fd));
+                }
+                else
+                {
+                    newFolders.Add(item);
+                }
+            }
+
+            foreach (var item in changeFolders)
+            {
+                dbFolder.Folders.Remove(item);
+            }
+
+            dbFolder.Folders.AddRange(newFolders);
+            dbFolder.Folders.AddRange(changeFolders);
+
+            foreach (var item in newFolders)
+            {
+                Guid par = Guid.Empty;
+
+                if (dbFolder.Name != "root")
+                {
+                    par = GetFolder(userId, dbFolder.Name).Id;
+                }
+
+                AddFolder(userId, item.Name, par);
+            }
+
+            return dbFolder;
+        }
+
+        private FolderEntity GetFolder(List<FolderEntity> folders, string name)
+        {
+            FolderEntity res = null;
+
+            foreach (var item in folders)
+            {
+                if (item.Name == name)
+                {
+                    res = item;
+                    break;
+                }
+            }
+
+            return res;
+        }
+
+        public DigitalFile AddFile(Stream fileStream, string name, string checkSum)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                var file = new DigitalFileT
+                {
+                    Id = Guid.NewGuid(),
+                    Name = name,
+                    CheckSum = checkSum
+                };
+
+                db.Files.Add(file);
+
+                db.SaveChanges();
+
+                ServerFM.WriteFile(fileStream, file.Id, Path.GetExtension(name));
+
+                return DbConverter.GetFile(file);
+            }
+        }
+
+        public Stream GetFileStream(Guid fileId)
+        {
+            var file = GetFile(fileId);
+
+            var res = ServerFM.ReadFile(fileId, Path.GetExtension(file.Name));
+
+            return res;
         }
     }
 }

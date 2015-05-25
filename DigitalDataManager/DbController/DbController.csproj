@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoryes\DdmRepository.cs" />
     <Compile Include="Repositoryes\Repository.cs" />
+    <Compile Include="ServerFM.cs" />
     <Compile Include="TableEntityes\ActivateCode.cs" />
     <Compile Include="TableEntityes\Comment.cs" />
     <Compile Include="TableEntityes\DigitalFile.cs" />
