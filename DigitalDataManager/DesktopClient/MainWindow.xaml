@@ -35,7 +35,7 @@
             <Label Content="Tags" HorizontalAlignment="Left" Margin="51,192,0,0" VerticalAlignment="Top" Width="48"/>
             <WrapPanel Name="WrapPanelTags" HorizontalAlignment="Left" Height="134" Margin="10,218,0,0" VerticalAlignment="Top" Width="124"/>
         </Grid>
-        <Button Name="ButtonSetting" Content="Setting" HorizontalAlignment="Left" Margin="1197,10,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button Name="ButtonSetting" Content="Setting" HorizontalAlignment="Left" Margin="1209,19,0,0" VerticalAlignment="Top" Width="94" Height="24"/>
         <Button Name="ButtonAddNewFolder" Content="Add New Folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113"/>
     </Grid>
 </Window>
