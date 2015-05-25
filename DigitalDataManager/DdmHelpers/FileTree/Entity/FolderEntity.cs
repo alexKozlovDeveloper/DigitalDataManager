@@ -57,11 +57,11 @@ namespace DdmHelpers.FileTree.Entity
 
             if (IsVirtual)
             {
-                v = "virtual";
+                v = "Virtual";
             }
             else
             {
-                v = "Fizikal";
+                v = "Physical";
             }
             return string.Format("{0}[{1}]", Name, v);
         }
