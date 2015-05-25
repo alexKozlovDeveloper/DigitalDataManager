@@ -12,6 +12,8 @@ namespace DesktopClient
     {
         public const string ConfigFilePath = "SystemConfig.xml";
 
+        public static string WorkFolder { get; set; }
+
         static ConfigController()
         {
             if (File.Exists(ConfigFilePath) == false)
@@ -19,7 +21,7 @@ namespace DesktopClient
                 CurrentUser = null;
             }
 
-
+            WorkFolder = @"D:\Ddm\Images";
         }
 
         public static User CurrentUser { get; set; }

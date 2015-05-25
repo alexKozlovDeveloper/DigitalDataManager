@@ -75,6 +75,12 @@ namespace DesktopClient
 
             ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
             ButtonBlackWhite.Click += ButtonBlackWhite_Click;
+            ButtonAplly.Click += ButtonAplly_Click;
+        }
+
+        void ButtonAplly_Click(object sender, RoutedEventArgs e)
+        {
+            _imagesViewer.FilterByDate(DatePickerFrom.SelectedDate, DatePickerTo.SelectedDate);
         }
 
         void ButtonBlackWhite_Click(object sender, RoutedEventArgs e)
