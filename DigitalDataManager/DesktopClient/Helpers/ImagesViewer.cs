@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DdmHelpers.Processing;
 
 namespace DesktopClient.Helpers
 {
@@ -113,6 +115,29 @@ namespace DesktopClient.Helpers
             }
 
             return res;
+        }
+
+        public void ProccessingAllSelectItems(IProcessing proc)
+        {
+            var items = GetAllSelectItems();
+
+            var procImages = new List<string>();
+
+            foreach (var imageItem in items)
+            {
+                var resPath = Path.GetDirectoryName(imageItem.ImagePath) + "\\" +
+                              Path.GetFileNameWithoutExtension(imageItem.ImagePath) + proc.ProcessingName + 
+                              Path.GetExtension(imageItem.ImagePath);
+
+                proc.Process(imageItem.ImagePath, resPath);
+
+                procImages.Add(resPath);
+            }
+
+            foreach (var procImage in procImages)
+            {
+                AddImage(procImage);
+            }
         }
     }
 }

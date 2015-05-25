@@ -23,8 +23,9 @@
             <Label Content="Tags" HorizontalAlignment="Left" Margin="380,7,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Grid Name="GridProcessing" HorizontalAlignment="Left" Height="552" Margin="1185,60,0,0" VerticalAlignment="Top" Width="116">
-            <Button Name="ButtonBlackWhite" Content="Black-White" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="96"/>
-            <Button Name="ButtonBlurring" Content="Blurring" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="96"/>
+            <Button Name="ButtonBlackWhite" Content="Black-White" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="96"/>
+            <Button Name="ButtonBlurring" Content="Blurring" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="96"/>
+            <Label Content="Processing" HorizontalAlignment="Left" Margin="24,-1,0,0" VerticalAlignment="Top" Width="67"/>
         </Grid>
         <Button Name="ButtonSetting" Content="Setting" HorizontalAlignment="Left" Margin="1197,10,0,0" VerticalAlignment="Top" Width="97"/>
         <Button Name="ButtonAddNewFolder" Content="Add New Folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113"/>

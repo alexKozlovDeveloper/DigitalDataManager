@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml;
 using DdmHelpers.FileTree;
+using DdmHelpers.Processing;
 using DesktopClient.DdmServiceReference;
 using DesktopClient.Helpers;
 using DesktopClient.Tree;
@@ -44,6 +45,7 @@ namespace DesktopClient
         private bool _flg = false;
 
         private TreeViewer _tree;
+        private ImagesViewer _imagesViewer;
 
         public MainWindow()
         {
@@ -51,27 +53,33 @@ namespace DesktopClient
 
             var rep = new DdmRepository();
 
-            var user = rep.GetUser("Alex");
+            //var user = rep.GetUser("Alex");
             
             //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
 
-            _manager = new ClientFileManager(@"C:\Ddm\Client");
-            _mf = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
+            _manager = new ClientFileManager(@"D:\Ddm\Client");
+            //_mf = new ClientFM(@"C:\Ddm\TestStruct", user.Id);
 
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
 
-            var imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
+            _imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
 
-            var g = _mf.UpdateCurrentFolderStruct();
+            //var g = _mf.UpdateCurrentFolderStruct();
 
-            //_tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"C:\Ddm\Images"), imagesViewer);
-            _tree = new TreeViewer(TreeView11, g, imagesViewer);
+            _tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\Ddm\Images"), _imagesViewer);
+            //_tree = new TreeViewer(TreeView11, g, imagesViewer);
             ButtonSetting.Click += ButtonSetting_Click;
 
             Init();
 
             ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
+            ButtonBlackWhite.Click += ButtonBlackWhite_Click;
+        }
+
+        void ButtonBlackWhite_Click(object sender, RoutedEventArgs e)
+        {
+            _imagesViewer.ProccessingAllSelectItems(new BlackWhiteProcessing());
         }
 
         void ButtonAddNewFolder_Click(object sender, RoutedEventArgs e)
@@ -98,19 +106,19 @@ namespace DesktopClient
 
         public void Init()
         {
-            var albums = _manager.GetAllAlbums();
+            //var albums = _manager.GetAllAlbums();
 
             //_tabHelper = new TabControlHelper(AlbumTabControl);
 
-            foreach (var album in albums)
-            {
-                //_tabHelper.AddTab(album.Name);
+            //foreach (var album in albums)
+            //{
+            //    //_tabHelper.AddTab(album.Name);
 
-                //foreach (var file in album.Images)
-                //{
-                //    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
-                //}
-            }
+            //    //foreach (var file in album.Images)
+            //    //{
+            //    //    _tabHelper.AddImageToTab(album.Name, _manager.GetFilePath(file.Name));
+            //    //}
+            //}
         }
     }
 }

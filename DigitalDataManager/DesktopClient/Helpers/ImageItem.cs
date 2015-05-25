@@ -108,12 +108,12 @@ namespace DesktopClient.Helpers
         {
             if (_isSelect)
             {
-                _grid.Background = new SolidColorBrush(Colors.SeaGreen);
+                _grid.Background = new SolidColorBrush(Colors.LightBlue);
                 //new SolidColorBrush(Color.FromArgb(90, 0xF0, 0x00, 0xFF));
             }
             else
             {
-                _grid.Background = new SolidColorBrush(Colors.RoyalBlue);
+                _grid.Background = new SolidColorBrush(Colors.GhostWhite);
             }
         }
     }
