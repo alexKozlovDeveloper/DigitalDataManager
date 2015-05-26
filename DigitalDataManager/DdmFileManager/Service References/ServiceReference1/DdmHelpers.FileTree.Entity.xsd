@@ -5,6 +5,7 @@
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FilesPath" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="Folders" nillable="true" type="tns:ArrayOfFolderEntity" />
+      <xs:element minOccurs="0" name="IsVirtual" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
     </xs:sequence>

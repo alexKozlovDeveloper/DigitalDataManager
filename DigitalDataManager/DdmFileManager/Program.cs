@@ -4,6 +4,7 @@ using DdmHelpers.FileReader;
 using DdmHelpers.FileTree;
 using DdmHelpers.Processing;
 using DdmHelpers.Serialize;
+using DdmWcfServiceLibrary.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,14 +61,22 @@ namespace DdmFileManager
             var t = rep.UpdateFolderStruct(user.Id, folderStruct);
 
             foreach (var item in t)
-            {
-                var f1 = rep.GetFolder(item.Value);
-
+            {                
                 var fs = FileReaderHelper.ReadStreamFromFile(item.Key);
 
-                var file = rep.AddFile(fs, Path.GetFileName(item.Key), "");
+                var client = new ServiceReference1.ServiceClient();
 
-                rep.AddFileToFolder(file.Id, item.Value);
+                var data = new FileEntity 
+                { 
+                    CheckSum = "",
+                    FileStream = fs,
+                    Name = Path.GetFileName(item.Key)
+                };
+
+                var file = client.CreateFile(BinarySerializerHelper.Serialize(data));
+                client.AddFileToFolder(file.Id, item.Value);
+                //var file = rep.AddFile(fs, Path.GetFileName(item.Key), "");
+                //rep.AddFileToFolder(file.Id, item.Value);
             }
 
             var s = rep.GetFolderStruct(user.Id);

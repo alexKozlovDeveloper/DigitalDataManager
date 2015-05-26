@@ -1,7 +1,9 @@
 ﻿using DbController.TableEntityes;
+using Ddm.Db.TableEntityes;
 using DdmHelpers.FileTree.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -24,5 +26,11 @@ namespace DdmWcfServiceLibrary
 
         [OperationContract]
         Tag AddTag(Guid userId, string name);
+
+        [OperationContract]
+        DigitalFile CreateFile(Stream dataStream);
+
+        [OperationContract]
+        FolderVsFile AddFileToFolder(Guid fileId, Guid folderId);
     }
 }

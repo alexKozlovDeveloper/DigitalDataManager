@@ -6,6 +6,9 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_GetData_InputMessage">
@@ -20,6 +23,30 @@
   <wsdl:message name="IService_GetUserFolders_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserFoldersResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetAllUserTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserTags" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllUserTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTag" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddFileToFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileToFolder" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddFileToFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileToFolderResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
@@ -28,6 +55,22 @@
     <wsdl:operation name="GetUserFolders">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserFolders" message="tns:IService_GetUserFolders_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserFoldersResponse" message="tns:IService_GetUserFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllUserTags" message="tns:IService_GetAllUserTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllUserTagsResponse" message="tns:IService_GetAllUserTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddTag" message="tns:IService_AddTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddTagResponse" message="tns:IService_AddTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CreateFile" message="tns:IService_CreateFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CreateFileResponse" message="tns:IService_CreateFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFileToFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddFileToFolder" message="tns:IService_AddFileToFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddFileToFolderResponse" message="tns:IService_AddFileToFolder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -43,6 +86,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserFolders">
       <soap:operation soapAction="http://tempuri.org/IService/GetUserFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserTags">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllUserTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <soap:operation soapAction="http://tempuri.org/IService/AddTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <soap:operation soapAction="http://tempuri.org/IService/CreateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFileToFolder">
+      <soap:operation soapAction="http://tempuri.org/IService/AddFileToFolder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

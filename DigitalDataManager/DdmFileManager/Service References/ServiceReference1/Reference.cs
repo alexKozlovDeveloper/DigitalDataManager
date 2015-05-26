@@ -26,6 +26,30 @@ namespace DdmFileManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserFolders", ReplyAction="http://tempuri.org/IService/GetUserFoldersResponse")]
         System.Threading.Tasks.Task<DdmHelpers.FileTree.Entity.FolderEntity> GetUserFoldersAsync(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUserTags", ReplyAction="http://tempuri.org/IService/GetAllUserTagsResponse")]
+        DbController.TableEntityes.Tag[] GetAllUserTags(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUserTags", ReplyAction="http://tempuri.org/IService/GetAllUserTagsResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.Tag[]> GetAllUserTagsAsync(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddTag", ReplyAction="http://tempuri.org/IService/AddTagResponse")]
+        DbController.TableEntityes.Tag AddTag(System.Guid userId, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddTag", ReplyAction="http://tempuri.org/IService/AddTagResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.Tag> AddTagAsync(System.Guid userId, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateFile", ReplyAction="http://tempuri.org/IService/CreateFileResponse")]
+        Ddm.Db.TableEntityes.DigitalFile CreateFile(System.IO.Stream dataStream);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateFile", ReplyAction="http://tempuri.org/IService/CreateFileResponse")]
+        System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(System.IO.Stream dataStream);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFileToFolder", ReplyAction="http://tempuri.org/IService/AddFileToFolderResponse")]
+        DbController.TableEntityes.FolderVsFile AddFileToFolder(System.Guid fileId, System.Guid folderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFileToFolder", ReplyAction="http://tempuri.org/IService/AddFileToFolderResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.FolderVsFile> AddFileToFolderAsync(System.Guid fileId, System.Guid folderId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +93,38 @@ namespace DdmFileManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task<DdmHelpers.FileTree.Entity.FolderEntity> GetUserFoldersAsync(System.Guid userId) {
             return base.Channel.GetUserFoldersAsync(userId);
+        }
+        
+        public DbController.TableEntityes.Tag[] GetAllUserTags(System.Guid userId) {
+            return base.Channel.GetAllUserTags(userId);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.Tag[]> GetAllUserTagsAsync(System.Guid userId) {
+            return base.Channel.GetAllUserTagsAsync(userId);
+        }
+        
+        public DbController.TableEntityes.Tag AddTag(System.Guid userId, string name) {
+            return base.Channel.AddTag(userId, name);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.Tag> AddTagAsync(System.Guid userId, string name) {
+            return base.Channel.AddTagAsync(userId, name);
+        }
+        
+        public Ddm.Db.TableEntityes.DigitalFile CreateFile(System.IO.Stream dataStream) {
+            return base.Channel.CreateFile(dataStream);
+        }
+        
+        public System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(System.IO.Stream dataStream) {
+            return base.Channel.CreateFileAsync(dataStream);
+        }
+        
+        public DbController.TableEntityes.FolderVsFile AddFileToFolder(System.Guid fileId, System.Guid folderId) {
+            return base.Channel.AddFileToFolder(fileId, folderId);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.FolderVsFile> AddFileToFolderAsync(System.Guid fileId, System.Guid folderId) {
+            return base.Channel.AddFileToFolderAsync(fileId, folderId);
         }
     }
 }

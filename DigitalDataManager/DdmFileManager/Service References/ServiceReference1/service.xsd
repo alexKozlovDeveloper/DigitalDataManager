@@ -2,6 +2,9 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" />
+  <xs:import namespace="http://schemas.microsoft.com/Message" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -27,6 +30,64 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" minOccurs="0" name="GetUserFoldersResult" nillable="true" type="q2:FolderEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserTags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserTagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="GetAllUserTagsResult" nillable="true" type="q4:ArrayOfTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q5:guid" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="AddTagResult" nillable="true" type="q6:Tag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="dataStream" type="q7:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" minOccurs="0" name="CreateFileResult" nillable="true" type="q8:DigitalFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFileToFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="fileId" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderId" type="q10:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFileToFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="AddFileToFolderResult" nillable="true" type="q11:FolderVsFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

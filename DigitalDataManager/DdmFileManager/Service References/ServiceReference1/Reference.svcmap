@@ -27,6 +27,9 @@
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ac9244d8-e167-4b9a-9cb5-2204342a2576" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
     <MetadataFile FileName="DdmHelpers.FileTree.Entity.xsd" MetadataType="Schema" ID="d07be793-f92c-444e-90b1-4cf99a6b0c0b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="67c830bf-c8c9-448b-a5d0-1c014c1bd10a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="DbController.TableEntityes.xsd" MetadataType="Schema" ID="909ca672-093e-4e4b-83dd-ff97679ac874" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="6f4244aa-3d53-414c-ad5d-21dd554dc328" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="Ddm.Db.TableEntityes.xsd" MetadataType="Schema" ID="0a6c710b-bc72-4e44-9fc3-b0e5a8932afd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

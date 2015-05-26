@@ -63,11 +63,23 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DbController.TableEntityes.FolderVsFile.datasource" />
+    <None Include="Properties\DataSources\DbController.TableEntityes.Tag.datasource" />
+    <None Include="Properties\DataSources\Ddm.Db.TableEntityes.DigitalFile.datasource" />
     <None Include="Properties\DataSources\DdmHelpers.FileTree.Entity.FolderEntity.datasource" />
     <None Include="Service References\ServiceReference1\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference1\DbController.TableEntityes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Ddm.Db.TableEntityes.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\DdmHelpers.FileTree.Entity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Message.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\service.wsdl" />
@@ -86,6 +98,10 @@
     <ProjectReference Include="..\DdmHelpers\DdmHelpers.csproj">
       <Project>{d30164d5-abc3-4694-b226-a29d1b8d8926}</Project>
       <Name>DdmHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DdmWcfServiceLibrary\DdmWcfServiceLibrary.csproj">
+      <Project>{1e53084c-6d98-4f85-a79d-d7711f7ab451}</Project>
+      <Name>DdmWcfServiceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
