@@ -27,6 +27,7 @@ using DdmHelpers.FileTree.Entity;
 using DdmFileManager.Clent;
 using DbController.Repositoryes;
 using DbController.TableEntityes;
+using DdmHelpers.FileReader;
 
 namespace DesktopClient
 {
@@ -71,17 +72,19 @@ namespace DesktopClient
 
 
             MainWindowObject.Icon = ImageConverter.ToBitmapImage(Properties.Resources.MainWindowIcon);
-
             _imagesViewer = new ImagesViewer(ScrollViewerFromFolder);
 
-            var g = _mf.UpdateCurrentFolderStruct();
-
+            //var g = _mf.UpdateCurrentFolderStruct();
             //_tree = new TreeViewer(TreeView11, FileTreeHelper.GetFolderTree(@"D:\Ddm\Images"), _imagesViewer);
-            _tree = new TreeViewer(TreeView11, g, _imagesViewer);
-            ButtonSetting.Click += ButtonSetting_Click;
+
+            UpdateFolder();
+
+            //_tree = new TreeViewer(TreeView11, g, _imagesViewer);
+            
 
             Init();
 
+            ButtonSetting.Click += ButtonSetting_Click;
             ButtonAddNewFolder.Click += ButtonAddNewFolder_Click;
             ButtonBlackWhite.Click += ButtonBlackWhite_Click;
             ButtonAplly.Click += ButtonAplly_Click;
@@ -195,6 +198,31 @@ namespace DesktopClient
 
                 WrapPanelTags.Children.Add(lab);
             }
+        }
+
+        public void UpdateFolder()
+        {
+            var user = ConfigController.CurrentUser;
+
+            var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
+
+            var rep = new DdmRepository();
+
+            var t = rep.UpdateFolderStruct(user.Id, folderStruct);
+
+            foreach (var item in t)
+            {
+                var bytes = File.ReadAllBytes(item.Key);
+
+                var file = service.CreateFile(bytes, Path.GetFileName(item.Key),"");
+                service.AddFileToFolder(file.Id, item.Value);
+            }
+
+            var s = rep.GetFolderStruct(user.Id);
+
+            s = MergeTree.MergeFolders(s, folderStruct);
+
+            _tree = new TreeViewer(TreeView11, s, _imagesViewer);
         }
     }
 }
