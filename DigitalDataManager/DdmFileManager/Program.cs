@@ -1,10 +1,12 @@
-﻿using DdmFileManager.Clent;
+﻿using DbController.Repositoryes;
+using DdmFileManager.Clent;
 using DdmHelpers.FileReader;
 using DdmHelpers.FileTree;
 using DdmHelpers.Processing;
 using DdmHelpers.Serialize;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace DdmFileManager
     {
         static void Main(string[] args)
         {
-            //var rep = new DdmRepository();
+            var rep = new DdmRepository();
 
             //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
 
@@ -51,13 +53,24 @@ namespace DdmFileManager
             //proc.Process(@"D:\sample.jpg", @"D:\sample1.jpg");
 
 
-            //var user = rep.GetUser("Alex");
+            var user = rep.GetUser("Alex");
 
-            //var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
+            var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
 
-            //rep.UpdateFolderStruct(user.Id, folderStruct);
+            var t = rep.UpdateFolderStruct(user.Id, folderStruct);
 
-            //var s = rep.GetFolderStruct(user.Id);
+            foreach (var item in t)
+            {
+                var f1 = rep.GetFolder(item.Value);
+
+                var fs = FileReaderHelper.ReadStreamFromFile(item.Key);
+
+                var file = rep.AddFile(fs, Path.GetFileName(item.Key), "");
+
+                rep.AddFileToFolder(file.Id, item.Value);
+            }
+
+            var s = rep.GetFolderStruct(user.Id);
         }
     }
 }

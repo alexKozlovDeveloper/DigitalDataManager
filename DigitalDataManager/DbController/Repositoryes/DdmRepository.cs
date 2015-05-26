@@ -175,6 +175,13 @@ namespace DbController.Repositoryes
 
                         fe.Folders = GetChildFolder(item.Id, fe, db);
 
+                        var files = GetFileFromFolder(item.Id);
+
+                        foreach (var f in files)
+                        {
+                            fe.FilesPath.Add(f.Name);
+                        }
+
                         root.Folders.Add(fe);
                     }
                 }
@@ -197,6 +204,13 @@ namespace DbController.Repositoryes
                     fe.Parrent = parrent;
                     fe.IsVirtual = true;
                     fe.Folders.AddRange(GetChildFolder(item.Id, fe, db));
+
+                    var files = GetFileFromFolder(item.Id);
+
+                    foreach (var f in files)
+                    {
+                        fe.FilesPath.Add(f.Name);
+                    }
 
                     res.Add(fe);
                 }
@@ -221,6 +235,25 @@ namespace DbController.Repositoryes
                 }
 
                 return DbConverter.GetUser(res);
+            }
+        }
+
+        public Folder GetFolder(Guid folderId)
+        {
+            using (var db = new DdmDbContextV3())
+            {
+                FolderT res = null;
+
+                foreach (var item in db.Folders)
+                {
+                    if (item.Id == folderId)
+                    {
+                        res = item;
+                        break;
+                    }
+                }
+
+                return DbConverter.GetFolder(res);
             }
         }
 
@@ -317,14 +350,18 @@ namespace DbController.Repositoryes
             }
         }
 
-        public void UpdateFolderStruct(Guid userId, FolderEntity userFolder)
+        public Dictionary<string, Guid> UpdateFolderStruct(Guid userId, FolderEntity userFolder)
         {
             var dbFolder = GetFolderStruct(userId);
 
-            UpdateFolderStructRecurs(userId, userFolder, dbFolder);
+            var notLoadFiles = new Dictionary<string, Guid>();
+
+            UpdateFolderStructRecurs(userId, userFolder, dbFolder, notLoadFiles);
+
+            return notLoadFiles;
         }
 
-        private FolderEntity UpdateFolderStructRecurs(Guid userId, FolderEntity userFolder, FolderEntity dbFolder)
+        private FolderEntity UpdateFolderStructRecurs(Guid userId, FolderEntity userFolder, FolderEntity dbFolder, Dictionary<string, Guid> notLoadFiles)
         {
             var newFolders = new List<FolderEntity>();
             var changeFolders = new List<FolderEntity>();
@@ -335,7 +372,7 @@ namespace DbController.Repositoryes
                 {
                     var fd = GetFolder(dbFolder.Folders, item.Name);
 
-                    changeFolders.Add(UpdateFolderStructRecurs(userId, item, fd));
+                    changeFolders.Add(UpdateFolderStructRecurs(userId, item, fd, notLoadFiles));
                 }
                 else
                 {
@@ -360,7 +397,27 @@ namespace DbController.Repositoryes
                     par = GetFolder(userId, dbFolder.Name).Id;
                 }
 
-                AddFolder(userId, item.Name, par);
+                var newfolder = AddFolder(userId, item.Name, par);
+
+                foreach (var f in item.FilesPath)
+                {
+                    notLoadFiles.Add(f, newfolder.Id);
+                }
+            }
+
+            var fg = GetFolder(userId, dbFolder.Name);
+
+            if (fg != null)
+            {
+                foreach (var item in userFolder.FilesPath)
+                {
+                    var path = Path.GetFileName(item);
+
+                    if (dbFolder.FilesPath.Contains(path) == false)
+                    {
+                        notLoadFiles.Add(item, fg.Id);
+                    }
+                }
             }
 
             return dbFolder;
