@@ -42,6 +42,7 @@ C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopC
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\Ddm.Db.exe
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmFileManager.exe
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmHelpers.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.dll
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\EntityFramework.dll
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\FileManager.dll
@@ -51,6 +52,7 @@ C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopC
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DbController.pdb
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmFileManager.pdb
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmHelpers.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.pdb
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\FileManager.pdb
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\EntityFramework.xml
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\EntityFramework.SqlServer.xml
@@ -74,5 +76,3 @@ C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopC
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.csproj.GenerateResource.Cache
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.exe
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.pdb
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.dll
-C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.pdb

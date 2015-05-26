@@ -27,5 +27,12 @@ namespace DbController
 
             return FileReaderHelper.ReadStreamFromFile(filePath);
         }
+
+        public static byte[] ReadFileBytes(Guid fileId, string ext)
+        {
+            var filePath = root + "\\" + fileId + ext;
+
+            return File.ReadAllBytes(filePath);
+        }
     }
 }

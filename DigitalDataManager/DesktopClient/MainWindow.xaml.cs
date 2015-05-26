@@ -50,20 +50,24 @@ namespace DesktopClient
         private TreeViewer _tree;
         private ImagesViewer _imagesViewer;
 
+        private CacheFM _cache;
+
         private DdmFileManager.ServiceReference1.ServiceClient service;
 
         public MainWindow()
         {
             InitializeComponent();
-
             service = new DdmFileManager.ServiceReference1.ServiceClient();
+
+            User user = service.GetUser("Alex");
+            ConfigController.CurrentUser = user;
+
+            
+            _cache = new CacheFM(@"C:\Ddm\Cache", ConfigController.CurrentUser, service);
 
             //var rep = new DdmRepository();
 
-            User user = service.GetUser("Alex");
 
-
-            ConfigController.CurrentUser = user;
 
             //var user = rep.CreateUser("Alex", "Alex", "Alex@mail.com");
 
@@ -222,7 +226,7 @@ namespace DesktopClient
 
             s = MergeTree.MergeFolders(s, folderStruct);
 
-            _tree = new TreeViewer(TreeView11, s, _imagesViewer);
+            _tree = new TreeViewer(TreeView11, s, _imagesViewer, _cache);
         }
     }
 }

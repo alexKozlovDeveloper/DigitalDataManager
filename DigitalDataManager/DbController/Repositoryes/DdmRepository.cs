@@ -468,6 +468,15 @@ namespace DbController.Repositoryes
 
             return res;
         }
+
+        public byte[] GetFileBytes(Guid fileId)
+        {
+            var file = GetFile(fileId);
+
+            var res = ServerFM.ReadFileBytes(fileId, Path.GetExtension(file.Name));
+
+            return res;
+        }
     }
 }
 

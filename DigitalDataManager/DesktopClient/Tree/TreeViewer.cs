@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using DdmHelpers.FileTree;
 using DdmHelpers.FileTree.Entity;
 using DesktopClient.Helpers;
+using DdmFileManager.Clent;
 
 namespace DesktopClient.Tree
 {
@@ -18,12 +19,14 @@ namespace DesktopClient.Tree
     {
         private TreeView _treeView;
         private readonly ImagesViewer _imagesViewer;
-        private readonly Dictionary<string, string> _folderPaths; 
+        private readonly Dictionary<string, string> _folderPaths;
+        private readonly CacheFM _cache;
 
-        public TreeViewer(TreeView treeView, FolderEntity folder, ImagesViewer imagesViewer)
+        public TreeViewer(TreeView treeView, FolderEntity folder, ImagesViewer imagesViewer, CacheFM cache)
         {
             _treeView = treeView;
             _imagesViewer = imagesViewer;
+            _cache = cache;
 
             _folderPaths = new Dictionary<string, string>();
 
@@ -40,7 +43,18 @@ namespace DesktopClient.Tree
 
             _imagesViewer.Clear();
 
-            var images = FileTreeHelper.GetAllFileInFolderAndSubfolders(_folderPaths[item.Header as string]);
+            var fold = _folderPaths[item.Header as string];
+
+            IEnumerable<string> images = null;
+
+            if (Directory.Exists(fold) == true)
+            {
+                images = FileTreeHelper.GetAllFileInFolderAndSubfolders(_folderPaths[item.Header as string]);
+            }
+            else
+            {
+                images = _cache.GetFilePathFromFolder(item.Header as string);
+            }            
 
             foreach (var image in images)
             {
