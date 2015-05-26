@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fd20b36d-b6d7-4396-8fe6-144d7b73fefc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3d5139a8-c7d1-4227-92b6-1dbbf6c5ab5f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,14 +22,13 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="becff127-6c6e-43a7-9783-6170d0ee262e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="bf9bd645-e568-414e-b99c-95c39b149115" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ac9244d8-e167-4b9a-9cb5-2204342a2576" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="DdmHelpers.FileTree.Entity.xsd" MetadataType="Schema" ID="d07be793-f92c-444e-90b1-4cf99a6b0c0b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="67c830bf-c8c9-448b-a5d0-1c014c1bd10a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="DbController.TableEntityes.xsd" MetadataType="Schema" ID="909ca672-093e-4e4b-83dd-ff97679ac874" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="6f4244aa-3d53-414c-ad5d-21dd554dc328" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
-    <MetadataFile FileName="Ddm.Db.TableEntityes.xsd" MetadataType="Schema" ID="0a6c710b-bc72-4e44-9fc3-b0e5a8932afd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3bbfdca7-b3cc-447c-92ad-b46c3699eb40" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="8bb07e9d-42e0-4304-8be1-064cb9121180" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9bde8685-20a6-49a6-8022-9af14fe1728a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="DdmHelpers.FileTree.Entity.xsd" MetadataType="Schema" ID="955410ba-5032-472e-82fa-8aa556892dc5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="f31c696f-5324-42af-92f2-fa069b348efa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="DbController.TableEntityes.xsd" MetadataType="Schema" ID="d561b88f-59e7-4f0c-b5e5-c3b9dd49cc82" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
+    <MetadataFile FileName="Ddm.Db.TableEntityes.xsd" MetadataType="Schema" ID="7ddb1382-3167-4b7b-a1e3-afdc2e2c0a39" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/DdmWcfServiceLibrary/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

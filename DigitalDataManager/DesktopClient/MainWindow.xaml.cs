@@ -26,6 +26,7 @@ using DesktopClient.Windows;
 using DdmHelpers.FileTree.Entity;
 using DdmFileManager.Clent;
 using DbController.Repositoryes;
+using DbController.TableEntityes;
 
 namespace DesktopClient
 {
@@ -48,24 +49,18 @@ namespace DesktopClient
         private TreeViewer _tree;
         private ImagesViewer _imagesViewer;
 
-        private ServiceReference1.ServiceClient service;
+        private DdmFileManager.ServiceReference1.ServiceClient service;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            service = new ServiceReference1.ServiceClient();
+            service = new DdmFileManager.ServiceReference1.ServiceClient();
 
-            var rep = new DdmRepository();
+            //var rep = new DdmRepository();
 
-            var user = rep.GetUser("Alex");
+            User user = service.GetUser("Alex");
 
-            //service.AddTag(user.Id, "Minsk");
-            //service.AddTag(user.Id, "Milan");
-            //service.AddTag(user.Id, "Belarus");
-            //service.AddTag(user.Id, "Russian");
-            //service.AddTag(user.Id, "Nature");
-            //service.AddTag(user.Id, "Tourism");
 
             ConfigController.CurrentUser = user;
 
@@ -159,7 +154,7 @@ namespace DesktopClient
         }
 
         public void InitTagsDropdownList()
-        {           
+        {
             var tags = service.GetAllUserTags(ConfigController.CurrentUser.Id);
 
             ComboBoxTags.Items.Clear();
@@ -180,7 +175,7 @@ namespace DesktopClient
 
             foreach (var item in tagsVal)
             {
-                tags.Add(item.Name, rnd.Next(30,45));
+                tags.Add(item.Name, rnd.Next(30, 45));
             }
 
             var min = 20;

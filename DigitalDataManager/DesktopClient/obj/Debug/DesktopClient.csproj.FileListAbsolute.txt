@@ -74,3 +74,5 @@ C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopC
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.csproj.GenerateResource.Cache
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.exe
 C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\obj\Debug\DesktopClient.pdb
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.dll
+C:\Users\Алексей\Documents\DigitalDataManager\DigitalDataManager\DesktopClient\bin\Debug\DdmWcfServiceLibrary.pdb

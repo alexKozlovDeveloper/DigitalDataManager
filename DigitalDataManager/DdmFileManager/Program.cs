@@ -54,32 +54,37 @@ namespace DdmFileManager
             //proc.Process(@"D:\sample.jpg", @"D:\sample1.jpg");
 
 
-            var user = rep.GetUser("Alex");
+        //////    var user = rep.GetUser("Alex");
 
-            var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
+        //////    var folderStruct = FileTreeHelper.GetFolderTree(@"C:\Ddm\TestStruct");
 
-            var t = rep.UpdateFolderStruct(user.Id, folderStruct);
+        //////    var t = rep.UpdateFolderStruct(user.Id, folderStruct);
 
-            foreach (var item in t)
-            {                
-                var fs = FileReaderHelper.ReadStreamFromFile(item.Key);
+        //////    foreach (var item in t)
+        //////    {                
+        //////        var fs = FileReaderHelper.ReadStreamFromFile(item.Key);
 
-                var client = new ServiceReference1.ServiceClient();
+        //////        var client = new ServiceReference1.ServiceClient();
 
-                var data = new FileEntity 
-                { 
-                    CheckSum = "",
-                    FileStream = fs,
-                    Name = Path.GetFileName(item.Key)
-                };
+        //////        var data = new FileEntity 
+        //////        { 
+        //////            CheckSum = "",
+        //////            FileStream = fs,
+        //////            Name = Path.GetFileName(item.Key)
+        //////        };
 
-                var file = client.CreateFile(BinarySerializerHelper.Serialize(data));
-                client.AddFileToFolder(file.Id, item.Value);
-                //var file = rep.AddFile(fs, Path.GetFileName(item.Key), "");
-                //rep.AddFileToFolder(file.Id, item.Value);
-            }
+        //////        var file = client.CreateFile(BinarySerializerHelper.Serialize(data));
+        //////        client.AddFileToFolder(file.Id, item.Value);
+        //////        //var file = rep.AddFile(fs, Path.GetFileName(item.Key), "");
+        //////        //rep.AddFileToFolder(file.Id, item.Value);
+        //////    }
 
-            var s = rep.GetFolderStruct(user.Id);
+        //////    var s = rep.GetFolderStruct(user.Id);
+
+            var client = new ServiceReference1.ServiceClient();
+
+            var f = client.CreateFile(File.ReadAllBytes(@"C:\Ddm\sample.jpg"), "sample.jpg", "");
+
         }
     }
 }

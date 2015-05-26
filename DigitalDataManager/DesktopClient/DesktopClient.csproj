@@ -77,11 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Tree\TreeViewer.cs" />
     <Compile Include="Windows\AddNewFolder.xaml.cs">
       <DependentUpon>AddNewFolder.xaml</DependentUpon>
@@ -165,22 +160,6 @@
     <None Include="Service References\DdmServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\DbController.TableEntityes.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\DdmHelpers.FileTree.Entity.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -202,6 +181,10 @@
       <Project>{D30164D5-ABC3-4694-B226-A29D1B8D8926}</Project>
       <Name>DdmHelpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DdmWcfServiceLibrary\DdmWcfServiceLibrary.csproj">
+      <Project>{1e53084c-6d98-4f85-a79d-d7711f7ab451}</Project>
+      <Name>DdmWcfServiceLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileManager\ClientFsManager.csproj">
       <Project>{92db1c26-336d-4c3f-8e9d-34f6964907e7}</Project>
       <Name>ClientFsManager</Name>
@@ -212,7 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DdmServiceReference\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DdmServiceReference\configuration91.svcinfo" />
@@ -231,18 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MainWindowIcon.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

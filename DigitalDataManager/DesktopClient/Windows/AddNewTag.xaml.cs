@@ -21,10 +21,10 @@ namespace DesktopClient.Windows
     public partial class AddNewTag : Window
     {
         private MainWindow _window;
-        private ServiceReference1.ServiceClient _service;
+        private DdmFileManager.ServiceReference1.ServiceClient _service;
         private User _user;
 
-        public AddNewTag(MainWindow window, ServiceReference1.ServiceClient service, User user)
+        public AddNewTag(MainWindow window, DdmFileManager.ServiceReference1.ServiceClient service, User user)
         {
             InitializeComponent();
 

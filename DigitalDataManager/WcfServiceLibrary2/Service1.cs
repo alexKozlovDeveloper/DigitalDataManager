@@ -1,9 +1,7 @@
 ﻿using DbController.Repositoryes;
 using DbController.TableEntityes;
-using Ddm.Db.TableEntityes;
 using DdmHelpers.FileTree.Entity;
 using DdmHelpers.Serialize;
-using DdmWcfServiceLibrary.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +9,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using WcfServiceLibrary2.Entity;
 
-namespace DdmWcfServiceLibrary
+namespace WcfServiceLibrary2
 {
-    public class Service1 : IService
+    public class Service1 : IService1
     {
         public string GetData(int value)
         {
@@ -42,11 +41,13 @@ namespace DdmWcfServiceLibrary
             return rep.AddTag(userId, name);
         }
 
-        public DigitalFile CreateFile(byte[] bytes, string name, string CheckSum)
+        public Ddm.Db.TableEntityes.DigitalFile CreateFile(Stream dataStream)
         {
+            var data = BinarySerializerHelper.Deserialize<FileEntity>(dataStream);
+
             var rep = new DdmRepository();
 
-            var file = rep.AddFile(bytes, name, CheckSum);
+            var file = rep.AddFile(data.FileStream, data.Name, data.CheckSum);
 
             return file;
         }

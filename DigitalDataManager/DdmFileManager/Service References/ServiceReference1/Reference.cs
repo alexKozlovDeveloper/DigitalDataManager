@@ -40,16 +40,28 @@ namespace DdmFileManager.ServiceReference1 {
         System.Threading.Tasks.Task<DbController.TableEntityes.Tag> AddTagAsync(System.Guid userId, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateFile", ReplyAction="http://tempuri.org/IService/CreateFileResponse")]
-        Ddm.Db.TableEntityes.DigitalFile CreateFile(System.IO.Stream dataStream);
+        Ddm.Db.TableEntityes.DigitalFile CreateFile(byte[] bytes, string name, string CheckSum);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateFile", ReplyAction="http://tempuri.org/IService/CreateFileResponse")]
-        System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(System.IO.Stream dataStream);
+        System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(byte[] bytes, string name, string CheckSum);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFileToFolder", ReplyAction="http://tempuri.org/IService/AddFileToFolderResponse")]
         DbController.TableEntityes.FolderVsFile AddFileToFolder(System.Guid fileId, System.Guid folderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddFileToFolder", ReplyAction="http://tempuri.org/IService/AddFileToFolderResponse")]
         System.Threading.Tasks.Task<DbController.TableEntityes.FolderVsFile> AddFileToFolderAsync(System.Guid fileId, System.Guid folderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateFolderStruct", ReplyAction="http://tempuri.org/IService/UpdateFolderStructResponse")]
+        System.Collections.Generic.Dictionary<string, System.Guid> UpdateFolderStruct(System.Guid userId, DdmHelpers.FileTree.Entity.FolderEntity userFolder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateFolderStruct", ReplyAction="http://tempuri.org/IService/UpdateFolderStructResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, System.Guid>> UpdateFolderStructAsync(System.Guid userId, DdmHelpers.FileTree.Entity.FolderEntity userFolder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUser", ReplyAction="http://tempuri.org/IService/GetUserResponse")]
+        DbController.TableEntityes.User GetUser(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUser", ReplyAction="http://tempuri.org/IService/GetUserResponse")]
+        System.Threading.Tasks.Task<DbController.TableEntityes.User> GetUserAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,12 +123,12 @@ namespace DdmFileManager.ServiceReference1 {
             return base.Channel.AddTagAsync(userId, name);
         }
         
-        public Ddm.Db.TableEntityes.DigitalFile CreateFile(System.IO.Stream dataStream) {
-            return base.Channel.CreateFile(dataStream);
+        public Ddm.Db.TableEntityes.DigitalFile CreateFile(byte[] bytes, string name, string CheckSum) {
+            return base.Channel.CreateFile(bytes, name, CheckSum);
         }
         
-        public System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(System.IO.Stream dataStream) {
-            return base.Channel.CreateFileAsync(dataStream);
+        public System.Threading.Tasks.Task<Ddm.Db.TableEntityes.DigitalFile> CreateFileAsync(byte[] bytes, string name, string CheckSum) {
+            return base.Channel.CreateFileAsync(bytes, name, CheckSum);
         }
         
         public DbController.TableEntityes.FolderVsFile AddFileToFolder(System.Guid fileId, System.Guid folderId) {
@@ -125,6 +137,22 @@ namespace DdmFileManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task<DbController.TableEntityes.FolderVsFile> AddFileToFolderAsync(System.Guid fileId, System.Guid folderId) {
             return base.Channel.AddFileToFolderAsync(fileId, folderId);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, System.Guid> UpdateFolderStruct(System.Guid userId, DdmHelpers.FileTree.Entity.FolderEntity userFolder) {
+            return base.Channel.UpdateFolderStruct(userId, userFolder);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, System.Guid>> UpdateFolderStructAsync(System.Guid userId, DdmHelpers.FileTree.Entity.FolderEntity userFolder) {
+            return base.Channel.UpdateFolderStructAsync(userId, userFolder);
+        }
+        
+        public DbController.TableEntityes.User GetUser(string login) {
+            return base.Channel.GetUser(login);
+        }
+        
+        public System.Threading.Tasks.Task<DbController.TableEntityes.User> GetUserAsync(string login) {
+            return base.Channel.GetUserAsync(login);
         }
     }
 }

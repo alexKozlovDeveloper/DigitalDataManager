@@ -3,8 +3,8 @@
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" />
-  <xs:import namespace="http://schemas.microsoft.com/Message" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -65,29 +65,60 @@
   <xs:element name="CreateFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="dataStream" type="q7:StreamBody" />
+        <xs:element minOccurs="0" name="bytes" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckSum" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateFileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" minOccurs="0" name="CreateFileResult" nillable="true" type="q8:DigitalFile" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" minOccurs="0" name="CreateFileResult" nillable="true" type="q7:DigitalFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddFileToFolder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="fileId" type="q9:guid" />
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderId" type="q10:guid" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="fileId" type="q8:guid" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderId" type="q9:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddFileToFolderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="AddFileToFolderResult" nillable="true" type="q11:FolderVsFile" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="AddFileToFolderResult" nillable="true" type="q10:FolderVsFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFolderStruct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q11:guid" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" minOccurs="0" name="userFolder" nillable="true" type="q12:FolderEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFolderStructResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdateFolderStructResult" nillable="true" type="q13:ArrayOfKeyValueOfstringguid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" minOccurs="0" name="GetUserResult" nillable="true" type="q14:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

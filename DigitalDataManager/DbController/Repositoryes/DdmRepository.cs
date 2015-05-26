@@ -439,7 +439,7 @@ namespace DbController.Repositoryes
             return res;
         }
 
-        public DigitalFile AddFile(Stream fileStream, string name, string checkSum)
+        public DigitalFile AddFile(byte[] bytes, string name, string checkSum)
         {
             using (var db = new DdmDbContextV3())
             {
@@ -454,7 +454,7 @@ namespace DbController.Repositoryes
 
                 db.SaveChanges();
 
-                ServerFM.WriteFile(fileStream, file.Id, Path.GetExtension(name));
+                ServerFM.WriteFile(bytes, file.Id, Path.GetExtension(name));
 
                 return DbConverter.GetFile(file);
             }

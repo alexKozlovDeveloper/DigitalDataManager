@@ -7,7 +7,6 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DdmHelpers.FileTree.Entity" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DbController.TableEntityes" />
-      <xsd:import namespace="http://schemas.microsoft.com/Message" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Ddm.Db.TableEntityes" />
     </xsd:schema>
   </wsdl:types>
@@ -47,6 +46,18 @@
   <wsdl:message name="IService_AddFileToFolder_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddFileToFolderResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_UpdateFolderStruct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFolderStruct" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateFolderStruct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFolderStructResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
@@ -71,6 +82,14 @@
     <wsdl:operation name="AddFileToFolder">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddFileToFolder" message="tns:IService_AddFileToFolder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddFileToFolderResponse" message="tns:IService_AddFileToFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFolderStruct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateFolderStruct" message="tns:IService_UpdateFolderStruct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateFolderStructResponse" message="tns:IService_UpdateFolderStruct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUser" message="tns:IService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserResponse" message="tns:IService_GetUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -122,6 +141,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddFileToFolder">
       <soap:operation soapAction="http://tempuri.org/IService/AddFileToFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFolderStruct">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateFolderStruct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
