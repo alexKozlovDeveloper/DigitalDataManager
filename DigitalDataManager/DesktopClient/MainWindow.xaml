@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Digital Data Manager" Height="652.358" Width="1346.643" Name="MainWindowObject">
-    <Grid>
+    <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="175*"/>
             <ColumnDefinition/>
@@ -32,9 +32,9 @@
             <Button Name="ButtonErosion" Content="Erosion" HorizontalAlignment="Left" Margin="23,102,0,0" VerticalAlignment="Top" Width="96"/>
             <Button Name="ButtonBuildUp" Content="BuildUp" HorizontalAlignment="Left" Margin="23,126,0,0" VerticalAlignment="Top" Width="96"/>
             <Label Content="Friends" HorizontalAlignment="Left" Margin="46,352,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="TextBoxFriends" HorizontalAlignment="Left" Height="159" Margin="10,383,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124"/>
             <Label Content="Tags" HorizontalAlignment="Left" Margin="47,150,0,0" VerticalAlignment="Top" Width="48"/>
-            <WrapPanel Name="WrapPanelTags" HorizontalAlignment="Left" Height="134" Margin="10,218,0,0" VerticalAlignment="Top" Width="124"/>
+            <WrapPanel Background="AliceBlue" Name="WrapPanelTags" HorizontalAlignment="Left" Height="171" Margin="10,181,0,0" VerticalAlignment="Top" Width="124"/>
+            <Grid Background="AliceBlue" HorizontalAlignment="Left" Height="159" Margin="10,383,0,0" VerticalAlignment="Top" Width="124"/>
         </Grid>
         <Button Name="ButtonSetting" Content="Setting" HorizontalAlignment="Left" Margin="1209,19,0,0" VerticalAlignment="Top" Width="94" Height="24"/>
         <Button Name="ButtonAddNewFolder" Content="Add New Folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140"/>
