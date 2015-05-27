@@ -9,9 +9,9 @@
 
     <Grid>
         <Grid Name="GridLogin" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="462" Visibility="Visible">
-            <Label Name="LabelLoginText" Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,-0.115"/>
-            <Label Name="LabelLogin" Content="-" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,-0.115"/>
-            <Button Name="ButtonLogout" Content="Loguot" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.32,-0.409"/>
+            <Label Name="LabelLoginText" Content="-" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,-0.115"/>
+            <Label Name="LabelLogin" Content="Hello, " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,-0.115"/>
+            <Button Name="ButtonLogout" Content="Loguot" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.32,-0.409"/>
         </Grid>
         <Grid Name="GridLogout" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="462" Visibility="Hidden">
             <Label Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>

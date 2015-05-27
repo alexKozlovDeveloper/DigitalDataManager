@@ -5,7 +5,7 @@
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox Name="TextBoxFolderName" HorizontalAlignment="Left" Height="23" Margin="57,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="57,40,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Margin="56,43,0,0" VerticalAlignment="Top" Height="18" Width="28"/>
         <Label Content="Virtual" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
         <Button Name="ButtonAdd" Content="Add" HorizontalAlignment="Left" Margin="160,104,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="ButtonCancel" Content="Сancel" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="75"/>
