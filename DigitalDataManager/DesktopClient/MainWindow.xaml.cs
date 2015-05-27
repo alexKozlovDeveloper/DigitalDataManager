@@ -44,6 +44,7 @@ namespace DesktopClient
         private SettingWindow _settingWindow;
         private AddNewFolder _addNewFolder;
         private AddNewTag _addNewTag;
+        private ChatWindow _chatWindow;
 
         private bool _flg = false;
 
@@ -94,9 +95,17 @@ namespace DesktopClient
             ButtonAplly.Click += ButtonAplly_Click;
             ButtonAddNewTag.Click += ButtonAddNewTag_Click;
             ButtonAddTagToImage.Click += ButtonAddTagToImage_Click;
+            RomanButton.Click += RomanButton_Click;
 
             InitTagsCloud();
             InitTagsDropdownList();
+        }
+
+        void RomanButton_Click(object sender, RoutedEventArgs e)
+        {
+            _chatWindow = new ChatWindow();
+
+            _chatWindow.Show();
         }
 
         void ButtonAddTagToImage_Click(object sender, RoutedEventArgs e)

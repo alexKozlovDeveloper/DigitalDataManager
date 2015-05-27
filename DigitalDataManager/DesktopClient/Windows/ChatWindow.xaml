@@ -1,16 +1,21 @@
 ﻿<Window x:Class="DesktopClient.Windows.ChatWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ChatWindow" Height="300" Width="532.8">
+        Title="ChatWindow" Height="352" Width="580">
     <Grid>
-        <Label Background="AliceBlue" Content="Roman" HorizontalAlignment="Left" Margin="455,10,0,0" VerticalAlignment="Top" Width="61"/>
-        <TextBox HorizontalAlignment="Left" Height="49" Margin="10,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440"/>
-        <Button Content="Send" HorizontalAlignment="Left" Margin="455,211,0,0" VerticalAlignment="Top" Width="61" Height="49"/>
-        <Grid Background="Azure" HorizontalAlignment="Left" Height="165" Margin="10,41,0,0" VerticalAlignment="Top" Width="506">
-            <Label Background="CornflowerBlue" Content="Hi Roman!" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
-            <Label Background="CornflowerBlue" Content="Hi! Alexey!" HorizontalAlignment="Left" Margin="426,129,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox HorizontalAlignment="Left" Height="49" Margin="10,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="488"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="503,263,0,0" VerticalAlignment="Top" Width="61" Height="49"/>
+        <Grid Background="Azure" HorizontalAlignment="Left" Height="217" Margin="10,41,0,0" VerticalAlignment="Top" Width="554">
+            <Label Background="CornflowerBlue" Content="Hi Roman!" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
+            <Label Background="CornflowerBlue" Content="Hi! Alexey!" HorizontalAlignment="Left" Margin="474,181,0,0" VerticalAlignment="Top" Width="70"/>
         </Grid>
         <Label Background="AliceBlue" Content="Alexey" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="444,10,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Roman" HorizontalAlignment="Left" Width="118.4"/>
+        </ComboBox>
+        <Label Content="Friend" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="94,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
+        <Button Content="Add user to friend" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
 
     </Grid>
 </Window>
