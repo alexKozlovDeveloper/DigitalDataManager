@@ -23,6 +23,16 @@ namespace DdmHelpers.Serialize
             return ms;
         }
 
+        public static string SerializeToString<T>(T obj)
+        {
+            var ms = Serialize<T>(obj);
+
+            var reader = new StreamReader(ms);
+            var str = reader.ReadToEnd();
+
+            return str;
+        }
+        
         public static T Deserialize<T>(Stream ms)
         {
             var s = new XmlSerializer(typeof(T));
